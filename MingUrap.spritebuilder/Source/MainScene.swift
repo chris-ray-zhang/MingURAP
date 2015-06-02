@@ -76,6 +76,7 @@ class MainScene: CCNode {
         counterOfferObjects?.visible = false
     }
     
+    /* counterOffer in percentage */
     func counterOfferValue() -> Int {
         return 60
     }
@@ -83,8 +84,33 @@ class MainScene: CCNode {
     func attemptCounterOffer() {
         if (!gameOver) {
             if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
-                title.string = "How about " + counterOfferValue().description + "%?"
+                title.string = "Austin wants " + counterOfferValue().description + "%."
             }
+            
+            if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
+                labelPerc1.string = Int(ceil(Double(counterOfferValue())/100 * 100)).description + "%"
+            }
+            
+            if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
+                labelPerc2.string = Int(floor((1 - Double(counterOfferValue())/100) * 100)).description + "%"
+            }
+            
+            if let coinsAustin1 = getChildByName("coinsAustin", recursively: false) as? CCSprite {
+                coinsAustin1.scaleY = Float(Double(counterOfferValue())/100)/3
+            }
+            
+            if let coinsYou1 = getChildByName("coinsYou", recursively: false) as? CCSprite {
+                coinsYou1.scaleY = Float(1 - (Double(counterOfferValue())/100))/3
+            }
+            
+            if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
+                numCoinsYou.string = String(stringInterpolationSegment: Int(curGold) - Int(curGold * Double(counterOfferValue())/100))
+            }
+            
+            if let numCoinsAustin = getChildByName("numCoinsAustin", recursively: false) as? CCLabelTTF {
+                numCoinsAustin.string = String(stringInterpolationSegment: Int(curGold * Double(counterOfferValue())/100))
+            }
+            
             showCounterOffer()
         }
     }
@@ -110,20 +136,33 @@ class MainScene: CCNode {
     }
     
     override func update(delta: CCTime) {
-        if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
-            labelPerc1.string = Int(ceil(slider!.sliderValue * 100)).description + "%"
+        if (!counterOfferObjects!.visible && !gameOver) {
+            if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
+                labelPerc1.string = Int(ceil(slider!.sliderValue * 100)).description + "%"
+            }
+            
+            if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
+                labelPerc2.string = Int(floor((1 - slider!.sliderValue) * 100)).description + "%"
+            }
+            
+            if let coinsAustin = getChildByName("coinsAustin", recursively: false) as? CCSprite {
+                coinsAustin.scaleY = Float(slider!.sliderValue/3)
+            }
+            
+            if let coinsYou = getChildByName("coinsYou", recursively: false) as? CCSprite {
+                coinsYou.scaleY = Float((1 - slider!.sliderValue)/3)
+            }
+            
+            if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
+                numCoinsYou.string = String(stringInterpolationSegment: Int(curGold) - Int(Float(curGold) * slider!.sliderValue))
+            }
+            
+            if let numCoinsAustin = getChildByName("numCoinsAustin", recursively: false) as? CCLabelTTF {
+                numCoinsAustin.string = String(stringInterpolationSegment: Int(Float(curGold) * slider!.sliderValue))
+            }
+
         }
         
-        if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
-            labelPerc2.string = Int(floor((1 - slider!.sliderValue) * 100)).description + "%"
-        }
         
-        if let coinsAustin = getChildByName("coinsAustin", recursively: false) as? CCSprite {
-            coinsAustin.scaleY = Float(slider!.sliderValue/3)
-        }
-        
-        if let coinsYou = getChildByName("coinsYou", recursively: false) as? CCSprite {
-            coinsYou.scaleY = Float((1 - slider!.sliderValue)/3)
-        }
     }
 }
