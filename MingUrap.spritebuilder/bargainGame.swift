@@ -137,7 +137,7 @@ class bargainGame: CCNode {
     
     func acceptedCounterOffer() {
         // THIS VALUE SHOULD BE CHANGED
-        processBid(0.6, isCounter: false)
+        processBid(0.6, isCounter: false) //* changed from 0.6 //*
         if (!gameOver) {
             showOffer()
         }
