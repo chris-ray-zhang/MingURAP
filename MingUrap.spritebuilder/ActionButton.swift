@@ -10,7 +10,7 @@ import Foundation
 
 class ActionButton : CCButton {
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        if let p = self.parent.parent as? MainScene {
+        if let p = self.parent.parent as? bargainGame {
             switch name {
                 case "actionButton":
                     p.makeOfferTapped()
