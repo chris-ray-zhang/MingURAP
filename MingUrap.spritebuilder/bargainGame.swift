@@ -2,11 +2,12 @@
 //  bargainGame.swift
 //  MingUrap
 //
-//  Created by Chris Zhang on 6/3/15.
+//  Created by Abdulrahman AlZanki on 5/6/15, modified by Chris Zhang.
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
 
 import UIKit
+import MediaPlayer
 
 class bargainGame: CCNode {
     var percentSuccess = 50
@@ -16,21 +17,52 @@ class bargainGame: CCNode {
     private var offerObjects : CCNode? = nil
     private var counterOfferObjects : CCNode? = nil
     private var slider : CCSlider? = nil
+    private var homeButton : CCButton? = nil
+    var moviePlayer : MPMoviePlayerController?
     var touchEnabled = true
+    
+    func returnHome() {
+        playVideo()
+
+    }
+    
+    
+    /* Credit to http://stackoverflow.com/questions/25348877/how-to-play-a-local-video-with-swift */
+    private func playVideo() {
+        let path = NSBundle.mainBundle().pathForResource("pieStand", ofType:"mov")
+        let url = NSURL(fileURLWithPath: path!)
+        let moviePlayer = MPMoviePlayerController(contentURL: url)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerDidFinishPlaying:" , name: MPMoviePlayerPlaybackDidFinishNotification, object: moviePlayer)
+        
+        var winSize: CGSize = CCDirector.sharedDirector().viewSize()
+        moviePlayer.view.frame = CGRectMake(0,0, winSize.width, winSize.height)
+        self.moviePlayer = moviePlayer
+        moviePlayer.scalingMode = .AspectFill
+        CCDirector.sharedDirector().view.addSubview(moviePlayer.view)
+        moviePlayer.shouldAutoplay = true
+        moviePlayer.prepareToPlay()
+        moviePlayer.play()
+
+    }
+    
+    /* Credit to http://stackoverflow.com/questions/26650173/playing-a-movie-with-mpmovieplayercontroller-and-swift */
+    func moviePlayerDidFinishPlaying(notification: NSNotification) {
+        let mainScene = CCBReader.loadAsScene("MainScene")
+        CCDirector.sharedDirector().presentScene(mainScene)
+        moviePlayer?.view.removeFromSuperview()
+    }
     
     func didLoadFromCCB() {
         offerObjects = getChildByName("offerObjects", recursively: false)
         counterOfferObjects = getChildByName("counterOfferObjects", recursively: false)
         slider = offerObjects?.getChildByName("slider", recursively: false) as? CCSlider
+        homeButton = getChildByName("homeButton", recursively: false) as? CCButton
         slider?.sliderValue = 0.5
-        
-        
         
         showOffer()
     }
     
     private func acceptBid(num : Float) -> Bool {
-        println(num)
         if (num > Float(percentSuccess)) {
             return true
         } else {
@@ -82,6 +114,7 @@ class bargainGame: CCNode {
     func removeControls() {
         offerObjects?.visible = false
         counterOfferObjects?.visible = false
+        homeButton?.visible = true
     }
     
     /* counterOffer in percentage */

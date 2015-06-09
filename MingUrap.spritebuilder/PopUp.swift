@@ -2,7 +2,7 @@
 //  PopUp.swift
 //  MingUrap
 //
-//  Created by Abdulrahman AlZanki on 5/6/15.
+//  Created by Abdulrahman AlZanki on 5/6/15, modified by Chris Zhang.
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
 
