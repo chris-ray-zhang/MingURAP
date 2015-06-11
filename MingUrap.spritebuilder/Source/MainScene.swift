@@ -161,10 +161,7 @@ class MainScene: CCNode {
     }
     
     
-    func pickApples() {
-        let appleScene = CCBReader.loadAsScene("applePicking")
-        CCDirector.sharedDirector().presentScene(appleScene)
-    }
+    
     
     
     
