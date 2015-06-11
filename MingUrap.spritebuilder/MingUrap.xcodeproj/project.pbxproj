@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C01B7121B2814E000CF3AAF /* applePicking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C01B7111B2814E000CF3AAF /* applePicking.swift */; };
 		556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D03571AFAC85F00ED6F84 /* PopUp.swift */; };
 		55D50E2A1ADF1AAB005D9C53 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D50E291ADF1AAB005D9C53 /* ActionButton.swift */; };
 		5B121030197484FA004C1E1D /* MingUrapActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* MingUrapActivity.m */; };
@@ -154,6 +155,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C01B7111B2814E000CF3AAF /* applePicking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = applePicking.swift; sourceTree = "<group>"; };
 		556D03571AFAC85F00ED6F84 /* PopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		55D50E291ADF1AAB005D9C53 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
@@ -451,6 +453,7 @@
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				BD70F5331B1F7CAB0074F741 /* bargainGame.swift */,
 				BDDBF06E1B28C269007093E2 /* completeDeal.swift */,
+				4C01B7111B2814E000CF3AAF /* applePicking.swift */,
 				556D03571AFAC85F00ED6F84 /* PopUp.swift */,
 				BDDBF06C1B2630AC007093E2 /* pieStand.mov */,
 				55D50E291ADF1AAB005D9C53 /* ActionButton.swift */,
@@ -834,6 +837,7 @@
 			files = (
 				B73789871807631A0076A88C /* main.m in Sources */,
 				556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */,
+				4C01B7121B2814E000CF3AAF /* applePicking.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				BDDBF06F1B28C26A007093E2 /* completeDeal.swift in Sources */,

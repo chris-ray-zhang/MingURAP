@@ -1,4 +1,4 @@
-//
+ //
 //  completeDeal.swift
 //  MingUrap
 //
@@ -12,10 +12,13 @@ import UIKit
 class completeDeal: CCNode {
    
     func didLoadFromCCB() {
-        
+ 
+
+
+ 
 
     }
-    
-    
+ 
+ 
 }
 */
