@@ -14,6 +14,7 @@ class bargainGame: CCNode {
     var curGold = 2000.0
     var reductionPerRound = 0.9
     var gameOver = false
+    var earnings = 0
     private var offerObjects : CCNode? = nil
     private var counterOfferObjects : CCNode? = nil
     private var slider : CCSlider? = nil
@@ -21,11 +22,13 @@ class bargainGame: CCNode {
     var moviePlayer : MPMoviePlayerController?
     var touchEnabled = true
     
-    func returnHome() {
-        playVideo()
-
+    func complete() {
+        /*
+        let mainScene = CCBReader.loadAsScene("MainScene")
+        CCDirector.sharedDirector().presentScene(mainScene)
+        */
+        CCDirector.sharedDirector().popScene()
     }
-    
     
     /* Credit to http://stackoverflow.com/questions/25348877/how-to-play-a-local-video-with-swift */
     private func playVideo() {
@@ -47,9 +50,13 @@ class bargainGame: CCNode {
     
     /* Credit to http://stackoverflow.com/questions/26650173/playing-a-movie-with-mpmovieplayercontroller-and-swift */
     func moviePlayerDidFinishPlaying(notification: NSNotification) {
-        let mainScene = CCBReader.loadAsScene("MainScene")
-        CCDirector.sharedDirector().presentScene(mainScene)
         moviePlayer?.view.removeFromSuperview()
+        let completeDeal = CCBReader.loadAsScene("completeDeal")
+        CCDirector.sharedDirector().presentScene(completeDeal)
+        if let earningsLabel = getChildByName("earningsLabel", recursively: false) as? CCLabelTTF {
+            earningsLabel.string = earnings.description
+        }
+        
     }
     
     func didLoadFromCCB() {
@@ -87,7 +94,13 @@ class bargainGame: CCNode {
             curGold = curGold * reductionPerRound
             goldRemainingText = "Gold remaining: " + String(Int(curGold))
         } else {
+            /*
             removeControls()
+            */
+            earnings = Int(curGold) - Int(bid * Float(curGold))
+            
+            playVideo()
+            
             gameOver = true
             
         }
@@ -129,7 +142,9 @@ class bargainGame: CCNode {
             }
             
             if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
+                
                 labelPerc1.string = Int(ceil(Double(counterOfferValue())/100 * 100)).description + "%"
+
             }
             
             if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
@@ -151,6 +166,7 @@ class bargainGame: CCNode {
             if let numCoinsAustin = getChildByName("numCoinsAustin", recursively: false) as? CCLabelTTF {
                 numCoinsAustin.string = String(stringInterpolationSegment: Int(curGold * Double(counterOfferValue())/100))
             }
+            
             
             showCounterOffer()
         }

@@ -17,16 +17,16 @@ class MainScene: CCNode {
     private var hayValue = 1
     private var cowValue = 10
     private var cornfieldValue = 20
-    private var hayCounter = 0
-    private var cowCounter = 0
-    private var cornfieldCounter = 0
+    private var hayCounter = 1
+    private var cowCounter = 1
+    private var cornfieldCounter = 1
     
     
     
     func setupHayTimer() {
         hayTime = 5
         if let hayTimeLeft = getChildByName("hayTimeLeft", recursively: false) as? CCLabelTTF {
-            hayTimeLeft.string = "Time left: \(hayTime)"
+            hayTimeLeft.string = "Sell Again In: \(hayTime)"
         }
         hayTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractHayTime"), userInfo: nil, repeats: true)
     }
@@ -34,7 +34,7 @@ class MainScene: CCNode {
     func subtractHayTime() {
         hayTime--
         if let hayTimeLeft = getChildByName("hayTimeLeft", recursively: false) as? CCLabelTTF {
-            hayTimeLeft.string = "Time left: \(hayTime)"
+            hayTimeLeft.string = "Sell Again In: \(hayTime)"
         }
         if (hayTime == 0) {
             hayTimer.invalidate()
@@ -44,7 +44,7 @@ class MainScene: CCNode {
     func setupCowTimer() {
         cowTime = 10
         if let cowTimeLeft = getChildByName("cowTimeLeft", recursively: false) as? CCLabelTTF {
-            cowTimeLeft.string = "Time left: \(cowTime)"
+            cowTimeLeft.string = "Sell Again In: \(cowTime)"
         }
         cowTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractCowTime"), userInfo: nil, repeats: true)
     }
@@ -52,7 +52,7 @@ class MainScene: CCNode {
     func subtractCowTime() {
         cowTime--
         if let cowTimeLeft = getChildByName("cowTimeLeft", recursively: false) as? CCLabelTTF {
-            cowTimeLeft.string = "Time left: \(cowTime)"
+            cowTimeLeft.string = "Sell Again In: \(cowTime)"
         }
         if (cowTime == 0) {
             cowTimer.invalidate()
@@ -62,7 +62,7 @@ class MainScene: CCNode {
     func setupCornfieldTimer() {
         cornfieldTime = 25
         if let cornfieldTimeLeft = getChildByName("cornfieldTimeLeft", recursively: false) as? CCLabelTTF {
-            cornfieldTimeLeft.string = "Time left: \(cornfieldTime)"
+            cornfieldTimeLeft.string = "Sell Again In: \(cornfieldTime)"
         }
         cornfieldTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractCornfieldTime"), userInfo: nil, repeats: true)
     }
@@ -70,7 +70,7 @@ class MainScene: CCNode {
     func subtractCornfieldTime() {
         cornfieldTime--
         if let cornfieldTimeLeft = getChildByName("cornfieldTimeLeft", recursively: false) as? CCLabelTTF {
-            cornfieldTimeLeft.string = "Time left: \(cornfieldTime)"
+            cornfieldTimeLeft.string = "Sell Again In: \(cornfieldTime)"
         }
         if (cornfieldTime == 0) {
             cornfieldTimer.invalidate()
@@ -80,7 +80,7 @@ class MainScene: CCNode {
     func sellHay() {
         if (!hayTimer.valid) {
             setupHayTimer()
-            updateTotalAssets(hayValue)
+            updateTotalAssets(hayValue * hayCounter)
         }
         
     }
@@ -88,7 +88,7 @@ class MainScene: CCNode {
     func sellCow() {
         if (!cowTimer.valid) {
             setupCowTimer()
-            updateTotalAssets(cowValue)
+            updateTotalAssets(cowValue * cowCounter)
         }
         
     }
@@ -96,7 +96,7 @@ class MainScene: CCNode {
     func sellCornfield() {
         if (!cornfieldTimer.valid) {
             setupCornfieldTimer()
-            updateTotalAssets(cornfieldValue)
+            updateTotalAssets(cornfieldValue * cornfieldCounter)
         }
         
     }
@@ -107,6 +107,9 @@ class MainScene: CCNode {
             updateTotalAssets(hayCost)
             if let hayCounterLabel = getChildByName("hayCounter", recursively: false) as? CCLabelTTF {
                 hayCounterLabel.string = hayCounter.description
+            }
+            if let sellHayLabel = getChildByName("sellHay", recursively: false) as? CCButton {
+                sellHayLabel.title = "Sell Hay: $" + (hayValue * hayCounter).description
             }
         }
         
@@ -119,6 +122,9 @@ class MainScene: CCNode {
             if let cowCounterLabel = getChildByName("cowCounter", recursively: false) as? CCLabelTTF {
                 cowCounterLabel.string = cowCounter.description
             }
+            if let sellMilkLabel = getChildByName("sellMilk", recursively: false) as? CCButton {
+                sellMilkLabel.title = "Sell Milk: $" + (cowValue * cowCounter).description
+            }
         }
         
     }
@@ -129,6 +135,9 @@ class MainScene: CCNode {
             updateTotalAssets(cornfieldCost)
             if let cornfieldCounterLabel = getChildByName("cornfieldCounter", recursively: false) as? CCLabelTTF {
                 cornfieldCounterLabel.string = cornfieldCounter.description
+            }
+            if let sellCornLabel = getChildByName("sellCorn", recursively: false) as? CCButton {
+                sellCornLabel.title = "Sell Corn: $" + (cornfieldValue * cornfieldCounter).description
             }
         }
         
@@ -142,8 +151,13 @@ class MainScene: CCNode {
     }
     
     func quests() {
+        /*
         let bargainScene = CCBReader.loadAsScene("bargainGame")
         CCDirector.sharedDirector().presentScene(bargainScene)
+        */
+        let bargainScene = CCBReader.loadAsScene("bargainGame")
+        CCDirector.sharedDirector().pushScene(bargainScene)
+
     }
     
     
