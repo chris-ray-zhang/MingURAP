@@ -19,6 +19,8 @@ class bargainGame: CCNode {
     private var counterOfferObjects : CCNode? = nil
     private var slider : CCSlider? = nil
     private var homeButton : CCButton? = nil
+    private var counterOfferObjectsVisible = false
+    var earningsLabel : CCLabelTTF?
     var moviePlayer : MPMoviePlayerController?
     var touchEnabled = true
     
@@ -29,6 +31,7 @@ class bargainGame: CCNode {
         */
         CCDirector.sharedDirector().popScene()
     }
+
     
     /* Credit to http://stackoverflow.com/questions/25348877/how-to-play-a-local-video-with-swift */
     private func playVideo() {
@@ -53,9 +56,14 @@ class bargainGame: CCNode {
         moviePlayer?.view.removeFromSuperview()
         let completeDeal = CCBReader.loadAsScene("completeDeal")
         CCDirector.sharedDirector().presentScene(completeDeal)
+        earningsLabel.string = "Hello"
+        /*
         if let earningsLabel = getChildByName("earningsLabel", recursively: false) as? CCLabelTTF {
+            println("changing label")
             earningsLabel.string = earnings.description
         }
+        */
+        
         
     }
     
@@ -94,14 +102,17 @@ class bargainGame: CCNode {
             curGold = curGold * reductionPerRound
             goldRemainingText = "Gold remaining: " + String(Int(curGold))
         } else {
+            gameOver = true
             /*
             removeControls()
             */
+            
             earnings = Int(curGold) - Int(bid * Float(curGold))
             
             playVideo()
             
-            gameOver = true
+            
+            
             
         }
         
@@ -117,16 +128,19 @@ class bargainGame: CCNode {
     func showOffer() {
         offerObjects?.visible = true
         counterOfferObjects?.visible = false
+        counterOfferObjectsVisible = false
     }
     
     func showCounterOffer() {
         offerObjects?.visible = false
         counterOfferObjects?.visible = true
+        counterOfferObjectsVisible = true
     }
     
     func removeControls() {
         offerObjects?.visible = false
         counterOfferObjects?.visible = false
+        counterOfferObjectsVisible = false
         homeButton?.visible = true
     }
     
@@ -193,7 +207,8 @@ class bargainGame: CCNode {
     }
     
     override func update(delta: CCTime) {
-        if (!counterOfferObjects!.visible && !gameOver) {
+        /*!counterOfferObjects!.visible */
+        if (!gameOver && !counterOfferObjectsVisible ) {
             if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
                 labelPerc1.string = Int(ceil(slider!.sliderValue * 100)).description + "%"
             }

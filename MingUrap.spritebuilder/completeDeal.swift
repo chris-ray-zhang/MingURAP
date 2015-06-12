@@ -8,14 +8,20 @@
 
 import UIKit
 
-/*
+
 class completeDeal: CCNode {
    
-    func didLoadFromCCB() {
-        
-
+    
+    func complete() {
+        /*
+        let mainScene = CCBReader.loadAsScene("MainScene")
+        CCDirector.sharedDirector().presentScene(mainScene)
+        */
+        println("completing")
+        CCDirector.sharedDirector().popScene()
     }
     
     
+    
 }
-*/
+
