@@ -3,7 +3,7 @@ import MediaPlayer
 
 class MainScene: CCNode {
     
-    var totalAssets = 0
+    static var totalAssets = 0
     var hayTime = 0
     var hayTimer = NSTimer()
     var cowTime = 0
@@ -20,6 +20,7 @@ class MainScene: CCNode {
     private var hayCounter = 1
     private var cowCounter = 1
     private var cornfieldCounter = 1
+    
     
     
     
@@ -102,7 +103,7 @@ class MainScene: CCNode {
     }
     
     func buyHay() {
-        if (totalAssets + hayCost >= 0) {
+        if (MainScene.totalAssets + hayCost >= 0) {
             hayCounter++
             updateTotalAssets(hayCost)
             if let hayCounterLabel = getChildByName("hayCounter", recursively: false) as? CCLabelTTF {
@@ -116,7 +117,7 @@ class MainScene: CCNode {
     }
     
     func buyCow() {
-        if (totalAssets + cowCost >= 0) {
+        if (MainScene.totalAssets + cowCost >= 0) {
             cowCounter++
             updateTotalAssets(cowCost)
             if let cowCounterLabel = getChildByName("cowCounter", recursively: false) as? CCLabelTTF {
@@ -130,7 +131,7 @@ class MainScene: CCNode {
     }
     
     func buyCornfield() {
-        if (totalAssets + cornfieldCost >= 0) {
+        if (MainScene.totalAssets + cornfieldCost >= 0) {
             cornfieldCounter++
             updateTotalAssets(cornfieldCost)
             if let cornfieldCounterLabel = getChildByName("cornfieldCounter", recursively: false) as? CCLabelTTF {
@@ -144,86 +145,26 @@ class MainScene: CCNode {
     }
     
     func updateTotalAssets(amount: Int) {
-        totalAssets += amount
+        MainScene.totalAssets += amount
+        
         if let totalAssetsLabel = getChildByName("totalAssetsLabel", recursively: false) as? CCLabelTTF {
-            totalAssetsLabel.string = "$" + totalAssets.description
+            totalAssetsLabel.string = "$" + MainScene.totalAssets.description
         }
+        
     }
     
     func quests() {
-        /*
-        let bargainScene = CCBReader.loadAsScene("bargainGame")
-        CCDirector.sharedDirector().presentScene(bargainScene)
-        */
         let bargainScene = CCBReader.loadAsScene("bargainGame")
         CCDirector.sharedDirector().pushScene(bargainScene)
-
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    func didLoadFromCCB() {
-        
-        /*
-        bar = getChildByName("bar", recursively: false) as? CCSprite
-        progressBar = CCProgressNode.progressWithSprite(bar)
-        progressBar!.type = CCProgressNodeType.Bar
-        progressBar!.percentage = 0.0
-        progressBar!.midpoint = ccp(0, 1)
-        progressBar!.barChangeRate = ccp(1.0, 0.0)
-        progressBar!.position = ccp(100, 100)
-        addChild(progressBar)
-        */
-    }
-    
-    
-    
-    
-    
-    
-    func cornFieldBar() {
-        /*
-        progressBar?.percentage += 10.0
-        */
         
     }
-    
-    
     
     
     override func update(delta: CCTime) {
-        /*
-        if (counter < 100) {
-            
-            progressBar?.percentage += 1.0
-
-            counter++
-        }
-        */
-        /*
-        if (counter < 100) {
-            if let coinsTester = getChildByName("coinTester", recursively: false) as? CCSprite {
-                coinsTester.scaleX = Float(counter)/100
-            }
-            counter++
-        }
-        */
+        updateTotalAssets(0)
+        
+        
+        
+        
     }
 }

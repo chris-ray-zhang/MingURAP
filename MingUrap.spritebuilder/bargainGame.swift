@@ -16,11 +16,11 @@ class bargainGame: CCNode {
     var gameOver = false
     var earnings = 0
     private var offerObjects : CCNode? = nil
+    private var completeDeal : CCNode? = nil
     private var counterOfferObjects : CCNode? = nil
     private var slider : CCSlider? = nil
     private var homeButton : CCButton? = nil
     private var counterOfferObjectsVisible = false
-    var earningsLabel : CCLabelTTF?
     var moviePlayer : MPMoviePlayerController?
     var touchEnabled = true
     
@@ -29,8 +29,16 @@ class bargainGame: CCNode {
         let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().presentScene(mainScene)
         */
+        /* NEEDS TO BE MODIFIED WHEN OTHER MINIGAMES ARE INCORPORATED */
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let bargainGameEarnings = defaults.integerForKey("bargainGameEarnings")
+        
         CCDirector.sharedDirector().popScene()
+        MainScene.totalAssets += earnings
+        
     }
+    
+    
 
     
     /* Credit to http://stackoverflow.com/questions/25348877/how-to-play-a-local-video-with-swift */
@@ -54,15 +62,11 @@ class bargainGame: CCNode {
     /* Credit to http://stackoverflow.com/questions/26650173/playing-a-movie-with-mpmovieplayercontroller-and-swift */
     func moviePlayerDidFinishPlaying(notification: NSNotification) {
         moviePlayer?.view.removeFromSuperview()
+        /*
         let completeDeal = CCBReader.loadAsScene("completeDeal")
         CCDirector.sharedDirector().presentScene(completeDeal)
-        earningsLabel.string = "Hello"
-        /*
-        if let earningsLabel = getChildByName("earningsLabel", recursively: false) as? CCLabelTTF {
-            println("changing label")
-            earningsLabel.string = earnings.description
-        }
         */
+        
         
         
     }
@@ -73,7 +77,7 @@ class bargainGame: CCNode {
         slider = offerObjects?.getChildByName("slider", recursively: false) as? CCSlider
         homeButton = getChildByName("homeButton", recursively: false) as? CCButton
         slider?.sliderValue = 0.5
-        
+        completeDeal = getChildByName("completeDeal", recursively: false)
         showOffer()
     }
     
@@ -106,8 +110,13 @@ class bargainGame: CCNode {
             /*
             removeControls()
             */
-            
             earnings = Int(curGold) - Int(bid * Float(curGold))
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setInteger(earnings, forKey: "bargainGameEarnings")
+            if let earningsLabel = completeDeal?.getChildByName("earningsLabel", recursively: false) as? CCLabelTTF {
+                earningsLabel.string = "You Earned $" + earnings.description
+            }
+            completeDeal?.visible = true
             
             playVideo()
             

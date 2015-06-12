@@ -98,7 +98,6 @@
 		BD70F5341B1F7CAB0074F741 /* bargainGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70F5331B1F7CAB0074F741 /* bargainGame.swift */; };
 		BDDBF0691B2624BA007093E2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */; };
 		BDDBF06D1B2630AC007093E2 /* pieStand.mov in Resources */ = {isa = PBXBuildFile; fileRef = BDDBF06C1B2630AC007093E2 /* pieStand.mov */; };
-		BDDBF06F1B28C26A007093E2 /* completeDeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDBF06E1B28C269007093E2 /* completeDeal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,7 +220,6 @@
 		BD70F5331B1F7CAB0074F741 /* bargainGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bargainGame.swift; sourceTree = "<group>"; };
 		BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		BDDBF06C1B2630AC007093E2 /* pieStand.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = pieStand.mov; sourceTree = "<group>"; };
-		BDDBF06E1B28C269007093E2 /* completeDeal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = completeDeal.swift; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -450,7 +448,6 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				BD70F5331B1F7CAB0074F741 /* bargainGame.swift */,
-				BDDBF06E1B28C269007093E2 /* completeDeal.swift */,
 				556D03571AFAC85F00ED6F84 /* PopUp.swift */,
 				BDDBF06C1B2630AC007093E2 /* pieStand.mov */,
 				55D50E291ADF1AAB005D9C53 /* ActionButton.swift */,
@@ -836,7 +833,6 @@
 				556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
-				BDDBF06F1B28C26A007093E2 /* completeDeal.swift in Sources */,
 				BD70F5341B1F7CAB0074F741 /* bargainGame.swift in Sources */,
 				55D50E2A1ADF1AAB005D9C53 /* ActionButton.swift in Sources */,
 			);
