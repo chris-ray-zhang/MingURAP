@@ -29,11 +29,7 @@ class bargainGame: CCNode {
         let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().presentScene(mainScene)
         */
-        /* NEEDS TO BE MODIFIED WHEN OTHER MINIGAMES ARE INCORPORATED */
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let bargainGameEarnings = defaults.integerForKey("bargainGameEarnings")
-        
-        CCDirector.sharedDirector().popScene()
+        CCDirector.sharedDirector().popToRootScene()
         MainScene.totalAssets += earnings
         
     }

@@ -154,8 +154,8 @@ class MainScene: CCNode {
     }
     
     func quests() {
-        let bargainScene = CCBReader.loadAsScene("bargainGame")
-        CCDirector.sharedDirector().pushScene(bargainScene)
+        let questList = CCBReader.loadAsScene("questList")
+        CCDirector.sharedDirector().pushScene(questList)
         
     }
     
