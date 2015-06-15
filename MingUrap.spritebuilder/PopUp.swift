@@ -10,17 +10,27 @@ import Foundation
 
 class PopUp: CCNode {
     var curText = 0
-    let text = ["Let’s first collect flour from your mill.", "Your neighbor, Austin, has apples in his orchard. We’ll need some to make apple pies.", "Austin: \"Hi there! I have 200 apples, so we can make 200 pies and sell for 2000 gold.\"", "Austin: \"Not so fast though. Let’s decide how we’ll split the 2000 gold first.\"", "Make an offer to Austin. Each offer takes time, causing some apples and 10% of the total earnings to spoil! Initial Amount: 2000"]
-    
-
+    var pricePerApple = 10
+    var totalAmount = 0
+    var text: Array<String> = []
     
     func didLoadFromCCB() {
+        totalAmount = decideNumApples() * pricePerApple
+        bargainGame.curGold = Double(totalAmount)
+        text = ["Great job! You picked \(applePicking.applesPicked) apples.", "Your neighbor, Austin, has flour from his mill. We’ll need some to make apple pies.", "Austin: \"Hi there! I have bags of flour, so using your apples, we can make \(decideNumApples()) pies and sell them for \(totalAmount) gold.\"", "Austin: \"Not so fast though. Let’s decide how we’ll split the \(totalAmount) gold first.\"", "Make an offer to Austin. Each offer takes time, causing some apples and 10% of the total earnings to spoil! Initial Amount: \(totalAmount)"]
         userInteractionEnabled = true
         
         visible = true
         
+        
+        
         setLabelText()
     }
+    /* Returns the initial amount of pies that can be baked, which is dependent on the number of apples picked */
+    func decideNumApples() -> Int {
+        return Int(Double(applePicking.applesPicked) / 4)
+    }
+    
 
     
     private func setLabelText() {

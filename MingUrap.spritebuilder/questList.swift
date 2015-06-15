@@ -11,8 +11,8 @@ import UIKit
 class questList: CCNode {
     
     func applePie() {
-        let bargainScene = CCBReader.loadAsScene("bargainGame")
-        CCDirector.sharedDirector().pushScene(bargainScene)
+        let applePicking = CCBReader.loadAsScene("applePicking")
+        CCDirector.sharedDirector().pushScene(applePicking)
     }
     
    
