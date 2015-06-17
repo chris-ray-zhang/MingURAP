@@ -98,6 +98,7 @@
 		BD70F5341B1F7CAB0074F741 /* bargainGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70F5331B1F7CAB0074F741 /* bargainGame.swift */; };
 		BDD8DDD91B2B87CD00A302D4 /* questList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDD81B2B87CD00A302D4 /* questList.swift */; };
 		BDD8DDDB1B2F4A9C00A302D4 /* applePicking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */; };
+		BDD8DDE11B311C8100A302D4 /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDE01B311C8100A302D4 /* Apple.swift */; };
 		BDDBF0691B2624BA007093E2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */; };
 		BDDBF06D1B2630AC007093E2 /* pieStand.mov in Resources */ = {isa = PBXBuildFile; fileRef = BDDBF06C1B2630AC007093E2 /* pieStand.mov */; };
 /* End PBXBuildFile section */
@@ -222,6 +223,7 @@
 		BD70F5331B1F7CAB0074F741 /* bargainGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bargainGame.swift; sourceTree = "<group>"; };
 		BDD8DDD81B2B87CD00A302D4 /* questList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = questList.swift; sourceTree = "<group>"; };
 		BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = applePicking.swift; sourceTree = "<group>"; };
+		BDD8DDE01B311C8100A302D4 /* Apple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
 		BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		BDDBF06C1B2630AC007093E2 /* pieStand.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = pieStand.mov; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 				BDDBF06C1B2630AC007093E2 /* pieStand.mov */,
 				55D50E291ADF1AAB005D9C53 /* ActionButton.swift */,
 				BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */,
+				BDD8DDE01B311C8100A302D4 /* Apple.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;
@@ -835,6 +838,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD8DDE11B311C8100A302D4 /* Apple.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */,
 				BDD8DDD91B2B87CD00A302D4 /* questList.swift in Sources */,

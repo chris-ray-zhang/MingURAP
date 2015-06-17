@@ -75,7 +75,7 @@ class bargainGame: CCNode {
         slider?.sliderValue = 0.5
         completeDeal = getChildByName("completeDeal", recursively: false)
         if let goldRemaining = getChildByName("goldRemaining", recursively: false) as? CCLabelTTF {
-            goldRemaining.string = Int(bargainGame.curGold).description
+            goldRemaining.string = "Gold Remaining: " + Int(bargainGame.curGold).description
         }
         showOffer()
     }

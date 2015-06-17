@@ -1,6 +1,8 @@
 import Foundation
 import MediaPlayer
 
+
+/* Game based on AdVenture Capitalist */
 class MainScene: CCNode {
     
     static var totalAssets = 0
