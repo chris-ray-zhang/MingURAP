@@ -111,8 +111,8 @@ class MainScene: CCNode {
             if let hayCounterLabel = getChildByName("hayCounter", recursively: false) as? CCLabelTTF {
                 hayCounterLabel.string = hayCounter.description
             }
-            if let sellHayLabel = getChildByName("sellHay", recursively: false) as? CCButton {
-                sellHayLabel.title = "Sell Hay: $" + (hayValue * hayCounter).description
+            if let sellHayLabel = getChildByName("sellHay", recursively: false) as? CCLabelTTF {
+                sellHayLabel.string =  "$" + (hayValue * hayCounter).description
             }
         }
         
@@ -125,8 +125,8 @@ class MainScene: CCNode {
             if let cowCounterLabel = getChildByName("cowCounter", recursively: false) as? CCLabelTTF {
                 cowCounterLabel.string = cowCounter.description
             }
-            if let sellMilkLabel = getChildByName("sellMilk", recursively: false) as? CCButton {
-                sellMilkLabel.title = "Sell Milk: $" + (cowValue * cowCounter).description
+            if let sellMilkLabel = getChildByName("sellMilk", recursively: false) as? CCLabelTTF {
+                sellMilkLabel.string =  "$" + (cowValue * cowCounter).description
             }
         }
         
@@ -139,8 +139,8 @@ class MainScene: CCNode {
             if let cornfieldCounterLabel = getChildByName("cornfieldCounter", recursively: false) as? CCLabelTTF {
                 cornfieldCounterLabel.string = cornfieldCounter.description
             }
-            if let sellCornLabel = getChildByName("sellCorn", recursively: false) as? CCButton {
-                sellCornLabel.title = "Sell Corn: $" + (cornfieldValue * cornfieldCounter).description
+            if let sellCornLabel = getChildByName("sellCorn", recursively: false) as? CCLabelTTF {
+                sellCornLabel.string = "$" + (cornfieldValue * cornfieldCounter).description
             }
         }
         

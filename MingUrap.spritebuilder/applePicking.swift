@@ -24,7 +24,10 @@ class applePicking: CCNode {
         
         applePicking.applesLeft = applesOnTree!.children.count - 1
         applePicking.initialNumApples = applesOnTree!.children.count - 1
-        
+        if let tapApples = getChildByName("tapApples", recursively: false) as? CCLabelTTF {
+            tapApples.visible = true
+        }
+        applePicking.applesPicked = 0
         setupAppleTimer()
         
     }
@@ -43,13 +46,27 @@ class applePicking: CCNode {
             appleTimeLeft.string = "Time Left: \(appleTime)"
         }
         if (appleTime == 0) {
-            /*
+            
             appleTimer.invalidate()
-            */
+
+            if let summaryReport = getChildByName("summaryReport", recursively: false) {
+                summaryReport.visible = true
+            }
+            /*
             let bargainGame = CCBReader.loadAsScene("bargainGame")
             CCDirector.sharedDirector().replaceScene(bargainGame)
-
+            */
         }
+    }
+    
+    func pickAgain() {
+        let appleGame = CCBReader.loadAsScene("applePicking")
+        CCDirector.sharedDirector().replaceScene(appleGame)
+    }
+    
+    func goToBargainGame() {
+        let bargainGame = CCBReader.loadAsScene("bargainGame")
+        CCDirector.sharedDirector().replaceScene(bargainGame)
     }
     
     func resetImages() {
@@ -82,6 +99,11 @@ class applePicking: CCNode {
     override func update(delta: CCTime) {
         if let applePickedLabel = getChildByName("applePickedLabel", recursively: false) as? CCLabelTTF {
             applePickedLabel.string = "Apples Picked: \(applePicking.applesPicked)"
+        }
+        if (applePicking.applesPicked > 0) {
+            if let tapApples = getChildByName("tapApples", recursively: false) as? CCLabelTTF {
+                tapApples.visible = false
+            }
         }
         if (applePicking.applesLeft <= 0) {
             resetImages()

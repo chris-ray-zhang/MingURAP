@@ -15,5 +15,9 @@ class questList: CCNode {
         CCDirector.sharedDirector().pushScene(applePicking)
     }
     
+    func returnToDashboard() {
+        CCDirector.sharedDirector().popToRootScene()
+    }
+    
    
 }
