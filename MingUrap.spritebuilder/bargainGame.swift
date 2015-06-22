@@ -57,13 +57,7 @@ class bargainGame: CCNode {
     /* Credit to http://stackoverflow.com/questions/26650173/playing-a-movie-with-mpmovieplayercontroller-and-swift */
     func moviePlayerDidFinishPlaying(notification: NSNotification) {
         moviePlayer?.view.removeFromSuperview()
-        /*
-        let completeDeal = CCBReader.loadAsScene("completeDeal")
-        CCDirector.sharedDirector().presentScene(completeDeal)
-        */
-        
-        
-        
+  
     }
     
     func didLoadFromCCB() {
@@ -105,9 +99,6 @@ class bargainGame: CCNode {
             goldRemainingText = "Gold remaining: " + String(Int(bargainGame.curGold))
         } else {
             gameOver = true
-            /*
-            removeControls()
-            */
             earnings = Int(bargainGame.curGold) - Int(bid * Float(bargainGame.curGold))
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setInteger(earnings, forKey: "bargainGameEarnings")

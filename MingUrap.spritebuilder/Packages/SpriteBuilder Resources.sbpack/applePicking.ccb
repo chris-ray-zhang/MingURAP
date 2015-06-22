@@ -982,9 +982,11 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>apple.ccb</string>
+								<string>Apple.ccb</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -1044,7 +1046,7 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>apple.ccb</string>
+								<string>Apple.ccb</string>
 							</dict>
 						</array>
 					</dict>
@@ -1106,7 +1108,7 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>apple.ccb</string>
+								<string>Apple.ccb</string>
 							</dict>
 						</array>
 					</dict>
@@ -1168,7 +1170,7 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>apple.ccb</string>
+								<string>Apple.ccb</string>
 							</dict>
 						</array>
 					</dict>
@@ -1230,7 +1232,7 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>apple.ccb</string>
+								<string>Apple.ccb</string>
 							</dict>
 						</array>
 					</dict>
@@ -1292,7 +1294,7 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>apple.ccb</string>
+								<string>Apple.ccb</string>
 							</dict>
 						</array>
 					</dict>
@@ -1354,7 +1356,7 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>apple.ccb</string>
+								<string>Apple.ccb</string>
 							</dict>
 						</array>
 					</dict>
@@ -1416,7 +1418,7 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>apple.ccb</string>
+								<string>Apple.ccb</string>
 							</dict>
 						</array>
 					</dict>
@@ -1478,7 +1480,7 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>apple.ccb</string>
+								<string>Apple.ccb</string>
 							</dict>
 						</array>
 					</dict>
@@ -1540,7 +1542,7 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>apple.ccb</string>
+								<string>Apple.ccb</string>
 							</dict>
 						</array>
 					</dict>
