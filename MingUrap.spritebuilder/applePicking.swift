@@ -11,6 +11,7 @@ import UIKit
 class applePicking: CCNode {
     private var appleTime = 0
     private var appleTimer = NSTimer()
+    private var tempTimer = 0
     static var initialNumApples = 0
     static var applesLeft = 0
     static var applesPicked = 0
@@ -33,6 +34,7 @@ class applePicking: CCNode {
     }
 
     func setupAppleTimer() {
+        tempTimer = 30
         appleTime = 30
         if let appleTimeLeft = getChildByName("appleTimeLeft", recursively: false) as? CCLabelTTF {
             appleTimeLeft.string = "Time Left: \(appleTime)"
@@ -86,6 +88,16 @@ class applePicking: CCNode {
 
     }
     
+    func partialResetImages() {
+        var xcord = (CGFloat) (randomInt(60, max: 200))
+        var ycord = (CGFloat) (randomInt(275, max: 385))
+        drawApple(xcord, y: ycord)
+    }
+    
+    func randomInt(min: Int, max:Int) -> Int {
+        return min + Int(arc4random_uniform(UInt32(max - min + 1)))
+    }
+    
     func drawApple(x: CGFloat, y: CGFloat) {
         let newApple:CCNode = CCBReader.load("Apple")
         newApple.scaleX = 0.5
@@ -105,8 +117,19 @@ class applePicking: CCNode {
                 tapApples.visible = false
             }
         }
-        if (applePicking.applesLeft <= 0) {
-            resetImages()
+//        if (applePicking.applesLeft <= 5) {
+//            partialResetImages()
+//        }
+//        if (applePicking.applesLeft <= 0) {
+//            resetImages()
+//        }
+        // Every time a new apple is spawned, tempTimer is set to current appleTime so that a new apple
+        // spawns at most every half sectond.
+        if ((tempTimer - appleTime) * 2 >= 1) {
+            if (applePicking.applesLeft <= 5) {
+                partialResetImages()
+                tempTimer = appleTime
+            }
         }
     }
     

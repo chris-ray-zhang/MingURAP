@@ -1383,6 +1383,7 @@
 				BDD8DDF01B34A1CF00A302D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
