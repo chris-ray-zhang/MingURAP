@@ -43,7 +43,6 @@ class bargainGame: CCNode {
         let url = NSURL(fileURLWithPath: path!)
         let moviePlayer = MPMoviePlayerController(contentURL: url)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerDidFinishPlaying:" , name: MPMoviePlayerPlaybackDidFinishNotification, object: moviePlayer)
-        
         var winSize: CGSize = CCDirector.sharedDirector().viewSize()
         moviePlayer.view.frame = CGRectMake(0,0, winSize.width, winSize.height)
         self.moviePlayer = moviePlayer
