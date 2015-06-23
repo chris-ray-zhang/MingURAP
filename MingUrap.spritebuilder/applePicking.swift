@@ -48,10 +48,16 @@ class applePicking: CCNode {
             appleTimeLeft.string = "Time Left: \(appleTime)"
         }
         if (appleTime == 0) {
+            
             appleTimer.invalidate()
+
             if let summaryReport = getChildByName("summaryReport", recursively: false) {
                 summaryReport.visible = true
             }
+            /*
+            let bargainGame = CCBReader.loadAsScene("bargainGame")
+            CCDirector.sharedDirector().replaceScene(bargainGame)
+            */
         }
     }
     
@@ -103,17 +109,12 @@ class applePicking: CCNode {
     }
     
     func drawApple(x: CGFloat, y: CGFloat) {
-        
         let newApple:CCNode = CCBReader.load("Apple")
-        
         newApple.scaleX = 0.5
         newApple.scaleY = 0.5
         newApple.position = ccp(x,y)
         applesOnTree!.addChild(newApple)
         applePicking.applesLeft++
-        
-        
-        
     }
     
     
@@ -134,14 +135,12 @@ class applePicking: CCNode {
 //        }
         // Every time a new apple is spawned, tempTimer is set to current appleTime so that a new apple
         // spawns at most every half sectond.
-        
         if ((tempTimer - appleTime) * 2 >= 1) {
             if (applePicking.applesLeft <= 5) {
                 partialResetImages()
                 tempTimer = appleTime
             }
         }
-        
     }
     
     
