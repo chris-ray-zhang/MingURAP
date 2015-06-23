@@ -56,12 +56,18 @@ class MainScene: CCNode {
     
     func quests() {
         let questList = CCBReader.loadAsScene("questList")
+        CCDirector.sharedDirector().replaceScene(questList)
+
+        /*
+        let questList = CCBReader.loadAsScene("questList")
         CCDirector.sharedDirector().pushScene(questList)
-        
+        */
     }
     
     
     override func update(delta: CCTime) {
+        /*
         updateTotalAssets(0)
+        */
     }
 }

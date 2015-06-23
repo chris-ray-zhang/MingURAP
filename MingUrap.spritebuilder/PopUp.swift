@@ -21,9 +21,6 @@ class PopUp: CCNode {
         userInteractionEnabled = true
         
         visible = true
-        
-        
-        
         setLabelText()
     }
     /* Returns the initial amount of pies that can be baked, which is dependent on the number of apples picked */

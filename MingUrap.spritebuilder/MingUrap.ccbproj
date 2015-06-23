@@ -84,6 +84,8 @@
 		<dict>
 			<key>previewFolderHidden</key>
 			<true/>
+			<key>trimSprites</key>
+			<true/>
 		</dict>
 		<key>ccbResources/ccbButtonHighlighted.png</key>
 		<dict>
@@ -96,34 +98,6 @@
 		<dict>
 			<key>scaleFrom</key>
 			<integer>2</integer>
-			<key>tabletScale</key>
-			<integer>1</integer>
-		</dict>
-		<key>ccbResources/ccbParticleFire.png</key>
-		<dict>
-			<key>scaleFrom</key>
-			<integer>1</integer>
-			<key>tabletScale</key>
-			<integer>1</integer>
-		</dict>
-		<key>ccbResources/ccbParticleMagic.png</key>
-		<dict>
-			<key>scaleFrom</key>
-			<integer>1</integer>
-			<key>tabletScale</key>
-			<integer>1</integer>
-		</dict>
-		<key>ccbResources/ccbParticleSmoke.png</key>
-		<dict>
-			<key>scaleFrom</key>
-			<integer>1</integer>
-			<key>tabletScale</key>
-			<integer>1</integer>
-		</dict>
-		<key>ccbResources/ccbParticleSnow.png</key>
-		<dict>
-			<key>scaleFrom</key>
-			<integer>1</integer>
 			<key>tabletScale</key>
 			<integer>1</integer>
 		</dict>

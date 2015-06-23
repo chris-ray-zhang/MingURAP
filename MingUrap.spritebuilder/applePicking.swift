@@ -57,12 +57,22 @@ class applePicking: CCNode {
     
     func pickAgain() {
         let appleGame = CCBReader.loadAsScene("applePicking")
+        
+        CCDirector.sharedDirector().pushScene(appleGame)
+
+        /*
         CCDirector.sharedDirector().replaceScene(appleGame)
+        */
     }
     
     func goToBargainGame() {
         let bargainGame = CCBReader.loadAsScene("bargainGame")
-        CCDirector.sharedDirector().replaceScene(bargainGame)
+        /*
+        CCDirector.sharedDirector().pushScene(bargainGame)
+        */
+        
+        CCDirector.sharedDirector().presentScene(bargainGame)
+        
     }
     
     func resetImages() {

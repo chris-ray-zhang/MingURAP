@@ -25,13 +25,14 @@ class bargainGame: CCNode {
     var touchEnabled = true
     
     func complete() {
-        /*
+        
         let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().presentScene(mainScene)
-        */
+
+        /*
         CCDirector.sharedDirector().popToRootScene()
         MainScene.totalAssets += earnings
-        
+        */
     }
     
     
