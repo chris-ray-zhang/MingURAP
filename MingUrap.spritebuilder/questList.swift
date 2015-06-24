@@ -12,7 +12,7 @@ class questList: CCNode {
     
     func applePie() {
         let applePicking = CCBReader.loadAsScene("applePicking")
-        CCDirector.sharedDirector().presentScene(applePicking)
+        CCDirector.sharedDirector().replaceScene(applePicking)
 
         /*
         let applePicking = CCBReader.loadAsScene("applePicking")
@@ -29,6 +29,11 @@ class questList: CCNode {
         CCDirector.sharedDirector().replaceScene(mainScene)
         
 
+    }
+    
+    override func onExit() {
+        
+        removeAllChildrenWithCleanup(true)
     }
     
    

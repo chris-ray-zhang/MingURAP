@@ -15,11 +15,11 @@ class applePicking: CCNode {
     static var initialNumApples = 0
     static var applesLeft = 0
     static var applesPicked = 0
-    private var applesOnTree : CCPhysicsNode? = nil
+    private weak var applesOnTree : CCPhysicsNode? = nil
     
 
     
-    func didLoadFromCCB() {
+     func didLoadFromCCB() {
         userInteractionEnabled = true
         applesOnTree = getChildByName("applesOnTree", recursively:false) as? CCPhysicsNode
         
@@ -54,13 +54,21 @@ class applePicking: CCNode {
             if let summaryReport = getChildByName("summaryReport", recursively: false) {
                 summaryReport.visible = true
             }
-            /*
-            let bargainGame = CCBReader.loadAsScene("bargainGame")
-            CCDirector.sharedDirector().replaceScene(bargainGame)
-            */
+            
+            let applePickingSummary = CCBReader.loadAsScene("applePickingSummary")
+            CCDirector.sharedDirector().replaceScene(applePickingSummary)
+            
         }
     }
     
+    override func onExit() {
+        
+        CCDirector.sharedDirector().purgeCachedData()
+
+        removeAllChildrenWithCleanup(true)
+    }
+    
+    /*
     func pickAgain() {
         let appleGame = CCBReader.loadAsScene("applePicking")
         
@@ -80,7 +88,7 @@ class applePicking: CCNode {
         CCDirector.sharedDirector().presentScene(bargainGame)
         
     }
-    
+    */
     func resetImages() {
         drawApple(200,y: 300)
         drawApple(110,y: 300)

@@ -55,9 +55,12 @@ class MainScene: CCNode {
     }
     
     func quests() {
+        removeAllChildrenWithCleanup(true)
         let questList = CCBReader.loadAsScene("questList")
         CCDirector.sharedDirector().replaceScene(questList)
 
+        
+        CCDirector.sharedDirector().purgeCachedData()
         /*
         let questList = CCBReader.loadAsScene("questList")
         CCDirector.sharedDirector().pushScene(questList)
@@ -65,9 +68,10 @@ class MainScene: CCNode {
     }
     
     
+    
     override func update(delta: CCTime) {
-        /*
+        
         updateTotalAssets(0)
-        */
+
     }
 }
