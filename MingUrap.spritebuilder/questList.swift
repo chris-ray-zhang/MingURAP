@@ -10,21 +10,14 @@ import UIKit
 
 class questList: CCNode {
     
+    //Replaces current scene with apple-picking game
     func applePie() {
         let applePicking = CCBReader.loadAsScene("applePicking")
         CCDirector.sharedDirector().replaceScene(applePicking)
-
-        /*
-        let applePicking = CCBReader.loadAsScene("applePicking")
-        CCDirector.sharedDirector().pushScene(applePicking)
-        */
     }
     
+    //Replaces current scene with DashBoard
     func returnToDashboard() {
-        /*
-        CCDirector.sharedDirector().popToRootScene()
-        */
-        
         let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
         

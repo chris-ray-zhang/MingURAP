@@ -100,14 +100,17 @@
 		BDD8DDD91B2B87CD00A302D4 /* questList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDD81B2B87CD00A302D4 /* questList.swift */; };
 		BDD8DDDB1B2F4A9C00A302D4 /* applePicking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */; };
 		BDD8DDE11B311C8100A302D4 /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDE01B311C8100A302D4 /* Apple.swift */; };
-		BDD8DDEB1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDEA1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift */; };
 		BDD8DE031B3A0A2E00A302D4 /* applePickingSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DE021B3A0A2E00A302D4 /* applePickingSummary.swift */; };
-
 		BDD8DE071B3B88AB00A302D4 /* coinNoises.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE061B3B88AB00A302D4 /* coinNoises.aif */; };
 		BDD8DE081B3B8A0400A302D4 /* coinNoises.aif in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DE061B3B88AB00A302D4 /* coinNoises.aif */; };
+		BDD8DE121B3C8E6D00A302D4 /* appleGrab.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE111B3C8DD800A302D4 /* appleGrab.aif */; };
+		BDD8DE181B3C91F500A302D4 /* chime.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE141B3C90E700A302D4 /* chime.aif */; };
+		BDD8DE191B3C91F500A302D4 /* failureNoise.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE131B3C90D800A302D4 /* failureNoise.aif */; };
+		BDD8DE1A1B3C91F500A302D4 /* chicken.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE161B3C91C200A302D4 /* chicken.aif */; };
+		BDD8DE1B1B3C91F500A302D4 /* cowMoo.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE171B3C91C200A302D4 /* cowMoo.aif */; };
+		BDD8DE1C1B3C91F500A302D4 /* lossOfCoins.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE151B3C914900A302D4 /* lossOfCoins.aif */; };
 		BDDBF0691B2624BA007093E2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */; };
 		BDDBF06D1B2630AC007093E2 /* pieStand.mov in Resources */ = {isa = PBXBuildFile; fileRef = BDDBF06C1B2630AC007093E2 /* pieStand.mov */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +246,12 @@
 		BDD8DDEA1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MingUrap_iOS_Tests.swift; sourceTree = "<group>"; };
 		BDD8DE021B3A0A2E00A302D4 /* applePickingSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = applePickingSummary.swift; sourceTree = "<group>"; };
 		BDD8DE061B3B88AB00A302D4 /* coinNoises.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = coinNoises.aif; sourceTree = "<group>"; };
+		BDD8DE111B3C8DD800A302D4 /* appleGrab.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = appleGrab.aif; sourceTree = "<group>"; };
+		BDD8DE131B3C90D800A302D4 /* failureNoise.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = failureNoise.aif; sourceTree = "<group>"; };
+		BDD8DE141B3C90E700A302D4 /* chime.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = chime.aif; sourceTree = "<group>"; };
+		BDD8DE151B3C914900A302D4 /* lossOfCoins.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = lossOfCoins.aif; sourceTree = "<group>"; };
+		BDD8DE161B3C91C200A302D4 /* chicken.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = chicken.aif; sourceTree = "<group>"; };
+		BDD8DE171B3C91C200A302D4 /* cowMoo.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = cowMoo.aif; sourceTree = "<group>"; };
 		BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		BDDBF06C1B2630AC007093E2 /* pieStand.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = pieStand.mov; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
@@ -483,9 +492,7 @@
 				BD70F5331B1F7CAB0074F741 /* bargainGame.swift */,
 				BDD8DDD81B2B87CD00A302D4 /* questList.swift */,
 				556D03571AFAC85F00ED6F84 /* PopUp.swift */,
-				BDDBF06C1B2630AC007093E2 /* pieStand.mov */,
 				55D50E291ADF1AAB005D9C53 /* ActionButton.swift */,
-				BDD8DE061B3B88AB00A302D4 /* coinNoises.aif */,
 				BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */,
 				BDD8DDE01B311C8100A302D4 /* Apple.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
@@ -583,6 +590,14 @@
 		B77F1CCF17B978D8009739AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BDD8DE111B3C8DD800A302D4 /* appleGrab.aif */,
+				BDD8DE141B3C90E700A302D4 /* chime.aif */,
+				BDD8DE131B3C90D800A302D4 /* failureNoise.aif */,
+				BDD8DE161B3C91C200A302D4 /* chicken.aif */,
+				BDD8DE171B3C91C200A302D4 /* cowMoo.aif */,
+				BDD8DE151B3C914900A302D4 /* lossOfCoins.aif */,
+				BDDBF06C1B2630AC007093E2 /* pieStand.mov */,
+				BDD8DE061B3B88AB00A302D4 /* coinNoises.aif */,
 				7A40365D19DDF896007B6E8F /* Platforms */,
 				7AFCD5DD19E9BDC200BCCCDA /* Bridging-Header.h */,
 				7AFCD5DB19E9BD9F00BCCCDA /* cocos2d.h */,
@@ -819,6 +834,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD8DE181B3C91F500A302D4 /* chime.aif in Resources */,
+				BDD8DE191B3C91F500A302D4 /* failureNoise.aif in Resources */,
+				BDD8DE1A1B3C91F500A302D4 /* chicken.aif in Resources */,
+				BDD8DE1B1B3C91F500A302D4 /* cowMoo.aif in Resources */,
+				BDD8DE1C1B3C91F500A302D4 /* lossOfCoins.aif in Resources */,
+				BDD8DE121B3C8E6D00A302D4 /* appleGrab.aif in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				BDD8DE071B3B88AB00A302D4 /* coinNoises.aif in Resources */,

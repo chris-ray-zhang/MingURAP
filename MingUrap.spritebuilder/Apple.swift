@@ -9,13 +9,12 @@
 import UIKit
 
 class Apple: CCNode, CCPhysicsCollisionDelegate {
+    
     var hasBeenCollected:Bool = false
+    var player: AVAudioPlayer! = nil
     
     func didLoadFromCCB() {
         userInteractionEnabled = true
-        /*
-        physicsBody.affectedByGravity = false
-        */
         physicsBody.collisionType = "apple"
     }
     
@@ -23,11 +22,23 @@ class Apple: CCNode, CCPhysicsCollisionDelegate {
         
     }
     
+    
+    //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
+    func prepareSound() {
+        let path = NSBundle.mainBundle().pathForResource("appleGrab", ofType:"aif")
+        let fileURL = NSURL(fileURLWithPath: path!)
+        player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        player.currentTime = 0.5
+        player.prepareToPlay()
+        player.play()
+    }
+    
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if (!hasBeenCollected) {
             /*
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             */
+            prepareSound()
             physicsBody.type = CCPhysicsBodyType.Dynamic
             physicsBody.affectedByGravity = true
             applePicking.applesPicked++

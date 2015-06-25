@@ -32,7 +32,7 @@ class applePicking: CCNode {
         setupAppleTimer()
         
     }
-
+    //Sets up apple-picking timer to 30 seconds
     func setupAppleTimer() {
         tempTimer = 30
         appleTime = 30
@@ -68,43 +68,8 @@ class applePicking: CCNode {
         removeAllChildrenWithCleanup(true)
     }
     
-    /*
-    func pickAgain() {
-        let appleGame = CCBReader.loadAsScene("applePicking")
-        
-        CCDirector.sharedDirector().pushScene(appleGame)
 
-        /*
-        CCDirector.sharedDirector().replaceScene(appleGame)
-        */
-    }
     
-    func goToBargainGame() {
-        let bargainGame = CCBReader.loadAsScene("bargainGame")
-        /*
-        CCDirector.sharedDirector().pushScene(bargainGame)
-        */
-        
-        CCDirector.sharedDirector().presentScene(bargainGame)
-        
-    }
-    */
-    func resetImages() {
-        drawApple(200,y: 300)
-        drawApple(110,y: 300)
-        drawApple(75,y: 275)
-        drawApple(175,y: 350)
-        
-        drawApple(130, y: 335)
-        drawApple(250,y: 358)
-        
-        drawApple(204,y: 275)
-        drawApple(94,y: 350)
-        
-        drawApple(107,y: 385)
-        drawApple(64,y: 360)
-
-    }
     
     /**
         Function that draws a new apple at a random location.
