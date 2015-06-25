@@ -9,29 +9,35 @@
 import UIKit
 import MediaPlayer
 
+
 class bargainGame: CCNode {
     var percentSuccess = 50
     static var curGold = 0.0
     var reductionPerRound = 0.9
     var gameOver = false
     var earnings = 0
-    private var offerObjects : CCNode? = nil
-    private var completeDeal : CCNode? = nil
-    private var counterOfferObjects : CCNode? = nil
-    private var slider : CCSlider? = nil
-    private var homeButton : CCButton? = nil
+    private weak var offerObjects : CCNode? = nil
+    private weak var completeDeal : CCNode? = nil
+    private weak var counterOfferObjects : CCNode? = nil
+    private weak var slider : CCSlider? = nil
+    private weak var homeButton : CCButton? = nil
     private var counterOfferObjectsVisible = false
     var moviePlayer : MPMoviePlayerController?
     var touchEnabled = true
     
+    
+    override func onExit() {
+        CCDirector.sharedDirector().purgeCachedData()
+        removeAllChildrenWithCleanup(true)
+    }
+    
     func complete() {
-        
         let mainScene = CCBReader.loadAsScene("MainScene")
-        CCDirector.sharedDirector().presentScene(mainScene)
-
+        CCDirector.sharedDirector().replaceScene(mainScene)
+        MainScene.totalAssets += earnings
         /*
         CCDirector.sharedDirector().popToRootScene()
-        MainScene.totalAssets += earnings
+        
         */
     }
     
@@ -50,6 +56,7 @@ class bargainGame: CCNode {
         moviePlayer.scalingMode = .AspectFill
         CCDirector.sharedDirector().view.addSubview(moviePlayer.view)
         moviePlayer.shouldAutoplay = true
+        moviePlayer.controlStyle = MPMovieControlStyle.None
         moviePlayer.prepareToPlay()
         moviePlayer.play()
 
@@ -58,7 +65,13 @@ class bargainGame: CCNode {
     /* Credit to http://stackoverflow.com/questions/26650173/playing-a-movie-with-mpmovieplayercontroller-and-swift */
     func moviePlayerDidFinishPlaying(notification: NSNotification) {
         moviePlayer?.view.removeFromSuperview()
-  
+        /*
+        let completeDeal = CCBReader.loadAsScene("completeDeal")
+        CCDirector.sharedDirector().presentScene(completeDeal)
+        */
+        
+        
+        
     }
     
     func didLoadFromCCB() {
@@ -100,6 +113,9 @@ class bargainGame: CCNode {
             goldRemainingText = "Gold remaining: " + String(Int(bargainGame.curGold))
         } else {
             gameOver = true
+            /*
+            removeControls()
+            */
             earnings = Int(bargainGame.curGold) - Int(bid * Float(bargainGame.curGold))
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setInteger(earnings, forKey: "bargainGameEarnings")
