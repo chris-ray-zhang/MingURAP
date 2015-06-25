@@ -25,6 +25,9 @@ class Apple: CCNode, CCPhysicsCollisionDelegate {
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if (!hasBeenCollected) {
+            /*
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            */
             physicsBody.type = CCPhysicsBodyType.Dynamic
             physicsBody.affectedByGravity = true
             applePicking.applesPicked++

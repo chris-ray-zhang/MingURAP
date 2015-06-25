@@ -101,6 +101,8 @@
 		BDD8DDE11B311C8100A302D4 /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDE01B311C8100A302D4 /* Apple.swift */; };
 		BDD8DDEB1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDEA1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift */; };
 		BDD8DE031B3A0A2E00A302D4 /* applePickingSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DE021B3A0A2E00A302D4 /* applePickingSummary.swift */; };
+		BDD8DE071B3B88AB00A302D4 /* coinNoises.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE061B3B88AB00A302D4 /* coinNoises.aif */; };
+		BDD8DE081B3B8A0400A302D4 /* coinNoises.aif in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DE061B3B88AB00A302D4 /* coinNoises.aif */; };
 		BDDBF0691B2624BA007093E2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */; };
 		BDDBF06D1B2630AC007093E2 /* pieStand.mov in Resources */ = {isa = PBXBuildFile; fileRef = BDDBF06C1B2630AC007093E2 /* pieStand.mov */; };
 /* End PBXBuildFile section */
@@ -237,6 +239,7 @@
 		BDD8DDE91B34A1CF00A302D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDD8DDEA1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MingUrap_iOS_Tests.swift; sourceTree = "<group>"; };
 		BDD8DE021B3A0A2E00A302D4 /* applePickingSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = applePickingSummary.swift; sourceTree = "<group>"; };
+		BDD8DE061B3B88AB00A302D4 /* coinNoises.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = coinNoises.aif; sourceTree = "<group>"; };
 		BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		BDDBF06C1B2630AC007093E2 /* pieStand.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = pieStand.mov; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
@@ -479,6 +482,7 @@
 				556D03571AFAC85F00ED6F84 /* PopUp.swift */,
 				BDDBF06C1B2630AC007093E2 /* pieStand.mov */,
 				55D50E291ADF1AAB005D9C53 /* ActionButton.swift */,
+				BDD8DE061B3B88AB00A302D4 /* coinNoises.aif */,
 				BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */,
 				BDD8DDE01B311C8100A302D4 /* Apple.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
@@ -814,6 +818,7 @@
 			files = (
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
+				BDD8DE071B3B88AB00A302D4 /* coinNoises.aif in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
@@ -908,6 +913,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD8DE081B3B8A0400A302D4 /* coinNoises.aif in Sources */,
 				BDD8DDE11B311C8100A302D4 /* Apple.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */,

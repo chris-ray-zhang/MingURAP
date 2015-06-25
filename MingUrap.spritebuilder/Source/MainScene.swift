@@ -1,5 +1,6 @@
 import Foundation
 import MediaPlayer
+import AVFoundation
 
 
 
@@ -15,7 +16,7 @@ class MainScene: CCNode {
     private var cowCounter = 1
     private var tractorCounter = 1
     private var waterTowerCounter = 1
-    
+    var player: AVAudioPlayer! = nil
     
     
     func buyChicken() {
@@ -54,14 +55,26 @@ class MainScene: CCNode {
         
     }
     
+    //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
+    func prepareSound() {
+        let path = NSBundle.mainBundle().pathForResource("coinNoises", ofType:"aif")
+        let fileURL = NSURL(fileURLWithPath: path!)
+        player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        player.prepareToPlay()
+        player.play()
+    }
+    
+    
     func quests() {
+        prepareSound()
+        
         removeAllChildrenWithCleanup(true)
         let questList = CCBReader.loadAsScene("questList")
         CCDirector.sharedDirector().replaceScene(questList)
-
+        /*
         
         CCDirector.sharedDirector().purgeCachedData()
-        /*
+        
         let questList = CCBReader.loadAsScene("questList")
         CCDirector.sharedDirector().pushScene(questList)
         */
