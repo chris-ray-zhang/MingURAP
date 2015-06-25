@@ -92,12 +92,21 @@ class applePicking: CCNode {
 
     }
     
+    /**
+        Function that draws a new apple at a random location.
+        To-add: apples that are added do not overlap
+    */
     func partialResetImages() {
         var xcord = (CGFloat) (randomInt(60, max: 200))
         var ycord = (CGFloat) (randomInt(275, max: 385))
         drawApple(xcord, y: ycord)
     }
     
+    /**
+        Function that generates a random number between min and max.
+        Found code from:
+        http://stackoverflow.com/questions/24007129/how-does-one-generate-a-random-number-in-apples-swift-language
+    */
     func randomInt(min: Int, max:Int) -> Int {
         return min + Int(arc4random_uniform(UInt32(max - min + 1)))
     }
@@ -110,9 +119,7 @@ class applePicking: CCNode {
         newApple.scaleY = 0.5
         newApple.position = ccp(x,y)
         applesOnTree!.addChild(newApple)
-        applePicking.applesLeft++
-        
-        
+        applePicking.applesLeft+
         
     }
     

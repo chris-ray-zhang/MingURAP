@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C7A7B531B3A36680016E7BD /* MingUrap_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDEA1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift */; };
 		556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D03571AFAC85F00ED6F84 /* PopUp.swift */; };
 		55D50E2A1ADF1AAB005D9C53 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D50E291ADF1AAB005D9C53 /* ActionButton.swift */; };
 		5B121030197484FA004C1E1D /* MingUrapActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* MingUrapActivity.m */; };
@@ -99,7 +100,6 @@
 		BDD8DDD91B2B87CD00A302D4 /* questList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDD81B2B87CD00A302D4 /* questList.swift */; };
 		BDD8DDDB1B2F4A9C00A302D4 /* applePicking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */; };
 		BDD8DDE11B311C8100A302D4 /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDE01B311C8100A302D4 /* Apple.swift */; };
-		BDD8DDEB1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDEA1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift */; };
 		BDDBF0691B2624BA007093E2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */; };
 		BDDBF06D1B2630AC007093E2 /* pieStand.mov in Resources */ = {isa = PBXBuildFile; fileRef = BDDBF06C1B2630AC007093E2 /* pieStand.mov */; };
 /* End PBXBuildFile section */
@@ -910,6 +910,7 @@
 				B73789871807631A0076A88C /* main.m in Sources */,
 				556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */,
 				BDD8DDD91B2B87CD00A302D4 /* questList.swift in Sources */,
+				4C7A7B531B3A36680016E7BD /* MingUrap_iOS_Tests.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				BDD8DDDB1B2F4A9C00A302D4 /* applePicking.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
@@ -922,7 +923,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD8DDEB1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
