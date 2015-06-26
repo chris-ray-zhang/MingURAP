@@ -22,6 +22,7 @@ class bargainGame: CCNode {
     private weak var slider : CCSlider? = nil
     private weak var homeButton : CCButton? = nil
     private var counterOfferObjectsVisible = false
+    private var numExchanges = 0
     var moviePlayer : MPMoviePlayerController?
     var player: AVAudioPlayer! = nil
     var touchEnabled = true
@@ -43,20 +44,28 @@ class bargainGame: CCNode {
 
     
     /* Credit to http://stackoverflow.com/questions/25348877/how-to-play-a-local-video-with-swift */
-    private func playVideo() {
-        let path = NSBundle.mainBundle().pathForResource("pieStand", ofType:"mov")
+    private func playVideo(filename:String) {
+        let path = NSBundle.mainBundle().pathForResource(filename, ofType:"mov")
         let url = NSURL(fileURLWithPath: path!)
+        /*
         let moviePlayer = MPMoviePlayerController(contentURL: url)
+        */
+        moviePlayer = MPMoviePlayerController(contentURL: url)
+        moviePlayer!.prepareToPlay()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerDidFinishPlaying:" , name: MPMoviePlayerPlaybackDidFinishNotification, object: moviePlayer)
         var winSize: CGSize = CCDirector.sharedDirector().viewSize()
-        moviePlayer.view.frame = CGRectMake(0,0, winSize.width, winSize.height)
+        moviePlayer!.view.frame = CGRectMake(0,0, winSize.width, winSize.height)
+        /*
         self.moviePlayer = moviePlayer
-        moviePlayer.scalingMode = .AspectFill
-        CCDirector.sharedDirector().view.addSubview(moviePlayer.view)
-        moviePlayer.shouldAutoplay = true
-        moviePlayer.controlStyle = MPMovieControlStyle.None
-        moviePlayer.prepareToPlay()
-        moviePlayer.play()
+        */
+        moviePlayer!.scalingMode = .AspectFill
+        moviePlayer!.shouldAutoplay = true
+        moviePlayer!.controlStyle = MPMovieControlStyle.None
+        
+        
+        CCDirector.sharedDirector().view.addSubview(moviePlayer!.view)
+        
+        moviePlayer!.play()
 
     }
     
@@ -112,7 +121,7 @@ class bargainGame: CCNode {
             }
             completeDeal?.visible = true
             
-            playVideo()
+            playVideo("pieStand")
         }
         
         if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
@@ -186,7 +195,10 @@ class bargainGame: CCNode {
     }
     
     func rejectedCounterOffer() {
+        /*
         prepareSound("lossOfCoins")
+        */
+        playVideo("CSAnimation100to90")
         if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
             title.string = "Make a bid"
         }

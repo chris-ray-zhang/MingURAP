@@ -10,6 +10,21 @@ import UIKit
 
 class applePickingSummary: CCNode {
     
+    func didLoadFromCCB() {
+        if (applePicking.applesPicked == 0) {
+            if let continueButton = getChildByName("continueButton", recursively: false) as? CCButton {
+                continueButton.visible = false
+            }
+            if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
+                title.string = "T'was a Bad Picking"
+            }
+            if let tryAgain = getChildByName("tryAgain", recursively: false) as? CCLabelTTF {
+                tryAgain.string = "Please Pick Again"
+            }
+            
+        }
+    }
+    
     
     override func onExit() {
         CCDirector.sharedDirector().purgeCachedData()

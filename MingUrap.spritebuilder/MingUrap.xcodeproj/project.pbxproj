@@ -109,6 +109,7 @@
 		BDD8DE1A1B3C91F500A302D4 /* chicken.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE161B3C91C200A302D4 /* chicken.aif */; };
 		BDD8DE1B1B3C91F500A302D4 /* cowMoo.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE171B3C91C200A302D4 /* cowMoo.aif */; };
 		BDD8DE1C1B3C91F500A302D4 /* lossOfCoins.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE151B3C914900A302D4 /* lossOfCoins.aif */; };
+		BDD8DE3A1B3CC15500A302D4 /* CSAnimation100to90.mov in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE391B3CC15500A302D4 /* CSAnimation100to90.mov */; };
 		BDDBF0691B2624BA007093E2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */; };
 		BDDBF06D1B2630AC007093E2 /* pieStand.mov in Resources */ = {isa = PBXBuildFile; fileRef = BDDBF06C1B2630AC007093E2 /* pieStand.mov */; };
 /* End PBXBuildFile section */
@@ -252,6 +253,7 @@
 		BDD8DE151B3C914900A302D4 /* lossOfCoins.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = lossOfCoins.aif; sourceTree = "<group>"; };
 		BDD8DE161B3C91C200A302D4 /* chicken.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = chicken.aif; sourceTree = "<group>"; };
 		BDD8DE171B3C91C200A302D4 /* cowMoo.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = cowMoo.aif; sourceTree = "<group>"; };
+		BDD8DE391B3CC15500A302D4 /* CSAnimation100to90.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = CSAnimation100to90.mov; sourceTree = "<group>"; };
 		BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		BDDBF06C1B2630AC007093E2 /* pieStand.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = pieStand.mov; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				BDD8DE141B3C90E700A302D4 /* chime.aif */,
 				BDD8DE131B3C90D800A302D4 /* failureNoise.aif */,
 				BDD8DE161B3C91C200A302D4 /* chicken.aif */,
+				BDD8DE391B3CC15500A302D4 /* CSAnimation100to90.mov */,
 				BDD8DE171B3C91C200A302D4 /* cowMoo.aif */,
 				BDD8DE151B3C914900A302D4 /* lossOfCoins.aif */,
 				BDDBF06C1B2630AC007093E2 /* pieStand.mov */,
@@ -852,6 +855,7 @@
 				BDDBF06D1B2630AC007093E2 /* pieStand.mov in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
+				BDD8DE3A1B3CC15500A302D4 /* CSAnimation100to90.mov in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
