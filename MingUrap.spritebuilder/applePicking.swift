@@ -3,12 +3,40 @@
 //  MingUrap
 //
 //  Created by Chris Zhang on 6/15/15.
+//  Code for generating apples at appropriate locations by Michael Zhang
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
 
 import UIKit
+import Darwin
+
+struct Distance : Hashable {
+    var x : Int
+    var y : Int
+    
+    var hashValue: Int {
+        return x + y
+    }
+    
+    init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
+    
+    func calcDistance(other: Distance) -> Double {
+        return sqrt(pow((Double)(x - other.x),2) + pow((Double)(y - other.y),2))
+    }
+    
+    func validLocation(other: Distance) -> Bool {
+        return calcDistance(other) >= 20
+    }
+}
+func ==(lhs: Distance, rhs: Distance) -> Bool {
+    return lhs.x == rhs.x && lhs.y == rhs.y
+}
 
 class applePicking: CCNode {
+    
     private var appleTime = 0
     private var appleTimer = NSTimer()
     private var tempTimer = 0
@@ -16,8 +44,6 @@ class applePicking: CCNode {
     static var applesLeft = 0
     static var applesPicked = 0
     private weak var applesOnTree : CCPhysicsNode? = nil
-    
-
     
      func didLoadFromCCB() {
         userInteractionEnabled = true
@@ -134,7 +160,10 @@ class applePicking: CCNode {
         applePicking.applesLeft++
     }
     
-    
+    private var regenerating = false
+    private var locations = Set<Distance>()
+    private var valid = false
+
     override func update(delta: CCTime) {
         if let applePickedLabel = getChildByName("applePickedLabel", recursively: false) as? CCLabelTTF {
             applePickedLabel.string = "Apples Picked: \(applePicking.applesPicked)"
@@ -150,14 +179,44 @@ class applePicking: CCNode {
 //        if (applePicking.applesLeft <= 0) {
 //            resetImages()
 //        }
-        // Every time a new apple is spawned, tempTimer is set to current appleTime so that a new apple
-        // spawns at most every half sectond.
-        if ((tempTimer - appleTime) * 2 >= 1) {
-            if (applePicking.applesLeft <= 5) {
-                partialResetImages()
-                tempTimer = appleTime
+        
+        if regenerating {
+            if ((tempTimer - appleTime) * 2 >= 1) {
+                newLocation = locations.removeFirst()
+                drawApple(x: newLocation.x, y: newLocation.y)
+            }
+            if (locations.isEmpty) {
+                regenerating = false
             }
         }
+        
+        if applePicking.applesLeft == 0 && !regenerating {
+            regenerating = true
+            valid = true
+            while (size(locations) < 10) {
+                var xcord = (CGFloat) (randomInt(60, max: 200))
+                var ycord = (CGFloat) (randomInt(275, max: 385))
+                var potential = Distance(x: xcord, y: ycord)
+                for distance in locations {
+                    if (!distance.validLocation(potential)) {
+                        valid = false
+                    }
+                }
+                if valid {
+                    locations.insert(potential)
+                }
+            }
+        }
+        
+        // Every time a new apple is spawned, tempTimer is set to current appleTime so that a new apple
+        // spawns at most every half sectond.
+//        if ((tempTimer - appleTime) * 2 >= 1) {
+//            if (applePicking.applesLeft <= 5) {
+//                partialResetImages()
+//                tempTimer = appleTime
+//            }
+//        }
+        
     }
     
     
