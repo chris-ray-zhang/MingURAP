@@ -25,7 +25,7 @@ class PopUp: CCNode {
     }
     /* Returns the initial amount of pies that can be baked, which is dependent on the number of apples picked */
     func decideNumApples() -> Int {
-        return Int(Double(applePicking.applesPicked) / 4)
+        return Int(applePicking.applesPicked)
     }
     
 

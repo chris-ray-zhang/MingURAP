@@ -1,5 +1,6 @@
 import Foundation
 import MediaPlayer
+import AVFoundation
 
 
 
@@ -15,11 +16,15 @@ class MainScene: CCNode {
     private var cowCounter = 1
     private var tractorCounter = 1
     private var waterTowerCounter = 1
+    private var player: AVAudioPlayer! = nil
     
-    
+    func didLoadFromCCB() {
+        prepareSound("chime")
+    }
     
     func buyChicken() {
         if (MainScene.totalAssets + chickenCost >= 0) {
+            prepareSound("chicken")
             chickenCounter++
         }
         
@@ -27,6 +32,7 @@ class MainScene: CCNode {
     
     func buyCow() {
         if (MainScene.totalAssets + cowCost >= 0) {
+            prepareSound("cowMoo")
             cowCounter++
         }
         
@@ -47,24 +53,28 @@ class MainScene: CCNode {
     
     func updateTotalAssets(amount: Int) {
         MainScene.totalAssets += amount
-        
         if let totalAssetsLabel = getChildByName("totalAssetsLabel", recursively: false) as? CCLabelTTF {
             totalAssetsLabel.string = "$" + MainScene.totalAssets.description
         }
         
     }
     
+    
+    //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
+    func prepareSound(nameOfFile: String) {
+        let path = NSBundle.mainBundle().pathForResource(nameOfFile, ofType:"aif")
+        let fileURL = NSURL(fileURLWithPath: path!)
+        player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        player.prepareToPlay()
+        player.play()
+    }
+    
+    
     func quests() {
+        CCDirector.sharedDirector().purgeCachedData()
         removeAllChildrenWithCleanup(true)
         let questList = CCBReader.loadAsScene("questList")
         CCDirector.sharedDirector().replaceScene(questList)
-
-        
-        CCDirector.sharedDirector().purgeCachedData()
-        /*
-        let questList = CCBReader.loadAsScene("questList")
-        CCDirector.sharedDirector().pushScene(questList)
-        */
     }
     
     

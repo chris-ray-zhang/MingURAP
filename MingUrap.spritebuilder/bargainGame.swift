@@ -23,6 +23,7 @@ class bargainGame: CCNode {
     private weak var homeButton : CCButton? = nil
     private var counterOfferObjectsVisible = false
     var moviePlayer : MPMoviePlayerController?
+    var player: AVAudioPlayer! = nil
     var touchEnabled = true
     
     
@@ -31,14 +32,11 @@ class bargainGame: CCNode {
         removeAllChildrenWithCleanup(true)
     }
     
+    //Replaces current scene with Dashboard and adds earnings from bargaining game to DashBoard
     func complete() {
         let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
         MainScene.totalAssets += earnings
-        /*
-        CCDirector.sharedDirector().popToRootScene()
-        
-        */
     }
     
     
@@ -65,13 +63,6 @@ class bargainGame: CCNode {
     /* Credit to http://stackoverflow.com/questions/26650173/playing-a-movie-with-mpmovieplayercontroller-and-swift */
     func moviePlayerDidFinishPlaying(notification: NSNotification) {
         moviePlayer?.view.removeFromSuperview()
-        /*
-        let completeDeal = CCBReader.loadAsScene("completeDeal")
-        CCDirector.sharedDirector().presentScene(completeDeal)
-        */
-        
-        
-        
     }
     
     func didLoadFromCCB() {
@@ -113,9 +104,6 @@ class bargainGame: CCNode {
             goldRemainingText = "Gold remaining: " + String(Int(bargainGame.curGold))
         } else {
             gameOver = true
-            /*
-            removeControls()
-            */
             earnings = Int(bargainGame.curGold) - Int(bid * Float(bargainGame.curGold))
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setInteger(earnings, forKey: "bargainGameEarnings")
@@ -125,10 +113,6 @@ class bargainGame: CCNode {
             completeDeal?.visible = true
             
             playVideo()
-            
-            
-            
-            
         }
         
         if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
@@ -202,6 +186,7 @@ class bargainGame: CCNode {
     }
     
     func rejectedCounterOffer() {
+        prepareSound("lossOfCoins")
         if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
             title.string = "Make a bid"
         }
@@ -221,8 +206,17 @@ class bargainGame: CCNode {
         }
     }
     
+    //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
+    func prepareSound(filename:String) {
+        let path = NSBundle.mainBundle().pathForResource(filename, ofType:"aif")
+        let fileURL = NSURL(fileURLWithPath: path!)
+        player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        player.volume = 1.5
+        player.prepareToPlay()
+        player.play()
+    }
+    
     override func update(delta: CCTime) {
-        /*!counterOfferObjects!.visible */
         if (!gameOver && !counterOfferObjectsVisible ) {
             if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
                 labelPerc1.string = Int(ceil(slider!.sliderValue * 100)).description + "%"

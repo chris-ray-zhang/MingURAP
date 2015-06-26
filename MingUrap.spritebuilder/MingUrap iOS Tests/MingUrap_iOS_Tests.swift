@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import XCTest
 
 
 
+/*
 class MingUrap_iOS_Tests: XCTestCase {
     
     override func setUp() {
@@ -41,3 +41,4 @@ class MingUrap_iOS_Tests: XCTestCase {
     }
     
 }
+*/
