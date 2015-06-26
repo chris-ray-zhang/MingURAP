@@ -146,7 +146,8 @@ class applePicking: CCNode {
 //        }
         
         if regenerating {
-            if ((tempTimer - appleTime) * 2 >= 1) {
+            if ((tempTimer - appleTime) * 3 >= 1) {
+                tempTimer = appleTime
                 var newLocation = locations.removeFirst()
                 drawApple(newLocation.x, y: newLocation.y)
             }
@@ -155,7 +156,7 @@ class applePicking: CCNode {
             }
         }
         
-        if applePicking.applesLeft == 0 && !regenerating {
+        if applePicking.applesLeft == 1 && !regenerating {
             regenerating = true
             valid = true
             while (locations.count < 10) {
@@ -163,9 +164,9 @@ class applePicking: CCNode {
                 var ycord = (CGFloat) (randomInt(275, max: 385))
                 var potential = Distance(x: xcord, y: ycord)
                 for distance in locations {
-                    if (!distance.validLocation(potential)) {
-                        valid = false
-                    }
+//                    if (!distance.validLocation(potential)) {
+//                        valid = false
+//                    }
                 }
                 if valid {
                     locations.insert(potential)
