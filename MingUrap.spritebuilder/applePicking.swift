@@ -11,14 +11,14 @@ import UIKit
 import Darwin
 
 struct Distance : Hashable {
-    var x : Int
-    var y : Int
+    var x : CGFloat
+    var y : CGFloat
     
     var hashValue: Int {
-        return x + y
+        return (Int) (x + y)
     }
     
-    init(x: Int, y: Int) {
+    init(x: CGFloat, y: CGFloat) {
         self.x = x
         self.y = y
     }
@@ -147,8 +147,8 @@ class applePicking: CCNode {
         
         if regenerating {
             if ((tempTimer - appleTime) * 2 >= 1) {
-                newLocation = locations.removeFirst()
-                drawApple(x: newLocation.x, y: newLocation.y)
+                var newLocation = locations.removeFirst()
+                drawApple(newLocation.x, y: newLocation.y)
             }
             if (locations.isEmpty) {
                 regenerating = false
@@ -158,7 +158,7 @@ class applePicking: CCNode {
         if applePicking.applesLeft == 0 && !regenerating {
             regenerating = true
             valid = true
-            while (size(locations) < 10) {
+            while (locations.count < 10) {
                 var xcord = (CGFloat) (randomInt(60, max: 200))
                 var ycord = (CGFloat) (randomInt(275, max: 385))
                 var potential = Distance(x: xcord, y: ycord)
