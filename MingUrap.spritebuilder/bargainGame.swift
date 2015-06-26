@@ -112,6 +112,7 @@ class bargainGame: CCNode {
             bargainGame.curGold = bargainGame.curGold * reductionPerRound
             goldRemainingText = "Gold remaining: " + String(Int(bargainGame.curGold))
         } else {
+            prepareSound("coinNoises")
             gameOver = true
             earnings = Int(bargainGame.curGold) - Int(bid * Float(bargainGame.curGold))
             let defaults = NSUserDefaults.standardUserDefaults()
@@ -195,10 +196,7 @@ class bargainGame: CCNode {
     }
     
     func rejectedCounterOffer() {
-        /*
         prepareSound("lossOfCoins")
-        */
-        playVideo("CSAnimation100to90")
         if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
             title.string = "Make a bid"
         }
