@@ -28,7 +28,7 @@ struct Distance : Hashable {
     }
     
     func validLocation(other: Distance) -> Bool {
-        return calcDistance(other) >= 10
+        return calcDistance(other) >= 20
     }
 }
 func ==(lhs: Distance, rhs: Distance) -> Bool {
@@ -43,7 +43,9 @@ class applePicking: CCNode {
     static var initialNumApples = 0
     static var applesLeft = 0
     static var applesPicked = 0
+    static var locations = Set<Distance>()
     private weak var applesOnTree : CCPhysicsNode? = nil
+    
     
      func didLoadFromCCB() {
         userInteractionEnabled = true
@@ -99,10 +101,21 @@ class applePicking: CCNode {
         To-add: apples that are added do not overlap
     */
     func partialResetImages() {
-        var xcord = (CGFloat) (randomInt(60, max: 310))
-        var ycord = (CGFloat) (randomInt(255, max: 385))
-        drawApple(xcord, y: ycord)
+        valid = true
+        var xcord = (CGFloat) (randomInt(55, max: 270))
+        var ycord = (CGFloat) (randomInt(270, max: 390))
+        var potential = Distance(x: xcord, y: ycord)
+        for distance in applePicking.locations {
+            if (!distance.validLocation(potential)) {
+                valid = false
+            }
+        }
+        if valid {
+            applePicking.locations.insert(potential)
+            drawApple(xcord, y: ycord)
+        }
     }
+    
     
     /**
         Function that generates a random number between min and max.
@@ -123,7 +136,7 @@ class applePicking: CCNode {
     }
     
     private var regenerating = false
-    private var locations = Set<Distance>()
+    
     private var valid = false
 
     override func update(delta: CCTime) {
@@ -135,13 +148,10 @@ class applePicking: CCNode {
                 tapApples.visible = false
             }
         }
-//        if (applePicking.applesLeft <= 5) {
-//            partialResetImages()
-//        }
-//        if (applePicking.applesLeft <= 0) {
-//            resetImages()
-//        }
-        
+        if (applePicking.applesLeft <= 5) {
+            partialResetImages()
+        }
+        /*
         if regenerating {
             if ((Double)(tempTimer - appleTime) * 2 >= 0.1) {
                 tempTimer = appleTime
@@ -152,9 +162,10 @@ class applePicking: CCNode {
                 regenerating = false
             }
         }
-        
+        */
         // Code regenerates apples when there are none left.
         // Tries to make sure apples are not too close to each other by using distance structure
+        /*
         if applePicking.applesLeft == 0 && !regenerating {
             regenerating = true
             valid = true
@@ -173,16 +184,19 @@ class applePicking: CCNode {
                 }
             }
         }
-        
+        */
         /** OLD CODE that generated apples differently **/
         // Every time a new apple is spawned, tempTimer is set to current appleTime so that a new apple
         // spawns at most every half sectond.
-//        if ((tempTimer - appleTime) * 2 >= 1) {
-//            if (applePicking.applesLeft <= 5) {
-//                partialResetImages()
-//                tempTimer = appleTime
-//            }
-//        }
+        /*
+        if ((tempTimer - appleTime) * 2 >= 1) {
+            if (applePicking.applesLeft <= 5) {
+                partialResetImages()
+                tempTimer = appleTime
+            }
+        }
+        */
+        
         
     }
     

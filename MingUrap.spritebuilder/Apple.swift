@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Darwin
+
+
+
 
 class Apple: CCNode, CCPhysicsCollisionDelegate {
     
@@ -44,6 +48,10 @@ class Apple: CCNode, CCPhysicsCollisionDelegate {
             applePicking.applesPicked++
             applePicking.applesLeft--
             hasBeenCollected = true
+            var xcord = (CGFloat) (self.position.x)
+            var ycord = (CGFloat) (self.position.y)
+            var location = Distance(x: xcord, y: ycord)
+            applePicking.locations.remove(location)
         }
         
     }
