@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C23DA951B436D7D0070638A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23DA941B436D7D0070638A /* libsqlite3.dylib */; };
+		4C23DA9C1B436FA50070638A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23DA9B1B436FA50070638A /* DBManager.m */; };
 		4C7A7B531B3A36680016E7BD /* MingUrap_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDEA1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift */; };
 		556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D03571AFAC85F00ED6F84 /* PopUp.swift */; };
 		55D50E2A1ADF1AAB005D9C53 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D50E291ADF1AAB005D9C53 /* ActionButton.swift */; };
@@ -173,6 +175,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C23DA941B436D7D0070638A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4C23DA9A1B436FA50070638A /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		4C23DA9B1B436FA50070638A /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		556D03571AFAC85F00ED6F84 /* PopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		55D50E291ADF1AAB005D9C53 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
@@ -298,6 +303,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C23DA951B436D7D0070638A /* libsqlite3.dylib in Frameworks */,
 				BDDBF0691B2624BA007093E2 /* MediaPlayer.framework in Frameworks */,
 				7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
@@ -524,6 +530,8 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
+				4C23DA9A1B436FA50070638A /* DBManager.h */,
+				4C23DA9B1B436FA50070638A /* DBManager.m */,
 				B737893C1807616C0076A88C /* Source */,
 				B77F1B4617B978D7009739AE /* Resources */,
 				9222E2B918734FF800A246C7 /* libs */,
@@ -548,6 +556,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C23DA941B436D7D0070638A /* libsqlite3.dylib */,
 				BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */,
 				BC5399D31A44DCC90063F482 /* AndroidKit.framework */,
 				BC5399D41A44DCC90063F482 /* CoreJava.framework */,
@@ -714,6 +723,7 @@
 						CreatedOnToolsVersion = 6.0.1;
 					};
 					B77F1B2D17B978D7009739AE = {
+						DevelopmentTeam = 7SKQ2BY48V;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -949,6 +959,7 @@
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				BD70F5341B1F7CAB0074F741 /* bargainGame.swift in Sources */,
 				55D50E2A1ADF1AAB005D9C53 /* ActionButton.swift in Sources */,
+				4C23DA9C1B436FA50070638A /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
