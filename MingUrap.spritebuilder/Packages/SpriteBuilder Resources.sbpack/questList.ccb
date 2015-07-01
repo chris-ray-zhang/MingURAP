@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>7</integer>
+	<integer>8</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -41,15 +41,15 @@
 		<array>
 			<dict>
 				<key>UUID</key>
-				<integer>1</integer>
+				<integer>7</integer>
 				<key>baseClass</key>
-				<string>CCNodeColor</string>
+				<string>CCSprite</string>
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>CCNodeColor</string>
+				<string>Farm_Game_Barn_Interior_Background_Empty</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -71,22 +71,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
+							<real>160.3125</real>
+							<real>283</real>
 							<integer>0</integer>
-							<integer>2</integer>
-							<integer>2</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>contentSize</string>
-						<key>type</key>
-						<string>Size</string>
-						<key>value</key>
-						<array>
-							<real>100</real>
-							<real>100</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -98,8 +85,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
+							<real>0.5</real>
+							<real>0.5</real>
 						</array>
 					</dict>
 					<dict>
@@ -109,10 +96,32 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>3.1911923885345459</real>
-							<real>5.6771245002746582</real>
+							<real>0.28499999642372131</real>
+							<real>0.28499999642372131</real>
 							<false/>
 							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>spriteFrame</string>
+						<key>type</key>
+						<string>SpriteFrame</string>
+						<key>value</key>
+						<array>
+							<string></string>
+							<string>ccbResources/Farm_Game_Barn_Interior_Background_Empty.png</string>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>normalMapSpriteFrame</string>
+						<key>type</key>
+						<string>SpriteFrame</string>
+						<key>value</key>
+						<array>
+							<string></string>
+							<string></string>
 						</array>
 					</dict>
 					<dict>
@@ -123,18 +132,18 @@
 						<key>value</key>
 						<array>
 							<real>1</real>
-							<real>0.5</real>
-							<real>0.0</real>
+							<real>1</real>
+							<real>1</real>
 							<real>1</real>
 						</array>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>opacity</string>
+						<string>effects</string>
 						<key>type</key>
-						<string>Float</string>
+						<string>EffectControl</string>
 						<key>value</key>
-						<real>1</real>
+						<array/>
 					</dict>
 				</array>
 			</dict>
@@ -208,7 +217,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>List of Quests</string>
+							<string>Quests</string>
 							<false/>
 						</array>
 					</dict>
@@ -218,7 +227,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>MarkerFelt-Wide</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -378,7 +387,7 @@
 						<key>value</key>
 						<array>
 							<real>159.55961608886719</real>
-							<real>387</real>
+							<real>430</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -402,8 +411,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.0373927354812622</real>
-							<real>2.020841121673584</real>
+							<real>1</real>
+							<real>1</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -543,7 +552,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>MarkerFelt-Wide</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -703,8 +712,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>159.55961608886719</real>
-							<real>283.85623168945312</real>
+							<real>160.3125</real>
+							<real>283</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -728,8 +737,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.8479888439178467</real>
-							<real>2.1980905532836914</real>
+							<real>1</real>
+							<real>1</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -869,7 +878,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>MarkerFelt-Wide</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -996,8 +1005,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1031,8 +1038,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>159.55961608886719</real>
-							<real>174</real>
+							<real>160.3125</real>
+							<real>141</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1056,8 +1063,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.8004013299942017</real>
-							<real>2.0952003002166748</real>
+							<real>1</real>
+							<real>1</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -1197,7 +1204,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>MarkerFelt-Thin</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1324,6 +1331,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1523,7 +1532,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>MarkerFelt-Wide</string>
 					</dict>
 					<dict>
 						<key>name</key>

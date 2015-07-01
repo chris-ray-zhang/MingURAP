@@ -28,7 +28,7 @@ struct Distance : Hashable {
     }
     
     func validLocation(other: Distance) -> Bool {
-        return calcDistance(other) >= 20
+        return calcDistance(other) >= 30
     }
 }
 func ==(lhs: Distance, rhs: Distance) -> Bool {
@@ -88,6 +88,8 @@ class applePicking: CCNode {
             
         }
     }
+    
+    
     
     override func onExit() {
         

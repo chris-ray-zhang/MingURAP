@@ -26,6 +26,7 @@ class bargainGame: CCNode {
     var moviePlayer : MPMoviePlayerController?
     var player: AVAudioPlayer! = nil
     var touchEnabled = true
+    var myLabel: UILabel?
     
     
     override func onExit() {
@@ -41,7 +42,18 @@ class bargainGame: CCNode {
     }
     
     
-
+    override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+        
+    }
+    
+    override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+        if (moviePlayer?.playbackState == MPMoviePlaybackState.Playing) {
+            completeDeal?.visible = true
+            moviePlayer?.view.removeFromSuperview()
+            myLabel!.removeFromSuperview()
+        }
+        
+    }
     
     /* Credit to http://stackoverflow.com/questions/25348877/how-to-play-a-local-video-with-swift */
     private func playVideo(filename:String) {
@@ -64,7 +76,11 @@ class bargainGame: CCNode {
         
         
         CCDirector.sharedDirector().view.addSubview(moviePlayer!.view)
-        
+        myLabel = UILabel(frame: CGRectMake((winSize.width / 2 ) - (80),30,260,260))
+        myLabel!.textColor = UIColor.blackColor()
+        myLabel!.font = UIFont (name: "MarkerFelt-Wide", size: 24)
+        myLabel!.text = "Tap to Skip Video"
+        CCDirector.sharedDirector().view.addSubview(myLabel!)
         moviePlayer!.play()
 
     }
@@ -72,9 +88,13 @@ class bargainGame: CCNode {
     /* Credit to http://stackoverflow.com/questions/26650173/playing-a-movie-with-mpmovieplayercontroller-and-swift */
     func moviePlayerDidFinishPlaying(notification: NSNotification) {
         moviePlayer?.view.removeFromSuperview()
+        myLabel!.removeFromSuperview()
     }
     
     func didLoadFromCCB() {
+        if let twentyTen = getChildByName("twentyTen", recursively: false) as? CCSprite {
+            self.stopAllActions()
+        }
         offerObjects = getChildByName("offerObjects", recursively: false)
         counterOfferObjects = getChildByName("counterOfferObjects", recursively: false)
         slider = offerObjects?.getChildByName("slider", recursively: false) as? CCSlider
@@ -84,6 +104,7 @@ class bargainGame: CCNode {
         if let goldRemaining = getChildByName("goldRemaining", recursively: false) as? CCLabelTTF {
             goldRemaining.string = "Gold Remaining: " + Int(bargainGame.curGold).description
         }
+        self.userInteractionEnabled = true
         showOffer()
     }
     
@@ -100,6 +121,9 @@ class bargainGame: CCNode {
             if let slider = offerObjects?.getChildByName("slider", recursively: false) as? CCSlider {
                 processBid(slider.sliderValue, isCounter: false)
             }
+            if let twentyTen = getChildByName("twentyTen", recursively: false) as? CCSprite {
+                twentyTen.animationManager.paused = true
+            }
             attemptCounterOffer()
         }
     }
@@ -115,8 +139,6 @@ class bargainGame: CCNode {
             prepareSound("coinNoises")
             gameOver = true
             earnings = Int(bargainGame.curGold) - Int(bid * Float(bargainGame.curGold))
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setInteger(earnings, forKey: "bargainGameEarnings")
             if let earningsLabel = completeDeal?.getChildByName("earningsLabel", recursively: false) as? CCLabelTTF {
                 earningsLabel.string = "You Earned $" + earnings.description
             }
