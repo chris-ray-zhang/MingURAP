@@ -33,7 +33,9 @@ class PopUp: CCNode {
     private func setLabelText() {
         if let label = getChildByName("label", recursively: false) as? CCLabelTTF {
             label.string = text[curText]
+            
         }
+        
     }
     
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {

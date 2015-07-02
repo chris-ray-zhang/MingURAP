@@ -16,6 +16,7 @@ class bargainGame: CCNode {
     var reductionPerRound = 0.9
     var gameOver = false
     var earnings = 0
+    var numOffers = 1
     private weak var offerObjects : CCNode? = nil
     private weak var completeDeal : CCNode? = nil
     private weak var counterOfferObjects : CCNode? = nil
@@ -92,9 +93,7 @@ class bargainGame: CCNode {
     }
     
     func didLoadFromCCB() {
-        if let twentyTen = getChildByName("twentyTen", recursively: false) as? CCSprite {
-            self.stopAllActions()
-        }
+        self.userInteractionEnabled = true
         offerObjects = getChildByName("offerObjects", recursively: false)
         counterOfferObjects = getChildByName("counterOfferObjects", recursively: false)
         slider = offerObjects?.getChildByName("slider", recursively: false) as? CCSlider
@@ -104,7 +103,7 @@ class bargainGame: CCNode {
         if let goldRemaining = getChildByName("goldRemaining", recursively: false) as? CCLabelTTF {
             goldRemaining.string = "Gold Remaining: " + Int(bargainGame.curGold).description
         }
-        self.userInteractionEnabled = true
+        
         showOffer()
     }
     
@@ -116,15 +115,28 @@ class bargainGame: CCNode {
         }
     }
     
+    func displayCoinStack() {
+        let oldCoinStack = "coinStack" + numOffers.description
+        numOffers++
+        let newCoinStack = "coinStack" + numOffers.description
+        if (numOffers < 7) {
+            if let oldCS = getChildByName(oldCoinStack, recursively: false) as? CCSprite {
+                oldCS.visible = false
+            }
+            if let newCS = getChildByName(newCoinStack, recursively: false) as? CCSprite {
+                newCS.visible = true
+            }
+        }
+        
+    }
+    
     func makeOfferTapped() {
         if !gameOver || bargainGame.curGold < 1 {
             if let slider = offerObjects?.getChildByName("slider", recursively: false) as? CCSlider {
                 processBid(slider.sliderValue, isCounter: false)
             }
-            if let twentyTen = getChildByName("twentyTen", recursively: false) as? CCSprite {
-                twentyTen.animationManager.paused = true
-            }
             attemptCounterOffer()
+            self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
         }
     }
     
@@ -182,6 +194,9 @@ class bargainGame: CCNode {
     
     func attemptCounterOffer() {
         if (!gameOver) {
+            
+            
+
             if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
                 title.string = "Austin wants " + counterOfferValue().description + "%."
             }
@@ -196,13 +211,6 @@ class bargainGame: CCNode {
                 labelPerc2.string = Int(floor((1 - Double(counterOfferValue())/100) * 100)).description + "%"
             }
             
-            if let coinsAustin1 = getChildByName("coinsAustin", recursively: false) as? CCSprite {
-                coinsAustin1.scaleY = Float(Double(counterOfferValue())/100)/3
-            }
-            
-            if let coinsYou1 = getChildByName("coinsYou", recursively: false) as? CCSprite {
-                coinsYou1.scaleY = Float(1 - (Double(counterOfferValue())/100))/3
-            }
             
             if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
                 numCoinsYou.string = String(stringInterpolationSegment: Int(bargainGame.curGold) - Int(bargainGame.curGold * Double(counterOfferValue())/100))
@@ -219,6 +227,7 @@ class bargainGame: CCNode {
     
     func rejectedCounterOffer() {
         prepareSound("lossOfCoins")
+        self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
         if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
             title.string = "Make a bid"
         }
@@ -258,13 +267,6 @@ class bargainGame: CCNode {
                 labelPerc2.string = Int(floor((1 - slider!.sliderValue) * 100)).description + "%"
             }
             
-            if let coinsAustin = getChildByName("coinsAustin", recursively: false) as? CCSprite {
-                coinsAustin.scaleY = Float(slider!.sliderValue/3)
-            }
-            
-            if let coinsYou = getChildByName("coinsYou", recursively: false) as? CCSprite {
-                coinsYou.scaleY = Float((1 - slider!.sliderValue)/3)
-            }
             
             if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
                 numCoinsYou.string = String(stringInterpolationSegment: Int(bargainGame.curGold) - Int(Float(bargainGame.curGold) * slider!.sliderValue))
