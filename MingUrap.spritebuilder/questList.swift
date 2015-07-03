@@ -20,8 +20,13 @@ class questList: CCNode {
     func returnToDashboard() {
         let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
-        
-
+    }
+    
+    //Shortcut for testing
+    func secret() {
+        let bargainGame = CCBReader.loadAsScene("bargainGame")
+        CCDirector.sharedDirector().replaceScene(bargainGame)
+        removeAllChildrenWithCleanup(true)
     }
     
     override func onExit() {
