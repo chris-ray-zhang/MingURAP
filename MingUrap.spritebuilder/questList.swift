@@ -24,9 +24,10 @@ class questList: CCNode {
     
     //Shortcut for testing
     func secret() {
-        let bargainGame = CCBReader.loadAsScene("bargainGame")
+        applePicking.applesPicked = 1000
+        let bargainGame = CCBReader.loadAsScene("applePickingSummary")
         CCDirector.sharedDirector().replaceScene(bargainGame)
-        removeAllChildrenWithCleanup(true)
+
     }
     
     override func onExit() {
