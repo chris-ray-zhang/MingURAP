@@ -189,21 +189,10 @@ class bargainGame: CCNode {
         homeButton?.visible = true
     }
     
+    /** Counteroffer as a percentage, given as +/- 2 **/
     func counterOfferValue() -> Int {
-       //return randomInt(-2,max: 2) + 52 why does this not work?
-        return 52
+        return aiCounterOffer + Int(arc4random_uniform(4)) - 2
     }
-
-    
-    /**
-    Function that generates a random number between min and max.
-    Found code from:
-    http://stackoverflow.com/questions/24007129/how-does-one-generate-a-random-number-in-apples-swift-language
-    */
-    func randomInt(min: Int, max:Int) -> Int {
-        return min + Int(arc4random_uniform(UInt32(max - min + 1)))
-    }
-    
     
     func attemptCounterOffer() {
         if (!gameOver) {
