@@ -176,6 +176,7 @@ class bargainGame: CCNode {
         offerObjects?.visible = true
         counterOfferObjects?.visible = false
         counterOfferObjectsVisible = false
+        slider!.sliderValue = 0.5
     }
     
     func showCounterOffer() {
@@ -266,10 +267,6 @@ class bargainGame: CCNode {
         if (!gameOver) {
             removeControls()
             setupAustinTimer()
-            
-            
-            
-            
         }
     }
     
