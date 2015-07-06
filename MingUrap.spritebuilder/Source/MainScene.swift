@@ -25,6 +25,7 @@ class MainScene: CCNode {
     func buyChicken() {
         if (MainScene.totalAssets + chickenCost >= 0) {
             prepareSound("chicken")
+            updateTotalAssets(chickenCost)
             chickenCounter++
         }
         
@@ -33,6 +34,7 @@ class MainScene: CCNode {
     func buyCow() {
         if (MainScene.totalAssets + cowCost >= 0) {
             prepareSound("cowMoo")
+            updateTotalAssets(cowCost)
             cowCounter++
         }
         
@@ -40,6 +42,7 @@ class MainScene: CCNode {
     
     func buyTractor() {
         if (MainScene.totalAssets + tractorCost >= 0) {
+            updateTotalAssets(tractorCost)
             tractorCounter++
         }
         
@@ -47,6 +50,7 @@ class MainScene: CCNode {
     
     func buyWaterTower() {
         if (MainScene.totalAssets + waterTowerCost >= 0) {
+            updateTotalAssets(waterTowerCost)
             waterTowerCounter++
         }
     }

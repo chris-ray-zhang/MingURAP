@@ -26,6 +26,8 @@ class bargainGame: CCNode {
     private weak var homeButton : CCButton? = nil
     private var counterOfferObjectsVisible = false
     private var numExchanges = 0
+    private var austinTime = 0
+    private var austinTimer = NSTimer()
     var moviePlayer : MPMoviePlayerController?
     var player: AVAudioPlayer! = nil
     var touchEnabled = true
@@ -53,6 +55,7 @@ class bargainGame: CCNode {
         if (moviePlayer?.playbackState == MPMoviePlaybackState.Playing) {
             completeDeal?.visible = true
             moviePlayer?.view.removeFromSuperview()
+            moviePlayer!.stop()
             myLabel!.removeFromSuperview()
         }
         
@@ -76,8 +79,6 @@ class bargainGame: CCNode {
         moviePlayer!.scalingMode = .AspectFill
         moviePlayer!.shouldAutoplay = true
         moviePlayer!.controlStyle = MPMovieControlStyle.None
-        
-        
         CCDirector.sharedDirector().view.addSubview(moviePlayer!.view)
         myLabel = UILabel(frame: CGRectMake((winSize.width / 2 ) - (80),0,260,50))
         myLabel!.textColor = UIColor.blackColor()
@@ -187,43 +188,88 @@ class bargainGame: CCNode {
         offerObjects?.visible = false
         counterOfferObjects?.visible = false
         counterOfferObjectsVisible = false
+        if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
+            labelPerc1.visible = false
+        }
+        
+        if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
+            labelPerc2.visible = false
+        }
+        
+        
+        if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
+            numCoinsYou.visible = false
+        }
+        
+        if let numCoinsAustin = getChildByName("numCoinsAustin", recursively: false) as? CCLabelTTF {
+            numCoinsAustin.visible = false
+        }
         homeButton?.visible = true
     }
     
     /** Counteroffer as a percentage, given as +/- 2 **/
-    func counterOfferValue() -> Int {
-        return aiCounterOffer + Int(arc4random_uniform(4)) - 2
+    //-> Int
+    func counterOfferValue()  {
+        aiCounterOffer = Int((1.0 / (1.0 + reductionPerRound)) * 100) + Int(arc4random_uniform(4)) - 2
+        
+        //return aiCounterOffer +
+    }
+    
+    //Sets up Austin's timer to 5 seconds
+    func setupAustinTimer() {
+        austinTime = 5
+        if let austinTimeLeft = getChildByName("title", recursively: false) as? CCLabelTTF {
+            austinTimeLeft.string = "Austin's Thinking: \(austinTime)"
+        }
+        austinTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractAustinTime"), userInfo: nil, repeats: true)
+    }
+    
+    func subtractAustinTime() {
+        austinTime--
+        if let austinTimeLeft = getChildByName("title", recursively: false) as? CCLabelTTF {
+            austinTimeLeft.string = "Austin's Thinking: \(austinTime)"
+        }
+        if (austinTime == 0) {
+            austinTimer.invalidate()
+            counterOfferValue()
+            
+            
+            if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
+                title.string = "Austin wants " + aiCounterOffer.description + "%."
+            }
+            
+            if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
+                labelPerc1.visible = true
+                labelPerc1.string = Int(ceil(Double(aiCounterOffer)/100 * 100)).description + "%"
+                
+            }
+            
+            if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
+                labelPerc2.visible = true
+                labelPerc2.string = Int(floor((1 - Double(aiCounterOffer)/100) * 100)).description + "%"
+            }
+            
+            if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
+                numCoinsYou.visible = true
+                numCoinsYou.string = String(stringInterpolationSegment: Int(bargainGame.curGold) - Int(bargainGame.curGold * Double(aiCounterOffer)/100))
+            }
+            
+            if let numCoinsAustin = getChildByName("numCoinsAustin", recursively: false) as? CCLabelTTF {
+                numCoinsAustin.visible = true
+                numCoinsAustin.string = String(stringInterpolationSegment: Int(bargainGame.curGold * Double(aiCounterOffer)/100))
+            }
+            showCounterOffer()
+        }
     }
     
     func attemptCounterOffer() {
         if (!gameOver) {
-           
-
-            if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
-                title.string = "Austin wants " + counterOfferValue().description + "%."
-            }
-            
-            if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
-                
-                labelPerc1.string = Int(ceil(Double(counterOfferValue())/100 * 100)).description + "%"
-
-            }
-            
-            if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
-                labelPerc2.string = Int(floor((1 - Double(counterOfferValue())/100) * 100)).description + "%"
-            }
+            removeControls()
+            setupAustinTimer()
             
             
-            if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
-                numCoinsYou.string = String(stringInterpolationSegment: Int(bargainGame.curGold) - Int(bargainGame.curGold * Double(counterOfferValue())/100))
-            }
-            
-            if let numCoinsAustin = getChildByName("numCoinsAustin", recursively: false) as? CCLabelTTF {
-                numCoinsAustin.string = String(stringInterpolationSegment: Int(bargainGame.curGold * Double(counterOfferValue())/100))
-            }
             
             
-            showCounterOffer()
         }
     }
     
@@ -243,7 +289,7 @@ class bargainGame: CCNode {
     
     func acceptedCounterOffer() {
         // THIS VALUE SHOULD BE CHANGED
-        processBid(0.6, isCounter: false) //* changed from 0.6 //*
+        processBid(Float(aiCounterOffer)/100, isCounter: false) //* changed from 0.6 //*
         if (!gameOver) {
             showOffer()
         }
