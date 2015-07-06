@@ -20,7 +20,13 @@ class questList: CCNode {
     func returnToDashboard() {
         let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
-        
+    }
+    
+    //Shortcut for testing
+    func secret() {
+        applePicking.applesPicked = 1000
+        let bargainGame = CCBReader.loadAsScene("applePickingSummary")
+        CCDirector.sharedDirector().replaceScene(bargainGame)
 
     }
     

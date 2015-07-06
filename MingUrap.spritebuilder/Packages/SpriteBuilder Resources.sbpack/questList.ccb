@@ -469,7 +469,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Sell Delicious Apple Pie</string>
+							<string>Delicious Apple Pie</string>
 							<false/>
 						</array>
 					</dict>
@@ -750,7 +750,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string></string>
+							<string>secret</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -795,7 +795,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Mini-Game 2</string>
+							<string>The Great Harvest</string>
 							<false/>
 						</array>
 					</dict>
@@ -1005,6 +1005,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1121,7 +1123,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Mini-Game 3</string>
+							<string>The Tale of Farmer Dale</string>
 							<false/>
 						</array>
 					</dict>
@@ -1331,8 +1333,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

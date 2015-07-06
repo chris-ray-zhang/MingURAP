@@ -14,6 +14,8 @@ class bargainGame: CCNode {
     var percentSuccess = 50
     static var curGold = 0.0
     var reductionPerRound = 0.9
+    // 1/(1+reductionPerRound) * 100 is default counteroffer percentage
+    var aiCounterOffer = Int((1.0 / (1.0 + 0.9)) * 100)
     var gameOver = false
     var earnings = 0
     var numOffers = 1
@@ -188,9 +190,9 @@ class bargainGame: CCNode {
         homeButton?.visible = true
     }
     
-    /* counterOffer in percentage */
+    /** Counteroffer as a percentage, given as +/- 2 **/
     func counterOfferValue() -> Int {
-        return 60
+        return aiCounterOffer + Int(arc4random_uniform(4)) - 2
     }
     
     func attemptCounterOffer() {
