@@ -77,7 +77,7 @@ class bargainGame: CCNode {
         
         
         CCDirector.sharedDirector().view.addSubview(moviePlayer!.view)
-        myLabel = UILabel(frame: CGRectMake((winSize.width / 2 ) - (80),30,260,260))
+        myLabel = UILabel(frame: CGRectMake((winSize.width / 2 ) - (80),0,260,50))
         myLabel!.textColor = UIColor.blackColor()
         myLabel!.font = UIFont (name: "MarkerFelt-Wide", size: 24)
         myLabel!.text = "Tap to Skip Video"
@@ -136,6 +136,7 @@ class bargainGame: CCNode {
                 processBid(slider.sliderValue, isCounter: false)
             }
             attemptCounterOffer()
+            prepareSound("lossOfCoins")
             self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
         }
     }
@@ -194,8 +195,7 @@ class bargainGame: CCNode {
     
     func attemptCounterOffer() {
         if (!gameOver) {
-            
-            
+           
 
             if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
                 title.string = "Austin wants " + counterOfferValue().description + "%."
