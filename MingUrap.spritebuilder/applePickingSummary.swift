@@ -38,21 +38,23 @@ class applePickingSummary: CCNode {
     
     //Re-starts apple-picking game
     func pickAgain() {
-        let applePicking = CCBReader.loadAsScene("applePicking")
+        var applePicking = CCBReader.loadAsScene("applePicking")
         CCDirector.sharedDirector().replaceScene(applePicking)
+        applePicking = nil
     }
     
     //Replaces current scene with bargaining game
     func goToBargainGame() {
         
-        
-        let bargainGame = CCBReader.loadAsScene("bargainGame")
-        CCDirector.sharedDirector().replaceScene(bargainGame)
-        
-        /*
         var currentScene = CCDirector.sharedDirector().runningScene
-        removeAllChildrenWithCleanup(true)
+        var bargainGame = CCBReader.loadAsScene("bargainGame")
+        CCDirector.sharedDirector().replaceScene(bargainGame)
+        bargainGame = nil
         currentScene = nil
+        /*
+        
+        removeAllChildrenWithCleanup(true)
+        
         */
     }
    

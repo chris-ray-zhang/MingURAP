@@ -83,9 +83,14 @@ class applePicking: CCNode {
                 summaryReport.visible = true
             }
             
-            let applePickingSummary = CCBReader.loadAsScene("applePickingSummary")
+            
+            var applePickingSummary = CCBReader.loadAsScene("applePickingSummary")
             CCDirector.sharedDirector().replaceScene(applePickingSummary)
-
+            /*
+            var currentScene = CCDirector.sharedDirector().runningScene
+            applePickingSummary = nil
+            currentScene = nil
+            */
             
         }
     }
@@ -95,15 +100,15 @@ class applePicking: CCNode {
     override func onExit() {
 
         /*
-        var currentScene = CCDirector.sharedDirector().runningScene
-        currentScene = nil
-        */
+        
+        
+
 
         
         CCDirector.sharedDirector().purgeCachedData()
 
         removeAllChildrenWithCleanup(true)
-
+        */
     }
 
     /**

@@ -78,15 +78,17 @@ class MainScene: CCNode {
         /*
         CCDirector.sharedDirector().purgeCachedData()
         removeAllChildrenWithCleanup(true)
-        */
+
         var currentScene = CCDirector.sharedDirector().runningScene
+        currentScene = nil
         
+        */
 
         
-        
-        let questList = CCBReader.loadAsScene("questList")
+        var questList = CCBReader.loadAsScene("questList")
+        questList = CCBReader.loadAsScene("questList")
         CCDirector.sharedDirector().replaceScene(questList)
-        currentScene = nil
+        questList = nil
         
     }
     

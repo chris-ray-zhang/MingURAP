@@ -43,13 +43,15 @@ class bargainGame: CCNode {
     func complete() {
         /*
         CCDirector.sharedDirector().purgeCachedData()
-        var currentScene = CCDirector.sharedDirector().runningScene
-        currentScene = nil
+        
+        
 
         */
-        
-        let mainScene = CCBReader.loadAsScene("MainScene")
+        var currentScene = CCDirector.sharedDirector().runningScene
+        var mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
+        mainScene = nil
+        currentScene = nil
         MainScene.totalAssets += earnings
     }
     
