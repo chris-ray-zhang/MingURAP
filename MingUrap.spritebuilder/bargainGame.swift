@@ -43,15 +43,13 @@ class bargainGame: CCNode {
     func complete() {
         /*
         CCDirector.sharedDirector().purgeCachedData()
-        
-        
+        var currentScene = CCDirector.sharedDirector().runningScene
+        currentScene = nil
 
         */
-        var currentScene = CCDirector.sharedDirector().runningScene
-        var mainScene = CCBReader.loadAsScene("MainScene")
+        
+        let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
-        mainScene = nil
-        currentScene = nil
         MainScene.totalAssets += earnings
     }
     
@@ -188,7 +186,6 @@ class bargainGame: CCNode {
         offerObjects?.visible = true
         counterOfferObjects?.visible = false
         counterOfferObjectsVisible = false
-        slider!.sliderValue = 0.5
     }
     
     func showCounterOffer() {
@@ -279,6 +276,10 @@ class bargainGame: CCNode {
         if (!gameOver) {
             removeControls()
             setupAustinTimer()
+            
+            
+            
+            
         }
     }
     

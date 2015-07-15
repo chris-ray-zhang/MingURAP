@@ -14,15 +14,13 @@ class questList: CCNode {
     func applePie() {
         /*
         CCDirector.sharedDirector().purgeCachedData()
-        
-        
+        var currentScene = CCDirector.sharedDirector().runningScene
+        currentScene = nil
         */
         
-        var currentScene = CCDirector.sharedDirector().runningScene
-        var applePicking = CCBReader.loadAsScene("applePicking")
+        
+        let applePicking = CCBReader.loadAsScene("applePicking")
         CCDirector.sharedDirector().replaceScene(applePicking)
-        applePicking = nil
-        currentScene = nil
         
     }
     
