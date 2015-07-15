@@ -88,7 +88,7 @@ class MainScene: CCNode {
 
         var currentScene = CCDirector.sharedDirector().runningScene
         currentScene = nil
-        */
+        
 
         
         var questList = CCBReader.loadAsScene("questList")

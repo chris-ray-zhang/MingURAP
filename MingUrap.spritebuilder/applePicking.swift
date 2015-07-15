@@ -44,6 +44,7 @@ class applePicking: CCNode {
     static var applesLeft = 0
     static var applesPicked = 0
     static var locations = Set<Distance>()
+    private var timerBegan = false
     private weak var applesOnTree : CCPhysicsNode? = nil
     
     
@@ -57,9 +58,12 @@ class applePicking: CCNode {
             tapApples.visible = true
         }
         applePicking.applesPicked = 0
-        setupAppleTimer()
-        
+        //setupAppleTimer()
     }
+    
+    
+    
+    
     //Sets up apple-picking timer to 30 seconds
     func setupAppleTimer() {
         tempTimer = 30
@@ -76,21 +80,17 @@ class applePicking: CCNode {
             appleTimeLeft.string = "Time Left: \(appleTime)"
         }
         if (appleTime == 0) {
-            
+            if let applePickingSummary = CCBReader.loadAsScene("applePickingSummary") {
+                CCDirector.sharedDirector().replaceScene(applePickingSummary)
+            }
             appleTimer.invalidate()
-
+            /*
             if let summaryReport = getChildByName("summaryReport", recursively: false) {
                 summaryReport.visible = true
             }
-            
-            
-            var applePickingSummary = CCBReader.loadAsScene("applePickingSummary")
-            CCDirector.sharedDirector().replaceScene(applePickingSummary)
-            /*
-            var currentScene = CCDirector.sharedDirector().runningScene
-            applePickingSummary = nil
-            currentScene = nil
             */
+            
+
             
         }
     }
@@ -98,16 +98,11 @@ class applePicking: CCNode {
     
     
     override func onExit() {
-
         /*
-        
-        
-
-
-        
         CCDirector.sharedDirector().purgeCachedData()
 
         removeAllChildrenWithCleanup(true)
+
         */
     }
 
@@ -155,6 +150,11 @@ class applePicking: CCNode {
     private var valid = false
 
     override func update(delta: CCTime) {
+        if (applePicking.applesPicked == 1 && !timerBegan) {
+            setupAppleTimer()
+            timerBegan = true
+        }
+        
         if let applePickedLabel = getChildByName("applePickedLabel", recursively: false) as? CCLabelTTF {
             applePickedLabel.string = "Apples Picked: \(applePicking.applesPicked)"
         }
