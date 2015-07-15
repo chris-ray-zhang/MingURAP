@@ -545,7 +545,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Time Left:</string>
+							<string>Time Left: 30</string>
 							<false/>
 						</array>
 					</dict>
@@ -694,6 +694,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1798,8 +1800,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

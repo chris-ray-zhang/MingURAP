@@ -80,12 +80,18 @@ class applePicking: CCNode {
             appleTimeLeft.string = "Time Left: \(appleTime)"
         }
         if (appleTime == 0) {
+            if let applePickingSummary = CCBReader.loadAsScene("applePickingSummary") {
+                CCDirector.sharedDirector().replaceScene(applePickingSummary)
+            }
             appleTimer.invalidate()
+            /*
             if let summaryReport = getChildByName("summaryReport", recursively: false) {
                 summaryReport.visible = true
             }
-            let applePickingSummary = CCBReader.loadAsScene("applePickingSummary")
-            CCDirector.sharedDirector().replaceScene(applePickingSummary)
+            */
+            
+            
+
             
         }
     }
@@ -93,8 +99,10 @@ class applePicking: CCNode {
     
     
     override func onExit() {
-        CCDirector.sharedDirector().purgeCachedData()
-        removeAllChildrenWithCleanup(true)
+        /*
+        var currentScene = CCDirector.sharedDirector().runningScene
+        currentScene = nil
+        */
     }
 
     /**

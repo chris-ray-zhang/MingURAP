@@ -41,11 +41,21 @@ class bargainGame: CCNode {
     
     //Replaces current scene with Dashboard and adds earnings from bargaining game to DashBoard
     func complete() {
+        /*
+        CCDirector.sharedDirector().purgeCachedData()
+        var currentScene = CCDirector.sharedDirector().runningScene
+        currentScene = nil
+
+        */
+        
         let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
         MainScene.totalAssets += earnings
     }
     
+    func applicationDidReceiveMemoryWarning(application: UIApplication) {
+        
+    }
     
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         

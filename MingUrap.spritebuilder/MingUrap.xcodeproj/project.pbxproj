@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C23DA951B436D7D0070638A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23DA941B436D7D0070638A /* libsqlite3.dylib */; };
-		4C23DA9C1B436FA50070638A /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C23DA9B1B436FA50070638A /* DBManager.m */; };
 		4C7A7B531B3A36680016E7BD /* MingUrap_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDEA1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift */; };
 		556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D03571AFAC85F00ED6F84 /* PopUp.swift */; };
 		55D50E2A1ADF1AAB005D9C53 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D50E291ADF1AAB005D9C53 /* ActionButton.swift */; };
@@ -98,7 +97,7 @@
 		BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D51A44DCC90063F482 /* GLActivityKit.framework */; };
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
-		BD5678BD1B45C7AC00F8EBC3 /* SwiftDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5678BC1B45C7AC00F8EBC3 /* SwiftDBManager.swift */; };
+		BD5678C21B4C59FB00F8EBC3 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD5678C01B4C59FB00F8EBC3 /* CoreDataModel.xcdatamodeld */; };
 		BD70F5341B1F7CAB0074F741 /* bargainGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70F5331B1F7CAB0074F741 /* bargainGame.swift */; };
 		BDD8DDD91B2B87CD00A302D4 /* questList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDD81B2B87CD00A302D4 /* questList.swift */; };
 		BDD8DDDB1B2F4A9C00A302D4 /* applePicking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */; };
@@ -177,8 +176,6 @@
 
 /* Begin PBXFileReference section */
 		4C23DA941B436D7D0070638A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		4C23DA9A1B436FA50070638A /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
-		4C23DA9B1B436FA50070638A /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		556D03571AFAC85F00ED6F84 /* PopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		55D50E291ADF1AAB005D9C53 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
@@ -243,7 +240,7 @@
 		BC5399D51A44DCC90063F482 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
-		BD5678BC1B45C7AC00F8EBC3 /* SwiftDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDBManager.swift; sourceTree = "<group>"; };
+		BD5678C11B4C59FB00F8EBC3 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		BD70F5331B1F7CAB0074F741 /* bargainGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bargainGame.swift; sourceTree = "<group>"; };
 		BDD8DDD81B2B87CD00A302D4 /* questList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = questList.swift; sourceTree = "<group>"; };
 		BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = applePicking.swift; sourceTree = "<group>"; };
@@ -503,6 +500,7 @@
 				55D50E291ADF1AAB005D9C53 /* ActionButton.swift */,
 				BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */,
 				BDD8DDE01B311C8100A302D4 /* Apple.swift */,
+				BD5678C01B4C59FB00F8EBC3 /* CoreDataModel.xcdatamodeld */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;
@@ -532,9 +530,6 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
-				4C23DA9A1B436FA50070638A /* DBManager.h */,
-				4C23DA9B1B436FA50070638A /* DBManager.m */,
-				BD5678BC1B45C7AC00F8EBC3 /* SwiftDBManager.swift */,
 				B737893C1807616C0076A88C /* Source */,
 				B77F1B4617B978D7009739AE /* Resources */,
 				9222E2B918734FF800A246C7 /* libs */,
@@ -957,13 +952,12 @@
 				BDD8DDD91B2B87CD00A302D4 /* questList.swift in Sources */,
 				4C7A7B531B3A36680016E7BD /* MingUrap_iOS_Tests.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
-				BD5678BD1B45C7AC00F8EBC3 /* SwiftDBManager.swift in Sources */,
 				BDD8DE031B3A0A2E00A302D4 /* applePickingSummary.swift in Sources */,
 				BDD8DDDB1B2F4A9C00A302D4 /* applePicking.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				BD70F5341B1F7CAB0074F741 /* bargainGame.swift in Sources */,
 				55D50E2A1ADF1AAB005D9C53 /* ActionButton.swift in Sources */,
-				4C23DA9C1B436FA50070638A /* DBManager.m in Sources */,
+				BD5678C21B4C59FB00F8EBC3 /* CoreDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1435,6 +1429,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BD5678C01B4C59FB00F8EBC3 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BD5678C11B4C59FB00F8EBC3 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = BD5678C11B4C59FB00F8EBC3 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B77F1B2617B978D7009739AE /* Project object */;
 }

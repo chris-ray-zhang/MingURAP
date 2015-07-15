@@ -30,7 +30,9 @@ class applePickingSummary: CCNode {
     
     
     override func onExit() {
+        /*
         CCDirector.sharedDirector().purgeCachedData()
+        */
     }
     
     
@@ -42,9 +44,16 @@ class applePickingSummary: CCNode {
     
     //Replaces current scene with bargaining game
     func goToBargainGame() {
+        
+        
         let bargainGame = CCBReader.loadAsScene("bargainGame")
         CCDirector.sharedDirector().replaceScene(bargainGame)
+        
+        /*
+        var currentScene = CCDirector.sharedDirector().runningScene
         removeAllChildrenWithCleanup(true)
+        currentScene = nil
+        */
     }
    
 }

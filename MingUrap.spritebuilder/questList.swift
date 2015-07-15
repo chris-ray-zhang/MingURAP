@@ -12,12 +12,21 @@ class questList: CCNode {
     
     //Replaces current scene with apple-picking game
     func applePie() {
+        /*
+        CCDirector.sharedDirector().purgeCachedData()
+        var currentScene = CCDirector.sharedDirector().runningScene
+        currentScene = nil
+        */
+        
+        
         let applePicking = CCBReader.loadAsScene("applePicking")
         CCDirector.sharedDirector().replaceScene(applePicking)
+        
     }
     
     //Replaces current scene with DashBoard
     func returnToDashboard() {
+        CCDirector.sharedDirector().purgeCachedData()
         let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
     }
@@ -31,8 +40,9 @@ class questList: CCNode {
     }
     
     override func onExit() {
-        
+        /*
         removeAllChildrenWithCleanup(true)
+        */
     }
     
    

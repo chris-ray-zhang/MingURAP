@@ -138,8 +138,6 @@
 		</dict>
 		<key>ccbResources/coinStacks</key>
 		<dict>
-			<key>isDirty</key>
-			<true/>
 			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>
