@@ -9,8 +9,8 @@
 import Foundation
 
 class PopUp: CCNode {
-    var curText = 0
-    var pricePerApple = 10
+    static var curText = 0
+    var pricePerApple = 30
     var totalAmount = 0
     var text: Array<String> = []
     
@@ -21,7 +21,9 @@ class PopUp: CCNode {
         userInteractionEnabled = true
         
         visible = true
+        
         setLabelText()
+
     }
     /* Returns the initial amount of pies that can be baked, which is dependent on the number of apples picked */
     func decideNumApples() -> Int {
@@ -31,22 +33,44 @@ class PopUp: CCNode {
 
     
     private func setLabelText() {
-        if let label = getChildByName("label", recursively: false) as? CCLabelTTF {
-            label.string = text[curText]
-            
+        if (PopUp.curText < 5) {
+            if let label = getChildByName("label", recursively: false) as? CCLabelTTF {
+                label.string = text[PopUp.curText]
+                
+            }
         }
+        PopUp.curText++
+
         
     }
     
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        if curText < text.count {
-            setLabelText()
+        if PopUp.curText > 5 {
+            self.visible = false
+            if let label = getChildByName("label", recursively: false) as? CCLabelTTF {
+                label.string = "There are now \(Int(bargainGame.curGold)) gold coins"
+            }
+            
         } else {
+            setLabelText()
+            /*
             self.removeFromParentAndCleanup(true)
+            */
         }
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        curText++
+        
     }
+    
+    override func update(delta: CCTime) {
+        if PopUp.curText > 5 {
+            if let label = getChildByName("label", recursively: false) as? CCLabelTTF {
+                label.string = "There are now \(Int(bargainGame.curGold)) gold coins"
+            }
+            
+        }
+    }
+    
+    
 }

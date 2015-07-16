@@ -46,8 +46,9 @@ class applePickingSummary: CCNode {
     func goToBargainGame() {
         
         
-        let bargainGame = CCBReader.loadAsScene("bargainGame")
+        var bargainGame = CCBReader.loadAsScene("bargainGame")
         CCDirector.sharedDirector().replaceScene(bargainGame)
+        bargainGame = nil
         
         /*
         var currentScene = CCDirector.sharedDirector().runningScene

@@ -149,8 +149,7 @@ class bargainGame: CCNode {
                 processBid(slider.sliderValue, isCounter: false)
             }
             attemptCounterOffer()
-            prepareSound("lossOfCoins")
-            self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
+            
         }
     }
     
@@ -234,6 +233,14 @@ class bargainGame: CCNode {
         austinTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractAustinTime"), userInfo: nil, repeats: true)
     }
     
+    func displayPopUp() {
+        
+        if let popUp = getChildByName("popUp", recursively: false){
+            popUp.visible = true
+        }
+        
+    }
+    
     func subtractAustinTime() {
         austinTime--
         if let austinTimeLeft = getChildByName("title", recursively: false) as? CCLabelTTF {
@@ -241,11 +248,17 @@ class bargainGame: CCNode {
         }
         if (austinTime == 0) {
             austinTimer.invalidate()
+            prepareSound("lossOfCoins")
+            self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
+            self.scheduleOnce(Selector("displayPopUp"), delay: 1.5)
             counterOfferValue()
             
+            if let belowTitle = getChildByName("belowTitle", recursively: false) as? CCLabelTTF {
+                belowTitle.string = "He wants " + aiCounterOffer.description + "%."
+            }
             
             if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
-                title.string = "Austin wants " + aiCounterOffer.description + "%."
+                title.string = "Austin REJECTS"
             }
             
             if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
@@ -276,25 +289,27 @@ class bargainGame: CCNode {
         if (!gameOver) {
             removeControls()
             setupAustinTimer()
-            
-            
-            
-            
         }
     }
     
-    func rejectedCounterOffer() {
-        prepareSound("lossOfCoins")
-        self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
+    func changeScreen() {
         if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
             title.string = "Make a bid"
         }
-        
+        if let belowTitle = getChildByName("belowTitle", recursively: false) as? CCLabelTTF {
+            belowTitle.string = ""
+        }
         bargainGame.curGold = bargainGame.curGold * reductionPerRound
         if let goldRemaining = getChildByName("goldRemaining", recursively: false) as? CCLabelTTF {
             goldRemaining.string = "Gold remaining: " + String(Int(bargainGame.curGold))
         }
         showOffer()
+    }
+    
+    func rejectedCounterOffer() {
+        prepareSound("lossOfCoins")
+        self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
+        self.scheduleOnce(Selector("changeScreen"), delay: 2.0)
     }
     
     func acceptedCounterOffer() {
