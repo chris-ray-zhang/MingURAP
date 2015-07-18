@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>59</integer>
+	<integer>60</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -41,7 +41,7 @@
 		<array>
 			<dict>
 				<key>UUID</key>
-				<integer>46</integer>
+				<integer>59</integer>
 				<key>baseClass</key>
 				<string>CCSprite</string>
 				<key>children</key>
@@ -49,9 +49,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>background</string>
-				<key>locked</key>
-				<true/>
+				<string>Farm_Game_Asset_Purchase_Screen_Background-01</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -73,8 +71,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>160.81883239746094</real>
-							<real>285.72506713867188</real>
+							<real>160.3125</real>
+							<real>283</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -98,8 +96,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.30000001192092896</real>
-							<real>0.30000001192092896</real>
+							<real>0.28499999642372131</real>
+							<real>0.28499999642372131</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -148,6 +146,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -476,8 +476,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

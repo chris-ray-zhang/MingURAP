@@ -29,14 +29,15 @@ class bargainGame: CCNode {
     private var austinTime = 0
     private var austinTimer = NSTimer()
     var moviePlayer : MPMoviePlayerController?
-    var player: AVAudioPlayer! = nil
-    var touchEnabled = true
+    var player: AVAudioPlayer?
     var myLabel: UILabel?
     
     
     override func onExit() {
+        /*
         CCDirector.sharedDirector().purgeCachedData()
         removeAllChildrenWithCleanup(true)
+        */
     }
     
     //Replaces current scene with Dashboard and adds earnings from bargaining game to DashBoard
@@ -48,7 +49,7 @@ class bargainGame: CCNode {
 
         */
         
-        let mainScene = CCBReader.loadAsScene("MainScene")
+        var mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
         MainScene.totalAssets += earnings
     }
@@ -78,7 +79,9 @@ class bargainGame: CCNode {
         /*
         let moviePlayer = MPMoviePlayerController(contentURL: url)
         */
+        
         moviePlayer = MPMoviePlayerController(contentURL: url)
+        
         moviePlayer!.prepareToPlay()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerDidFinishPlaying:" , name: MPMoviePlayerPlaybackDidFinishNotification, object: moviePlayer)
         var winSize: CGSize = CCDirector.sharedDirector().viewSize()
@@ -324,10 +327,10 @@ class bargainGame: CCNode {
     func prepareSound(filename:String) {
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"aif")
         let fileURL = NSURL(fileURLWithPath: path!)
-        player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
-        player.volume = 1.5
-        player.prepareToPlay()
-        player.play()
+        player? = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        player?.volume = 1.5
+        player?.prepareToPlay()
+        player?.play()
     }
     
     override func update(delta: CCTime) {
