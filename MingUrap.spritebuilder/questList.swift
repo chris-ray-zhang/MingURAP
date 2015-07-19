@@ -22,6 +22,7 @@ class questList: CCNode {
         let applePicking = CCBReader.loadAsScene("applePicking")
         CCDirector.sharedDirector().replaceScene(applePicking)
         
+        
     }
     
     //Replaces current scene with DashBoard
