@@ -250,14 +250,14 @@ class bargainGame: CCNode {
         if let austinTimeLeft = getChildByName("title", recursively: false) as? CCLabelTTF {
             austinTimeLeft.string = "Austin's Thinking: \(austinTime)"
         }
+        if (hasRejected == false && austinTime < 2) {
+            hasRejected = true
+            austinTime = 1
+            if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
+                title.string = "Apples have gone bad"
+            }
+        }
         if (austinTime == 0) {
-//            if (hasRejected == false) {
-//                hasRejected = true
-//                austinTime = 3
-//                if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
-//                    title.string = "Apples have gone bad"
-//                }
-//            }
             austinTimer.invalidate()
             prepareSound("lossOfCoins")
             self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
