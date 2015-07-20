@@ -82,201 +82,25 @@
 		<dict/>
 		<key>ccbResources</key>
 		<dict>
+			<key>isDirty</key>
+			<true/>
 			<key>previewFolderHidden</key>
 			<true/>
 			<key>trimSprites</key>
 			<true/>
 		</dict>
-		<key>ccbResources/Apple Orchard Background.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Apple Tree.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/AppleGame Interface-01.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
 		<key>ccbResources/Box.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Coinstack 10-01.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Coinstack 100-01.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Coinstack 20-01.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Coinstack 40-01.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Coinstack 60-01.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Coinstack 80-01.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
+		<dict/>
 		<key>ccbResources/Farm_Game_Asset_Purchase_Screen_Background-01.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-			<key>isDirty</key>
-			<true/>
-		</dict>
-		<key>ccbResources/Farm_Game_Barn_Interior_Background_Empty.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Farm_Game_Chicken.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Farm_Game_Continue_Arrow.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Farm_Game_Hay_Bale.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Farm_Game_Intro_Background.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Farm_Game_Ladder.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Farm_Game_Lantern.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Farm_Game_Standing_Boy_Farmer.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/Farm_Game_Wagon_Wheel.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/achievements.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
+		<dict/>
+		<key>ccbResources/achievements_bar.png</key>
+		<dict/>
 		<key>ccbResources/background.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
+		<dict/>
 		<key>ccbResources/buy_chicken.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/buy_cow.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/buy_tower.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/buy_tractor.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
+		<dict/>
 		<key>ccbResources/ccbButtonHighlighted.png</key>
 		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
 			<key>scaleFrom</key>
 			<integer>2</integer>
 			<key>tabletScale</key>
@@ -284,10 +108,6 @@
 		</dict>
 		<key>ccbResources/ccbButtonNormal.png</key>
 		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
 			<key>scaleFrom</key>
 			<integer>2</integer>
 			<key>tabletScale</key>
@@ -295,10 +115,6 @@
 		</dict>
 		<key>ccbResources/ccbParticleStars.png</key>
 		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
 			<key>scaleFrom</key>
 			<integer>1</integer>
 			<key>tabletScale</key>
@@ -306,10 +122,6 @@
 		</dict>
 		<key>ccbResources/ccbSliderBgHighlighted.png</key>
 		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
 			<key>scaleFrom</key>
 			<integer>2</integer>
 			<key>tabletScale</key>
@@ -317,10 +129,6 @@
 		</dict>
 		<key>ccbResources/ccbSliderBgNormal.png</key>
 		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
 			<key>scaleFrom</key>
 			<integer>2</integer>
 			<key>tabletScale</key>
@@ -328,10 +136,6 @@
 		</dict>
 		<key>ccbResources/ccbSliderHandle.png</key>
 		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
 			<key>scaleFrom</key>
 			<integer>2</integer>
 			<key>tabletScale</key>
@@ -339,76 +143,24 @@
 		</dict>
 		<key>ccbResources/ccbTextField.png</key>
 		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
 			<key>scaleFrom</key>
 			<integer>2</integer>
 			<key>tabletScale</key>
 			<integer>1</integer>
 		</dict>
 		<key>ccbResources/character1.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
+		<dict/>
 		<key>ccbResources/character2.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
+		<dict/>
 		<key>ccbResources/coinStacks</key>
 		<dict>
 			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>
-		<key>ccbResources/coins.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/plain-apple.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/quest_button.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
 		<key>ccbResources/table.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
-		<key>ccbResources/tree.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
+		<dict/>
 		<key>ccbResources/you_avatar.png</key>
-		<dict>
-			<key>format_android</key>
-			<integer>3</integer>
-			<key>format_ios</key>
-			<integer>3</integer>
-		</dict>
+		<dict/>
 	</dict>
 	<key>versionStr</key>
 	<string>revision : eea568a5c7
