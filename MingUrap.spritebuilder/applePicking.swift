@@ -38,7 +38,7 @@ func ==(lhs: Distance, rhs: Distance) -> Bool {
 class applePicking: CCNode {
     
     private var appleTime = 0
-    private var appleTimer = NSTimer()
+    private weak var appleTimer = NSTimer()
     private var tempTimer = 0
     static var initialNumApples = 0
     static var applesLeft = 0
@@ -77,7 +77,7 @@ class applePicking: CCNode {
         }
         if (appleTime == 0) {
             
-            appleTimer.invalidate()
+            appleTimer!.invalidate()
 
             if let summaryReport = getChildByName("summaryReport", recursively: false) {
                 summaryReport.visible = true

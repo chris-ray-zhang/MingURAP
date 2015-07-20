@@ -82,11 +82,23 @@
 		<dict/>
 		<key>ccbResources</key>
 		<dict>
+			<key>isDirty</key>
+			<true/>
 			<key>previewFolderHidden</key>
 			<true/>
 			<key>trimSprites</key>
 			<true/>
 		</dict>
+		<key>ccbResources/Box.png</key>
+		<dict/>
+		<key>ccbResources/Farm_Game_Asset_Purchase_Screen_Background-01.png</key>
+		<dict/>
+		<key>ccbResources/achievements_bar.png</key>
+		<dict/>
+		<key>ccbResources/background.png</key>
+		<dict/>
+		<key>ccbResources/buy_chicken.png</key>
+		<dict/>
 		<key>ccbResources/ccbButtonHighlighted.png</key>
 		<dict>
 			<key>scaleFrom</key>
@@ -136,11 +148,19 @@
 			<key>tabletScale</key>
 			<integer>1</integer>
 		</dict>
+		<key>ccbResources/character1.png</key>
+		<dict/>
+		<key>ccbResources/character2.png</key>
+		<dict/>
 		<key>ccbResources/coinStacks</key>
 		<dict>
 			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>
+		<key>ccbResources/table.png</key>
+		<dict/>
+		<key>ccbResources/you_avatar.png</key>
+		<dict/>
 	</dict>
 	<key>versionStr</key>
 	<string>revision : eea568a5c7
