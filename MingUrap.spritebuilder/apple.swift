@@ -12,7 +12,7 @@ import Darwin
 
 
 
-class Apple: CCNode, CCPhysicsCollisionDelegate {
+class apple: CCNode, CCPhysicsCollisionDelegate {
     
     var hasBeenCollected:Bool = false
     var player: AVAudioPlayer! = nil

@@ -64,38 +64,41 @@ class bargainGame: CCNode {
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if (moviePlayer?.playbackState == MPMoviePlaybackState.Playing) {
+            println("touching")
             completeDeal?.visible = true
             moviePlayer?.view.removeFromSuperview()
-            moviePlayer!.stop()
+            moviePlayer?.stop()
             myLabel!.removeFromSuperview()
+        } else {
+            println("something went wrong")
         }
         
     }
     
+    
     /* Credit to http://stackoverflow.com/questions/25348877/how-to-play-a-local-video-with-swift */
     private func playVideo(filename:String) {
+        println("playing video")
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"mov")
         let url = NSURL(fileURLWithPath: path!)
-        
         moviePlayer = MPMoviePlayerController(contentURL: url)
-        
-        moviePlayer!.prepareToPlay()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerDidFinishPlaying:" , name: MPMoviePlayerPlaybackDidFinishNotification, object: moviePlayer)
         var winSize: CGSize = CCDirector.sharedDirector().viewSize()
-        moviePlayer!.view.frame = CGRectMake(0,0, winSize.width, winSize.height)
-        
-        moviePlayer!.scalingMode = .AspectFill
-        moviePlayer!.shouldAutoplay = true
-        moviePlayer!.controlStyle = MPMovieControlStyle.None
+        moviePlayer?.view.frame = CGRectMake(0,0, winSize.width, winSize.height)
+        moviePlayer?.scalingMode = .AspectFill
+        moviePlayer?.shouldAutoplay = false //* changed to false *//
+        moviePlayer?.controlStyle = MPMovieControlStyle.None
         CCDirector.sharedDirector().view.addSubview(moviePlayer!.view)
         myLabel = UILabel(frame: CGRectMake((winSize.width / 2 ) - (80),0,260,50))
         myLabel!.textColor = UIColor.blackColor()
         myLabel!.font = UIFont (name: "MarkerFelt-Wide", size: 24)
         myLabel!.text = "Tap to Skip Video"
         CCDirector.sharedDirector().view.addSubview(myLabel!)
-        moviePlayer!.play()
+        moviePlayer?.prepareToPlay()
+        
 
     }
+    
     
     /* Credit to http://stackoverflow.com/questions/26650173/playing-a-movie-with-mpmovieplayercontroller-and-swift */
     func moviePlayerDidFinishPlaying(notification: NSNotification) {
@@ -154,8 +157,9 @@ class bargainGame: CCNode {
                 earningsLabel.string = "You Earned $" + earnings.description
             }
             completeDeal?.visible = true
-            
+            println("processing bid before video")
             playVideo("pieStand")
+            moviePlayer?.play()
         }
         
         if let title = getChildByName("title", recursively: false) as? CCLabelTTF {

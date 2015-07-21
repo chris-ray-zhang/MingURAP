@@ -140,7 +140,7 @@ class applePicking: CCNode {
     }
     
     func drawApple(x: CGFloat, y: CGFloat) {
-        let newApple:CCNode = CCBReader.load("Apple")
+        let newApple:CCNode = CCBReader.load("apple")
         newApple.scaleX = 0.5
         newApple.scaleY = 0.5
         newApple.position = ccp(x,y)
