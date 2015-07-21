@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import CoreData
 
 
 class bargainGame: CCNode {
@@ -29,34 +30,32 @@ class bargainGame: CCNode {
     private var austinTime = 0
     private var austinTimer = NSTimer()
     var moviePlayer : MPMoviePlayerController?
-    var player: AVAudioPlayer?
+    var player: AVAudioPlayer! = nil
     var myLabel: UILabel?
     
     
-    override func onExit() {
-        /*
-        CCDirector.sharedDirector().purgeCachedData()
-        removeAllChildrenWithCleanup(true)
-        */
+    func didLoadFromCCB() {
+        self.userInteractionEnabled = true
+        offerObjects = getChildByName("offerObjects", recursively: false)
+        counterOfferObjects = getChildByName("counterOfferObjects", recursively: false)
+        slider = offerObjects?.getChildByName("slider", recursively: false) as? CCSlider
+        homeButton = getChildByName("homeButton", recursively: false) as? CCButton
+        slider?.sliderValue = 0.5
+        completeDeal = getChildByName("completeDeal", recursively: false)
+        if let goldRemaining = getChildByName("goldRemaining", recursively: false) as? CCLabelTTF {
+            goldRemaining.string = "Gold Remaining: " + Int(bargainGame.curGold).description
+        }
+        percentSuccess = Int((1.0 / (1.0 + reductionPerRound)) * 100) - 2
+        showOffer()
     }
     
     //Replaces current scene with Dashboard and adds earnings from bargaining game to DashBoard
     func complete() {
-        /*
-        CCDirector.sharedDirector().purgeCachedData()
-        var currentScene = CCDirector.sharedDirector().runningScene
-        currentScene = nil
-
-        */
-        
         var mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(mainScene)
         MainScene.totalAssets += earnings
     }
     
-    func applicationDidReceiveMemoryWarning(application: UIApplication) {
-        
-    }
     
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         
@@ -76,9 +75,6 @@ class bargainGame: CCNode {
     private func playVideo(filename:String) {
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"mov")
         let url = NSURL(fileURLWithPath: path!)
-        /*
-        let moviePlayer = MPMoviePlayerController(contentURL: url)
-        */
         
         moviePlayer = MPMoviePlayerController(contentURL: url)
         
@@ -86,9 +82,7 @@ class bargainGame: CCNode {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerDidFinishPlaying:" , name: MPMoviePlayerPlaybackDidFinishNotification, object: moviePlayer)
         var winSize: CGSize = CCDirector.sharedDirector().viewSize()
         moviePlayer!.view.frame = CGRectMake(0,0, winSize.width, winSize.height)
-        /*
-        self.moviePlayer = moviePlayer
-        */
+        
         moviePlayer!.scalingMode = .AspectFill
         moviePlayer!.shouldAutoplay = true
         moviePlayer!.controlStyle = MPMovieControlStyle.None
@@ -108,23 +102,10 @@ class bargainGame: CCNode {
         myLabel!.removeFromSuperview()
     }
     
-    func didLoadFromCCB() {
-        self.userInteractionEnabled = true
-        offerObjects = getChildByName("offerObjects", recursively: false)
-        counterOfferObjects = getChildByName("counterOfferObjects", recursively: false)
-        slider = offerObjects?.getChildByName("slider", recursively: false) as? CCSlider
-        homeButton = getChildByName("homeButton", recursively: false) as? CCButton
-        slider?.sliderValue = 0.5
-        completeDeal = getChildByName("completeDeal", recursively: false)
-        if let goldRemaining = getChildByName("goldRemaining", recursively: false) as? CCLabelTTF {
-            goldRemaining.string = "Gold Remaining: " + Int(bargainGame.curGold).description
-        }
-        
-        showOffer()
-    }
+    
     
     private func acceptBid(num : Float) -> Bool {
-        if (num > Float(percentSuccess)) {
+        if (num >= Float(percentSuccess)) {
             return true
         } else {
             return false
@@ -155,6 +136,7 @@ class bargainGame: CCNode {
             
         }
     }
+    
     
     private func processBid(bid : Float, isCounter : Bool) {
         var text = "Bid Accepted"
@@ -237,11 +219,9 @@ class bargainGame: CCNode {
     }
     
     func displayPopUp() {
-        
         if let popUp = getChildByName("popUp", recursively: false){
             popUp.visible = true
         }
-        
     }
     
     func subtractAustinTime() {
@@ -327,10 +307,10 @@ class bargainGame: CCNode {
     func prepareSound(filename:String) {
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"aif")
         let fileURL = NSURL(fileURLWithPath: path!)
-        player? = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
-        player?.volume = 1.5
-        player?.prepareToPlay()
-        player?.play()
+        player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        player.volume = 1.5
+        player.prepareToPlay()
+        player.play()
     }
     
     override func update(delta: CCTime) {

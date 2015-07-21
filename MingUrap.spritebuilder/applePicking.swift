@@ -45,6 +45,7 @@ class applePicking: CCNode {
     static var applesPicked = 0
     static var locations = Set<Distance>()
     private weak var applesOnTree : CCPhysicsNode? = nil
+    private var firstAppleTapped = false
     
     
      func didLoadFromCCB() {
@@ -57,7 +58,7 @@ class applePicking: CCNode {
             tapApples.visible = true
         }
         applePicking.applesPicked = 0
-        setupAppleTimer()
+        
         
     }
     //Sets up apple-picking timer to 30 seconds
@@ -152,6 +153,11 @@ class applePicking: CCNode {
     private var valid = false
 
     override func update(delta: CCTime) {
+        
+        if (!firstAppleTapped && applePicking.applesPicked > 0) {
+            setupAppleTimer()
+            firstAppleTapped = true
+        }
         if let applePickedLabel = getChildByName("applePickedLabel", recursively: false) as? CCLabelTTF {
             applePickedLabel.string = "Apples Picked: \(applePicking.applesPicked)"
         }

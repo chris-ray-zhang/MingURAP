@@ -17,7 +17,7 @@ class PopUp: CCNode {
     func didLoadFromCCB() {
         totalAmount = decideNumApples() * pricePerApple
         bargainGame.curGold = Double(totalAmount)
-        text = ["Great job! You picked \(applePicking.applesPicked) apples.", "Your neighbor, Austin, has flour from his mill. We’ll need some to make apple pies.", "Austin: \"Hi there! I have bags of flour, so using your apples, we can make \(decideNumApples()) pies and sell them for \(totalAmount) gold.\"", "Austin: \"Not so fast though. Let’s decide how we’ll split the \(totalAmount) gold first.\"", "Make an offer to Austin. Each offer takes time, causing some apples and 10% of the total earnings to spoil! Initial Amount: \(totalAmount)"]
+        text = ["Great job! You picked \(applePicking.applesPicked) apples.", "Your neighbor, Austin, has flour from his mill. We’ll need some to make apple pies.", "Austin: \"Hi there! I have bags of flour, so using your apples, we can make \(decideNumApples()) pies and sell them for \(totalAmount) gold.\"", "Austin: \"Not so fast though. Let’s decide how we’ll split the \(totalAmount) gold first.\"", "Make an offer to Austin. Each offer takes time, causing some apples and 10% of the total earnings to spoil!"]
         userInteractionEnabled = true
         
         visible = true

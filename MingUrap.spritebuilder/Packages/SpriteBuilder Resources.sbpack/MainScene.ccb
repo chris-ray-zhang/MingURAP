@@ -725,7 +725,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>141.81883239746094</real>
+							<real>132.5</real>
 							<real>521.00006103515625</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -782,7 +782,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>30</real>
+							<real>25</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -912,6 +912,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2334,8 +2336,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
