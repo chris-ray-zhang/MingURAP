@@ -28,6 +28,7 @@ class bargainGame: CCNode {
     private var counterOfferObjectsVisible = false
     private var numExchanges = 0
     private var austinTime = 0
+    private var hasRejected = false;
     private var austinTimer = NSTimer()
     var moviePlayer : MPMoviePlayerController?
     var player: AVAudioPlayer! = nil
@@ -228,6 +229,13 @@ class bargainGame: CCNode {
         austinTime--
         if let austinTimeLeft = getChildByName("title", recursively: false) as? CCLabelTTF {
             austinTimeLeft.string = "Austin's Thinking: \(austinTime)"
+        }
+        if (hasRejected == false && austinTime < 2) {
+            hasRejected = true
+            austinTime = 1
+            if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
+                title.string = "Apples have gone bad"
+            }
         }
         if (austinTime == 0) {
             austinTimer.invalidate()
