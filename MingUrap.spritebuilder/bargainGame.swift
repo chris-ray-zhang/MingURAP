@@ -64,13 +64,13 @@ class bargainGame: CCNode {
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if (moviePlayer?.playbackState == MPMoviePlaybackState.Playing) {
-            println("touching")
+            
             completeDeal?.visible = true
             moviePlayer?.view.removeFromSuperview()
             moviePlayer?.stop()
             myLabel!.removeFromSuperview()
         } else {
-            println("something went wrong")
+            
         }
         
     }
@@ -78,7 +78,7 @@ class bargainGame: CCNode {
     
     /* Credit to http://stackoverflow.com/questions/25348877/how-to-play-a-local-video-with-swift */
     private func playVideo(filename:String) {
-        println("playing video")
+        
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"mov")
         let url = NSURL(fileURLWithPath: path!)
         moviePlayer = MPMoviePlayerController(contentURL: url)
@@ -157,7 +157,6 @@ class bargainGame: CCNode {
                 earningsLabel.string = "You Earned $" + earnings.description
             }
             completeDeal?.visible = true
-            println("processing bid before video")
             playVideo("pieStand")
             moviePlayer?.play()
         }
