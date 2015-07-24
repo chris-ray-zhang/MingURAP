@@ -316,12 +316,17 @@ class bargainGame: CCNode {
     
     //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
     func prepareSound(filename:String) {
+        /*
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"aif")
         let fileURL = NSURL(fileURLWithPath: path!)
         player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
         player.volume = 1.5
         player.prepareToPlay()
         player.play()
+        */
+        let audio = OALSimpleAudio.sharedInstance()
+        audio.playEffect("\(filename)", volume: 1.5, pitch: 1.0, pan: 0.0, loop: false)
+        
     }
     
     override func update(delta: CCTime) {

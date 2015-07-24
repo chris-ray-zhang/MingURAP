@@ -53,13 +53,13 @@
 	<key>publishResolution_android_tablethd</key>
 	<true/>
 	<key>publishResolution_ios_phone</key>
-	<true/>
+	<false/>
 	<key>publishResolution_ios_phonehd</key>
 	<true/>
 	<key>publishResolution_ios_tablet</key>
-	<true/>
+	<false/>
 	<key>publishResolution_ios_tablethd</key>
-	<true/>
+	<false/>
 	<key>publishToZipFile</key>
 	<false/>
 	<key>resourceAutoScaleFactor</key>
@@ -91,11 +91,7 @@
 		<dict/>
 		<key>ccbResources/Farm_Game_Asset_Purchase_Screen_Background-01.png</key>
 		<dict/>
-		<key>ccbResources/achievements_bar.png</key>
-		<dict/>
 		<key>ccbResources/background.png</key>
-		<dict/>
-		<key>ccbResources/buy_chicken.png</key>
 		<dict/>
 		<key>ccbResources/ccbButtonHighlighted.png</key>
 		<dict>
@@ -155,9 +151,20 @@
 			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>
+		<key>ccbResources/mainSceneResources</key>
+		<dict>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+			<key>trimSprites</key>
+			<true/>
+		</dict>
 		<key>ccbResources/table.png</key>
 		<dict/>
-		<key>ccbResources/you_avatar.png</key>
+		<key>ccbResources/tryAgain/achievements_bar.png</key>
+		<dict/>
+		<key>ccbResources/tryAgain/buy_chicken.png</key>
+		<dict/>
+		<key>ccbResources/tryAgain/you_avatar.png</key>
 		<dict/>
 	</dict>
 	<key>versionStr</key>

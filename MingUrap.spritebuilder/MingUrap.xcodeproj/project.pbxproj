@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C23DA951B436D7D0070638A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C23DA941B436D7D0070638A /* libsqlite3.dylib */; };
 		4C7A7B531B3A36680016E7BD /* MingUrap_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDEA1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift */; };
 		556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D03571AFAC85F00ED6F84 /* PopUp.swift */; };
 		55D50E2A1ADF1AAB005D9C53 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D50E291ADF1AAB005D9C53 /* ActionButton.swift */; };
@@ -300,7 +299,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C23DA951B436D7D0070638A /* libsqlite3.dylib in Frameworks */,
 				BDDBF0691B2624BA007093E2 /* MediaPlayer.framework in Frameworks */,
 				7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
@@ -1252,6 +1250,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1288,6 +1287,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;

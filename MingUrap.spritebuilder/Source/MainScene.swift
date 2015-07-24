@@ -66,27 +66,21 @@ class MainScene: CCNode {
     
     //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
     func prepareSound(nameOfFile: String) {
+        /*
         let path = NSBundle.mainBundle().pathForResource(nameOfFile, ofType:"aif")
         let fileURL = NSURL(fileURLWithPath: path!)
         player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
         player.prepareToPlay()
         player.play()
+        */
+        let audio = OALSimpleAudio.sharedInstance()
+        audio.playEffect("\(nameOfFile).aif")
     }
     
     
     func quests() {
-        /*
-        CCDirector.sharedDirector().purgeCachedData()
-        removeAllChildrenWithCleanup(true)
-        var currentScene = CCDirector.sharedDirector().runningScene
-        currentScene = nil
-        */
-        
-        
         var qList = CCBReader.loadAsScene("questList")
         CCDirector.sharedDirector().replaceScene(qList)
-        qList = nil
-        CCDirector.sharedDirector().purgeCachedData()
         
     }
     

@@ -93,21 +93,6 @@ class applePicking: CCNode {
     }
     
     
-    
-    override func onExit() {
-
-        /*
-        var currentScene = CCDirector.sharedDirector().runningScene
-        currentScene = nil
-
-
-
-        CCDirector.sharedDirector().purgeCachedData()
-        */
-        removeAllChildrenWithCleanup(true)
-
-
-    }
 
     /**
         Function that draws a new apple at a random location.
@@ -169,52 +154,7 @@ class applePicking: CCNode {
         if (applePicking.applesLeft <= 5) {
             partialResetImages()
         }
-        /*
-        if regenerating {
-            if ((Double)(tempTimer - appleTime) * 2 >= 0.1) {
-                tempTimer = appleTime
-                var newLocation = locations.removeFirst()
-                drawApple(newLocation.x, y: newLocation.y)
-            }
-            if (locations.isEmpty) {
-                regenerating = false
-            }
-        }
-        */
-        // Code regenerates apples when there are none left.
-        // Tries to make sure apples are not too close to each other by using distance structure
-        /*
-        if applePicking.applesLeft == 0 && !regenerating {
-            regenerating = true
-            valid = true
-            // 6 should allow apples to generate faster
-            while (locations.count < 6) {
-                var xcord = (CGFloat) (randomInt(55, max: 270))
-                var ycord = (CGFloat) (randomInt(270, max: 390))
-                var potential = Distance(x: xcord, y: ycord)
-                for distance in locations {
-                    if (!distance.validLocation(potential)) {
-                        valid = false
-                    }
-                }
-                if valid {
-                    locations.insert(potential)
-                }
-            }
-        }
-        */
-        /** OLD CODE that generated apples differently **/
-        // Every time a new apple is spawned, tempTimer is set to current appleTime so that a new apple
-        // spawns at most every half sectond.
-        /*
-        if ((tempTimer - appleTime) * 2 >= 1) {
-            if (applePicking.applesLeft <= 5) {
-                partialResetImages()
-                tempTimer = appleTime
-            }
-        }
-        */
-        
+                
         
     }
     

@@ -35,6 +35,11 @@ class apple: CCNode, CCPhysicsCollisionDelegate {
         player.currentTime = 0.5
         player.prepareToPlay()
         player.play()
+
+        /*
+        let audio = OALSimpleAudio.sharedInstance()
+        audio.playEffect("appleGrab.aif")
+        */
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {

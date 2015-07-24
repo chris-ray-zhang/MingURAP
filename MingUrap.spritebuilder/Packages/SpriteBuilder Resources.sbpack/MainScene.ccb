@@ -146,6 +146,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -486,6 +488,8 @@
 				<string></string>
 				<key>displayName</key>
 				<string>you_avatar</string>
+				<key>locked</key>
+				<true/>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -546,7 +550,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/you_avatar.png</string>
+							<string>ccbResources/mainSceneResources/you_avatar.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -656,7 +660,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/achievements_bar.png</string>
+							<string>ccbResources/mainSceneResources/achievements_bar.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -704,6 +708,8 @@
 				<string></string>
 				<key>displayName</key>
 				<string>assets</string>
+				<key>locked</key>
+				<true/>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -912,8 +918,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -926,8 +930,6 @@
 				<string></string>
 				<key>displayName</key>
 				<string>quest_button</string>
-				<key>locked</key>
-				<true/>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -988,7 +990,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/quest_button.png</string>
+							<string>ccbResources/mainSceneResources/quest_button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1036,8 +1038,6 @@
 				<string></string>
 				<key>displayName</key>
 				<string>buyChicken</string>
-				<key>locked</key>
-				<true/>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -2410,7 +2410,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/buy_chicken.png</string>
+							<string>ccbResources/mainSceneResources/buy_chicken.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2421,7 +2421,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string></string>
+							<string>ccbResources/mainSceneResources/buy_chicken.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2520,7 +2520,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/buy_cow.png</string>
+							<string>ccbResources/mainSceneResources/buy_cow.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2630,7 +2630,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/buy_tower.png</string>
+							<string>ccbResources/mainSceneResources/buy_tower.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2740,7 +2740,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/buy_tractor.png</string>
+							<string>ccbResources/mainSceneResources/buy_tractor.png</string>
 						</array>
 					</dict>
 					<dict>
