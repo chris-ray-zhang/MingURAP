@@ -1,6 +1,7 @@
 import Foundation
 import MediaPlayer
 import AVFoundation
+import Parse
 
 
 
@@ -20,6 +21,11 @@ class MainScene: CCNode {
     
     func didLoadFromCCB() {
         prepareSound("chime")
+        let testObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            println("Object has been saved.")
+        }
     }
     
     func buyChicken() {
