@@ -26,6 +26,7 @@ class MainScene: CCNode {
         testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             println("Object has been saved.")
         }
+
     }
     
     func buyChicken() {

@@ -21,7 +21,7 @@ class PopUp: CCNode {
         userInteractionEnabled = true
         
         visible = true
-        
+        PopUp.curText = 0
         setLabelText()
 
     }
@@ -45,14 +45,18 @@ class PopUp: CCNode {
     }
     
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        if PopUp.curText > 5 {
-            self.visible = false
+        if PopUp.curText < 5 {
+            self.setLabelText()
+            /*
+            
+
             if let label = getChildByName("label", recursively: false) as? CCLabelTTF {
                 label.string = "There are now \(Int(bargainGame.curGold)) gold coins"
             }
+            */
             
         } else {
-            setLabelText()
+            self.visible = false
             /*
             self.removeFromParentAndCleanup(true)
             */
@@ -63,14 +67,6 @@ class PopUp: CCNode {
         
     }
     
-    override func update(delta: CCTime) {
-        if PopUp.curText > 5 {
-            if let label = getChildByName("label", recursively: false) as? CCLabelTTF {
-                label.string = "There are now \(Int(bargainGame.curGold)) gold coins"
-            }
-            
-        }
-    }
     
     
 }

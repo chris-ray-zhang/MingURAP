@@ -126,8 +126,10 @@ class applePicking: CCNode {
     
     func drawApple(x: CGFloat, y: CGFloat) {
         let newApple:CCNode = CCBReader.load("apple")
+        
         newApple.scaleX = 0.5
         newApple.scaleY = 0.5
+        
         newApple.position = ccp(x,y)
         applesOnTree!.addChild(newApple)
         applePicking.applesLeft++
@@ -151,9 +153,11 @@ class applePicking: CCNode {
                 tapApples.visible = false
             }
         }
-        if (applePicking.applesLeft <= 5) {
+        
+        if (applePicking.applesLeft <= 2) {
             partialResetImages()
         }
+        
                 
         
     }

@@ -222,11 +222,7 @@ class bargainGame: CCNode {
         austinTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractAustinTime"), userInfo: nil, repeats: true)
     }
     
-    func displayPopUp() {
-        if let popUp = getChildByName("popUp", recursively: false){
-            popUp.visible = true
-        }
-    }
+   
     
     func subtractAustinTime() {
         austinTime--
@@ -244,7 +240,6 @@ class bargainGame: CCNode {
             austinTimer.invalidate()
             prepareSound("lossOfCoins")
             self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
-            self.scheduleOnce(Selector("displayPopUp"), delay: 1.5)
             counterOfferValue()
             
             if let belowTitle = getChildByName("belowTitle", recursively: false) as? CCLabelTTF {
@@ -316,16 +311,17 @@ class bargainGame: CCNode {
     
     //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
     func prepareSound(filename:String) {
-        /*
+        
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"aif")
         let fileURL = NSURL(fileURLWithPath: path!)
         player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
         player.volume = 1.5
         player.prepareToPlay()
         player.play()
-        */
+        /*
         let audio = OALSimpleAudio.sharedInstance()
-        audio.playEffect("\(filename)", volume: 1.5, pitch: 1.0, pan: 0.0, loop: false)
+        audio.playEffect("\(filename)", volume: 1.5, pitch: 1.0, pan: 0.0, loop: false) 
+        */
         
     }
     
