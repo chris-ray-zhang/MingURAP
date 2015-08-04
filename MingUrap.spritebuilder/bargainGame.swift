@@ -53,7 +53,8 @@ class bargainGame: CCNode {
     //Replaces current scene with Dashboard and adds earnings from bargaining game to DashBoard
     func complete() {
         var mainScene = CCBReader.loadAsScene("MainScene")
-        CCDirector.sharedDirector().replaceScene(mainScene)
+        var transition = CCTransition(moveInWithDirection: CCTransitionDirection.Down, duration: 1.0)
+        CCDirector.sharedDirector().replaceScene(mainScene, withTransition: transition)
         MainScene.totalAssets += earnings
     }
     
@@ -64,7 +65,6 @@ class bargainGame: CCNode {
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if (moviePlayer?.playbackState == MPMoviePlaybackState.Playing) {
-            
             completeDeal?.visible = true
             moviePlayer?.view.removeFromSuperview()
             moviePlayer?.stop()
@@ -122,10 +122,19 @@ class bargainGame: CCNode {
         let newCoinStack = "coinStack" + numOffers.description
         if (numOffers < 7) {
             if let oldCS = getChildByName(oldCoinStack, recursively: false) as? CCSprite {
+                let fadeOut: CCActionFadeOut = CCActionFadeOut.actionWithDuration(0.5) as! CCActionFadeOut
+                oldCS.runAction(fadeOut)
+                
+                /*
                 oldCS.visible = false
+                */
             }
             if let newCS = getChildByName(newCoinStack, recursively: false) as? CCSprite {
                 newCS.visible = true
+                let fadeIn: CCActionFadeIn = CCActionFadeIn.actionWithDuration(0.5) as! CCActionFadeIn
+                newCS.runAction(fadeIn)
+                
+                //newCS.visible = true
             }
         }
         

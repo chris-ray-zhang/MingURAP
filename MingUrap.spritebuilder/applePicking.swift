@@ -73,8 +73,15 @@ class applePicking: CCNode {
     
     func subtractAppleTime() {
         appleTime--
-        if let appleTimeLeft = getChildByName("appleTimeLeft", recursively: false) as? CCLabelTTF {
-            appleTimeLeft.string = "Time Left: \(appleTime)"
+        if (appleTime != 0 && appleTime < 6) {
+            if let appleTimeLeft = getChildByName("appleTimeLeft", recursively: false) as? CCLabelTTF {
+                appleTimeLeft.fontSize = 45.0
+                appleTimeLeft.string = "\(appleTime)"
+            }
+        } else {
+            if let appleTimeLeft = getChildByName("appleTimeLeft", recursively: false) as? CCLabelTTF {
+                appleTimeLeft.string = "Time Left: \(appleTime)"
+            }
         }
         if (appleTime == 0) {
             
@@ -85,11 +92,12 @@ class applePicking: CCNode {
             }
             
             var applePickingSummary = CCBReader.loadAsScene("applePickingSummary")
-            CCDirector.sharedDirector().replaceScene(applePickingSummary)
-            applePickingSummary = nil
-
+            var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+            CCDirector.sharedDirector().replaceScene(applePickingSummary, withTransition: crossFade)
             
         }
+        
+        
     }
     
     

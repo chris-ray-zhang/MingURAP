@@ -29,32 +29,19 @@ class applePickingSummary: CCNode {
     }
     
     
-    override func onExit() {
-        /*
-        CCDirector.sharedDirector().purgeCachedData()
-        */
-    }
-    
-    
     //Re-starts apple-picking game
     func pickAgain() {
         let applePicking = CCBReader.loadAsScene("applePicking")
-        CCDirector.sharedDirector().replaceScene(applePicking)
+        var directionalSceneTransition = CCTransition(pushWithDirection: CCTransitionDirection.Left, duration: 0.5)
+        CCDirector.sharedDirector().replaceScene(applePicking, withTransition: directionalSceneTransition)
     }
     
     //Replaces current scene with bargaining game
     func goToBargainGame() {
-        
-        
         var bargainGame = CCBReader.loadAsScene("bargainGame")
-        CCDirector.sharedDirector().replaceScene(bargainGame)
-        bargainGame = nil
+        var revealTransition = CCTransition(revealWithDirection: CCTransitionDirection.Up, duration: 1.0)
+        CCDirector.sharedDirector().replaceScene(bargainGame, withTransition: revealTransition)
         
-        /*
-        var currentScene = CCDirector.sharedDirector().runningScene
-        removeAllChildrenWithCleanup(true)
-        currentScene = nil
-        */
     }
    
 }

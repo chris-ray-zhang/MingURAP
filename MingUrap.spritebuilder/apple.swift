@@ -50,6 +50,7 @@ class apple: CCNode, CCPhysicsCollisionDelegate {
             prepareSound()
             physicsBody.type = CCPhysicsBodyType.Dynamic
             physicsBody.affectedByGravity = true
+            physicsBody.applyImpulse(CGPoint(x: 0, y: -100))
             applePicking.applesPicked++
             applePicking.applesLeft--
             hasBeenCollected = true
