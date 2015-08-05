@@ -109,6 +109,7 @@ class bargainGame: CCNode {
     
     
     private func acceptBid(num : Float) -> Bool {
+        //num >= Float(percentSuccess
         if (num >= Float(percentSuccess)) {
             return true
         } else {
@@ -143,7 +144,7 @@ class bargainGame: CCNode {
     func makeOfferTapped() {
         if !gameOver || bargainGame.curGold < 1 {
             if let slider = offerObjects?.getChildByName("slider", recursively: false) as? CCSlider {
-                processBid(slider.sliderValue, isCounter: false)
+                processBid(1 - slider.sliderValue, isCounter: false)
             }
             attemptCounterOffer()
             
@@ -259,25 +260,25 @@ class bargainGame: CCNode {
                 title.string = "Austin REJECTS"
             }
             
-            if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
-                labelPerc1.visible = true
-                labelPerc1.string = Int(ceil(Double(aiCounterOffer)/100 * 100)).description + "%"
+            if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
+                labelPerc2.visible = true
+                labelPerc2.string = Int(ceil(Double(aiCounterOffer)/100 * 100)).description + "%"
                 
             }
             
-            if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
-                labelPerc2.visible = true
-                labelPerc2.string = Int(floor((1 - Double(aiCounterOffer)/100) * 100)).description + "%"
-            }
-            
-            if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
-                numCoinsYou.visible = true
-                numCoinsYou.string = String(stringInterpolationSegment: Int(bargainGame.curGold) - Int(bargainGame.curGold * Double(aiCounterOffer)/100))
+            if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
+                labelPerc1.visible = true
+                labelPerc1.string = Int(floor((1 - Double(aiCounterOffer)/100) * 100)).description + "%"
             }
             
             if let numCoinsAustin = getChildByName("numCoinsAustin", recursively: false) as? CCLabelTTF {
                 numCoinsAustin.visible = true
-                numCoinsAustin.string = String(stringInterpolationSegment: Int(bargainGame.curGold * Double(aiCounterOffer)/100))
+                numCoinsAustin.string = String(stringInterpolationSegment: Int(bargainGame.curGold) - Int(bargainGame.curGold * Double(aiCounterOffer)/100))
+            }
+            
+            if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
+                numCoinsYou.visible = true
+                numCoinsYou.string = String(stringInterpolationSegment: Int(bargainGame.curGold * Double(aiCounterOffer)/100))
             }
             showCounterOffer()
         }
@@ -336,21 +337,21 @@ class bargainGame: CCNode {
     
     override func update(delta: CCTime) {
         if (!gameOver && !counterOfferObjectsVisible ) {
-            if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
-                labelPerc1.string = Int(ceil(slider!.sliderValue * 100)).description + "%"
-            }
-            
             if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
-                labelPerc2.string = Int(floor((1 - slider!.sliderValue) * 100)).description + "%"
+                labelPerc2.string = Int(ceil(slider!.sliderValue * 100)).description + "%"
             }
             
-            
-            if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
-                numCoinsYou.string = String(stringInterpolationSegment: Int(bargainGame.curGold) - Int(Float(bargainGame.curGold) * slider!.sliderValue))
+            if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
+                labelPerc1.string = Int(floor((1 - slider!.sliderValue) * 100)).description + "%"
             }
+            
             
             if let numCoinsAustin = getChildByName("numCoinsAustin", recursively: false) as? CCLabelTTF {
-                numCoinsAustin.string = String(stringInterpolationSegment: Int(Float(bargainGame.curGold) * slider!.sliderValue))
+                numCoinsAustin.string = String(stringInterpolationSegment: Int(bargainGame.curGold) - Int(Float(bargainGame.curGold) * slider!.sliderValue))
+            }
+            
+            if let numCoinsYou = getChildByName("numCoinsYou", recursively: false) as? CCLabelTTF {
+                numCoinsYou.string = String(stringInterpolationSegment: Int(Float(bargainGame.curGold) * slider!.sliderValue))
             }
             
         }
