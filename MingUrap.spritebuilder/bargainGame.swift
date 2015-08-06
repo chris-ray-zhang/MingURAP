@@ -53,8 +53,8 @@ class bargainGame: CCNode {
     //Replaces current scene with Dashboard and adds earnings from bargaining game to DashBoard
     func complete() {
         var mainScene = CCBReader.loadAsScene("MainScene")
-        var transition = CCTransition(moveInWithDirection: CCTransitionDirection.Down, duration: 1.0)
-        CCDirector.sharedDirector().replaceScene(mainScene, withTransition: transition)
+        var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+        CCDirector.sharedDirector().replaceScene(mainScene, withTransition: crossFade)
         MainScene.totalAssets += earnings
     }
     

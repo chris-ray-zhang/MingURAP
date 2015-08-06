@@ -32,15 +32,15 @@ class applePickingSummary: CCNode {
     //Re-starts apple-picking game
     func pickAgain() {
         let applePicking = CCBReader.loadAsScene("applePicking")
-        var directionalSceneTransition = CCTransition(pushWithDirection: CCTransitionDirection.Left, duration: 0.5)
-        CCDirector.sharedDirector().replaceScene(applePicking, withTransition: directionalSceneTransition)
+        var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+        CCDirector.sharedDirector().replaceScene(applePicking, withTransition: crossFade)
     }
     
     //Replaces current scene with bargaining game
     func goToBargainGame() {
         var bargainGame = CCBReader.loadAsScene("bargainGame")
-        var revealTransition = CCTransition(revealWithDirection: CCTransitionDirection.Up, duration: 1.0)
-        CCDirector.sharedDirector().replaceScene(bargainGame, withTransition: revealTransition)
+        var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+        CCDirector.sharedDirector().replaceScene(bargainGame, withTransition: crossFade)
         
     }
    

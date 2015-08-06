@@ -100,7 +100,8 @@ class MainScene: CCNode {
     
     func quests() {
         var qList = CCBReader.loadAsScene("questList")
-        CCDirector.sharedDirector().replaceScene(qList)
+        var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+        CCDirector.sharedDirector().replaceScene(qList, withTransition: crossFade)
         
     }
     
