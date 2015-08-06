@@ -60,17 +60,22 @@ class bargainGame: CCNode {
     
     
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        
+        if (moviePlayer?.playbackState == MPMoviePlaybackState.Playing) {
+            moviePlayer?.view.removeFromSuperview()
+            moviePlayer?.stop()
+            myLabel!.removeFromSuperview()
+        }
+
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if (moviePlayer?.playbackState == MPMoviePlaybackState.Playing) {
             completeDeal?.visible = true
+            /*
             moviePlayer?.view.removeFromSuperview()
             moviePlayer?.stop()
             myLabel!.removeFromSuperview()
-        } else {
-            
+            */
         }
         
     }
@@ -78,7 +83,6 @@ class bargainGame: CCNode {
     
     /* Credit to http://stackoverflow.com/questions/25348877/how-to-play-a-local-video-with-swift */
     private func playVideo(filename:String) {
-        
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"mov")
         let url = NSURL(fileURLWithPath: path!)
         moviePlayer = MPMoviePlayerController(contentURL: url)
@@ -95,8 +99,6 @@ class bargainGame: CCNode {
         myLabel!.text = "Tap to Skip Video"
         CCDirector.sharedDirector().view.addSubview(myLabel!)
         moviePlayer?.prepareToPlay()
-        
-
     }
     
     
@@ -125,17 +127,11 @@ class bargainGame: CCNode {
             if let oldCS = getChildByName(oldCoinStack, recursively: false) as? CCSprite {
                 let fadeOut: CCActionFadeOut = CCActionFadeOut.actionWithDuration(0.5) as! CCActionFadeOut
                 oldCS.runAction(fadeOut)
-                
-                /*
-                oldCS.visible = false
-                */
             }
             if let newCS = getChildByName(newCoinStack, recursively: false) as? CCSprite {
                 newCS.visible = true
                 let fadeIn: CCActionFadeIn = CCActionFadeIn.actionWithDuration(0.5) as! CCActionFadeIn
                 newCS.runAction(fadeIn)
-                
-                //newCS.visible = true
             }
         }
         
@@ -159,25 +155,43 @@ class bargainGame: CCNode {
             text = "Bid Denied"
             bargainGame.curGold = bargainGame.curGold * reductionPerRound
             goldRemainingText = "Gold remaining: " + String(Int(bargainGame.curGold))
+            if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
+                title.string = text
+            }
         } else {
             prepareSound("coinNoises")
+            removeControls()
             gameOver = true
             earnings = Int(bargainGame.curGold) - Int(bid * Float(bargainGame.curGold))
-            if let earningsLabel = completeDeal?.getChildByName("earningsLabel", recursively: false) as? CCLabelTTF {
-                earningsLabel.string = "You Earned $" + earnings.description
+            if let belowTitle = getChildByName("belowTitle", recursively: false) as? CCLabelTTF {
+                belowTitle.string = "Split is \(Int(ceil(bid * 100))) / \(Int(floor((1 - bid) * 100)))"
             }
-            completeDeal?.visible = true
-            playVideo("pieStand")
-            moviePlayer?.play()
+            if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
+                title.string = "A Deal was Struck!"
+            }
+            if let dealStruck = getChildByName("dealStruck", recursively: false) as? CCButton {
+                dealStruck.visible = true
+            }
+            
         }
         
-        if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
-            title.string = text
-        }
+        
         
         if let goldRemaining = getChildByName("goldRemaining", recursively: false) as? CCLabelTTF {
             goldRemaining.string = goldRemainingText
         }
+    }
+    
+    func dealStruck() {
+        if let dealStruck = getChildByName("dealStruck", recursively: false) as? CCButton {
+            dealStruck.visible = false
+        }
+        if let earningsLabel = completeDeal?.getChildByName("earningsLabel", recursively: false) as? CCLabelTTF {
+            earningsLabel.string = "You Earned $" + earnings.description
+        }
+        completeDeal?.visible = true
+        playVideo("pieStand")
+        moviePlayer?.play()
     }
     
     func showOffer() {
@@ -223,9 +237,9 @@ class bargainGame: CCNode {
         //return aiCounterOffer +
     }
     
-    //Sets up Austin's timer to 5 seconds
+    //Sets up Austin's timer to 3 seconds
     func setupAustinTimer() {
-        austinTime = 5
+        austinTime = 3
         if let austinTimeLeft = getChildByName("title", recursively: false) as? CCLabelTTF {
             austinTimeLeft.string = "Austin's Thinking: \(austinTime)"
         }
@@ -248,16 +262,13 @@ class bargainGame: CCNode {
         }
         if (austinTime == 0) {
             austinTimer.invalidate()
-            prepareSound("lossOfCoins")
-            self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
             counterOfferValue()
             
             if let belowTitle = getChildByName("belowTitle", recursively: false) as? CCLabelTTF {
-                belowTitle.string = "He wants " + aiCounterOffer.description + "%."
+                belowTitle.string = ""
             }
-            
             if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
-                title.string = "Austin REJECTS"
+                title.string = "He wants " + aiCounterOffer.description + "%."
             }
             
             if let labelPerc2 = getChildByName("labelPerc2", recursively: false) as? CCLabelTTF {
@@ -287,7 +298,13 @@ class bargainGame: CCNode {
     func attemptCounterOffer() {
         if (!gameOver) {
             removeControls()
-            setupAustinTimer()
+            if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
+                title.string = "Austin REJECTS"
+            }
+            prepareSound("lossOfCoins")
+            self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
+            self.scheduleOnce(Selector("setupAustinTimer"), delay: 3.0)
+            //setupAustinTimer()
         }
     }
     
@@ -321,7 +338,6 @@ class bargainGame: CCNode {
     
     //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
     func prepareSound(filename:String) {
-        
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"aif")
         let fileURL = NSURL(fileURLWithPath: path!)
         player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
