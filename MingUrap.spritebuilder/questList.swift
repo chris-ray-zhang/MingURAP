@@ -13,23 +13,25 @@ class questList: CCNode {
     //Replaces current scene with apple-picking game
     func applePie() {
         let applePicking = CCBReader.loadAsScene("applePicking")
-        CCDirector.sharedDirector().replaceScene(applePicking)
+        var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+        CCDirector.sharedDirector().replaceScene(applePicking, withTransition: crossFade)
         
         
     }
     
     //Replaces current scene with DashBoard
     func returnToDashboard() {
-        CCDirector.sharedDirector().purgeCachedData()
         let mainScene = CCBReader.loadAsScene("MainScene")
-        CCDirector.sharedDirector().replaceScene(mainScene)
+        var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+        CCDirector.sharedDirector().replaceScene(mainScene, withTransition: crossFade)
     }
     
     //Shortcut for testing
     func secret() {
         applePicking.applesPicked = 1000
-        let bargainGame = CCBReader.loadAsScene("applePickingSummary")
-        CCDirector.sharedDirector().replaceScene(bargainGame)
+        let applePickingSummary = CCBReader.loadAsScene("applePickingSummary")
+        var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+        CCDirector.sharedDirector().replaceScene(applePickingSummary, withTransition: crossFade)
 
     }
     

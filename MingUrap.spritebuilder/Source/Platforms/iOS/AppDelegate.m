@@ -24,7 +24,7 @@
  */
 
 #import "cocos2d.h"
-
+#import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
 
@@ -32,6 +32,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // [Optional] Power your app with Local Datastore. For more info, go to
+    // https://parse.com/docs/ios_guide#localdatastore/iOS
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"rDR8EM9XQmeIiVpZjiUGjt6xTi3BUhcc5wzcAock"
+                  clientKey:@"OaNswzoCcBLmUS74jZWOWtLWGaKYqh5Gtquk2WlH"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     // Configure Cocos2d with the options set in SpriteBuilder
     NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"]; // TODO: add support for Published-Android support
     configPath = [configPath stringByAppendingPathComponent:@"configCocos2d.plist"];

@@ -1,25 +1,33 @@
 import Foundation
 import MediaPlayer
 import AVFoundation
+import Parse
 
 
 
 class MainScene: CCNode {
     
-    static var totalAssets = 0
+    static var totalAssets = 100
     
     private var chickenCost = -200
     private var cowCost = -2400
     private var tractorCost = -6000
     private var waterTowerCost = -10000
-    private var chickenCounter = 1
-    private var cowCounter = 1
-    private var tractorCounter = 1
-    private var waterTowerCounter = 1
+    private var chickenCounter = 0
+    private var cowCounter = 0
+    private var tractorCounter = 0
+    private var waterTowerCounter = 0
     private var player: AVAudioPlayer! = nil
     
     func didLoadFromCCB() {
         prepareSound("chime")
+        /*
+        let testObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            println("Object has been saved.")
+        }
+        */
     }
     
     func buyChicken() {
@@ -27,6 +35,9 @@ class MainScene: CCNode {
             prepareSound("chicken")
             updateTotalAssets(chickenCost)
             chickenCounter++
+            if let numChicken = getChildByName("numChicken", recursively: false) as? CCLabelTTF {
+                numChicken.string = chickenCounter.description
+            }
         }
         
     }
@@ -36,6 +47,9 @@ class MainScene: CCNode {
             prepareSound("cowMoo")
             updateTotalAssets(cowCost)
             cowCounter++
+            if let numCow = getChildByName("numCow", recursively: false) as? CCLabelTTF {
+                numCow.string = cowCounter.description
+            }
         }
         
     }
@@ -44,6 +58,9 @@ class MainScene: CCNode {
         if (MainScene.totalAssets + tractorCost >= 0) {
             updateTotalAssets(tractorCost)
             tractorCounter++
+            if let numTractor = getChildByName("numTractor", recursively: false) as? CCLabelTTF {
+                numTractor.string = tractorCounter.description
+            }
         }
         
     }
@@ -52,6 +69,9 @@ class MainScene: CCNode {
         if (MainScene.totalAssets + waterTowerCost >= 0) {
             updateTotalAssets(waterTowerCost)
             waterTowerCounter++
+            if let numWaterTower = getChildByName("numWaterTower", recursively: false) as? CCLabelTTF {
+                numWaterTower.string = waterTowerCounter.description
+            }
         }
     }
     
@@ -80,7 +100,8 @@ class MainScene: CCNode {
     
     func quests() {
         var qList = CCBReader.loadAsScene("questList")
-        CCDirector.sharedDirector().replaceScene(qList)
+        var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+        CCDirector.sharedDirector().replaceScene(qList, withTransition: crossFade)
         
     }
     

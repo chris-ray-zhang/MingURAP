@@ -96,8 +96,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>0.85000002384185791</real>
+							<real>0.85000002384185791</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -110,7 +110,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/plain-apple.png</string>
+							<string>ccbResources/real_apple.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -171,7 +171,7 @@
 			<key>collisionType</key>
 			<string></string>
 			<key>cornerRadius</key>
-			<real>25</real>
+			<real>37</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
@@ -183,8 +183,8 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>25</real>
-					<real>25</real>
+					<real>24.656280517578125</real>
+					<real>20.937530517578125</real>
 				</array>
 			</array>
 			<key>polygons</key>
