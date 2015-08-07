@@ -28,9 +28,9 @@ class MainScene: CCNode {
             println("Object has been saved.")
         }
         */
-        var totalAssets = PFObject(className:"GameScore")
-        totalAssets["money"] = totalAssets
-        totalAssets.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+        let totalMoney = PFObject(className:"totalMoney")
+        totalMoney["money"] = MainScene.totalAssets
+        totalMoney.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if (success) {
                 // The object has been saved.
             } else {
