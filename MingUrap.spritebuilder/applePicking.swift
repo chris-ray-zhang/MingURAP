@@ -47,6 +47,7 @@ class applePicking: CCNode {
     private weak var applesOnTree : CCPhysicsNode? = nil
     private var firstAppleTapped = false
     private var audio: OALSimpleAudio! = nil
+    static var isMusicPlaying = true
     
     
      func didLoadFromCCB() {
@@ -102,7 +103,19 @@ class applePicking: CCNode {
     }
     
     func mute() {
-        audio.effectsMuted = true
+        if (applePicking.isMusicPlaying) {
+            if let mute = getChildByName("mute", recursively: false) as? CCButton {
+                mute.title = "Unmute"
+            }
+            audio.effectsMuted = true
+        } else {
+            if let mute = getChildByName("mute", recursively: false) as? CCButton {
+                mute.title = "Mute"
+            }
+            audio.effectsMuted = false
+        }
+        applePicking.isMusicPlaying = !applePicking.isMusicPlaying
+        
     }
     
     func setUpMusic() {

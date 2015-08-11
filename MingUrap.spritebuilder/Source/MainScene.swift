@@ -117,8 +117,6 @@ class MainScene: CCNode {
     
     
     override func update(delta: CCTime) {
-        
         updateTotalAssets(0)
-
     }
 }

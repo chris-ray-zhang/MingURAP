@@ -1822,7 +1822,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>mute</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1831,7 +1831,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>292</real>
+							<real>283</real>
 							<real>548</real>
 							<integer>0</integer>
 							<integer>0</integer>

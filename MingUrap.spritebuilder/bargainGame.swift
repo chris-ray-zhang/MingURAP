@@ -33,9 +33,15 @@ class bargainGame: CCNode {
     var moviePlayer : MPMoviePlayerController?
     var player: OALSimpleAudio! = nil
     var myLabel: UILabel?
+    var isMusicPlaying = applePicking.isMusicPlaying
     
     
     func didLoadFromCCB() {
+        if (!isMusicPlaying) {
+            if let mute = getChildByName("mute", recursively: false) as? CCButton {
+                mute.title = "Unmute"
+            }
+        }
         player = OALSimpleAudio.sharedInstance()
         player.playEffect("farmGameBargainingMusic.mp3", volume: 0.25, pitch: 1.0, pan: 0.0, loop: true)
         self.userInteractionEnabled = true
@@ -230,6 +236,9 @@ class bargainGame: CCNode {
         if let numCoinsAustin = getChildByName("numCoinsAustin", recursively: false) as? CCLabelTTF {
             numCoinsAustin.visible = false
         }
+        if let mute = getChildByName("mute", recursively: false) as? CCButton {
+            mute.visible = false
+        }
         homeButton?.visible = true
     }
     
@@ -346,7 +355,19 @@ class bargainGame: CCNode {
     }
     
     func mute() {
-        player.effectsMuted = true
+        if (isMusicPlaying) {
+            if let mute = getChildByName("mute", recursively: false) as? CCButton {
+                mute.title = "Unmute"
+            }
+            player.effectsMuted = true
+        } else {
+            if let mute = getChildByName("mute", recursively: false) as? CCButton {
+                mute.title = "Mute"
+            }
+            player.effectsMuted = false
+        }
+        isMusicPlaying = !isMusicPlaying
+        
     }
     
     //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
