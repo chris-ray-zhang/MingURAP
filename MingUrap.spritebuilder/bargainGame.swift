@@ -37,7 +37,7 @@ class bargainGame: CCNode {
     
     func didLoadFromCCB() {
         player = OALSimpleAudio.sharedInstance()
-        player.playEffect("applePickingSong.mp3", volume: 0.25, pitch: 1.0, pan: 0.0, loop: true)
+        player.playEffect("farmGameBargainingMusic.mp3", volume: 0.25, pitch: 1.0, pan: 0.0, loop: true)
         self.userInteractionEnabled = true
         offerObjects = getChildByName("offerObjects", recursively: false)
         counterOfferObjects = getChildByName("counterOfferObjects", recursively: false)
