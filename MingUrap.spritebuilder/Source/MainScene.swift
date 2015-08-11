@@ -21,6 +21,7 @@ class MainScene: CCNode {
     
     func didLoadFromCCB() {
         prepareSound("chime")
+        self.scheduleOnce(Selector("updateZeroAssets"), delay: 2.0)
         /*
         let testObject = PFObject(className: "TestObject")
         testObject["foo"] = "bar"
@@ -37,6 +38,10 @@ class MainScene: CCNode {
                 // There was a problem, check error.description
             }
         }
+    }
+    
+    func updateZeroAssets() {
+        updateTotalAssets(0)
     }
     
     func buyChicken() {
@@ -103,6 +108,7 @@ class MainScene: CCNode {
         player.play()
         */
         let audio = OALSimpleAudio.sharedInstance()
+        audio.effectsMuted = false
         audio.playEffect("\(nameOfFile).aif")
     }
     
@@ -115,8 +121,9 @@ class MainScene: CCNode {
     }
     
     
-    
+    /*
     override func update(delta: CCTime) {
         updateTotalAssets(0)
     }
+    */
 }

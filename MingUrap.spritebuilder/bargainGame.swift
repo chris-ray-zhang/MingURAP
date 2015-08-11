@@ -60,11 +60,15 @@ class bargainGame: CCNode {
     
     //Replaces current scene with Dashboard and adds earnings from bargaining game to DashBoard
     func complete() {
+        MainScene.totalAssets += earnings
         var mainScene = CCBReader.loadAsScene("MainScene")
         var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
         CCDirector.sharedDirector().replaceScene(mainScene, withTransition: crossFade)
-        MainScene.totalAssets += earnings
+        self.scheduleOnce(Selector("updateAssets"), delay: 2.0)
+        
     }
+    
+    
     
     
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {

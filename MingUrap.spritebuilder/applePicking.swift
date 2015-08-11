@@ -39,7 +39,6 @@ class applePicking: CCNode {
     
     private var appleTime = 0
     private weak var appleTimer = NSTimer()
-    private var tempTimer = 0
     static var initialNumApples = 0
     static var applesLeft = 0
     static var applesPicked = 0
@@ -65,8 +64,7 @@ class applePicking: CCNode {
     }
     //Sets up apple-picking timer to 30 seconds
     func setUpAppleTimer() {
-        tempTimer = 30
-        appleTime = 30
+        appleTime = 25
         if let appleTimeLeft = getChildByName("appleTimeLeft", recursively: false) as? CCLabelTTF {
             appleTimeLeft.string = "Time Left: \(appleTime)"
         }
