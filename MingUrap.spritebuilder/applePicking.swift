@@ -172,8 +172,7 @@ class applePicking: CCNode {
                 tapApples.visible = false
             }
         }
-        
-        if (applePicking.applesLeft <= 2) {
+        if (applePicking.applesLeft <= 3) {
             partialResetImages()
         }
         
