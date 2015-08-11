@@ -46,6 +46,7 @@ class applePicking: CCNode {
     static var locations = Set<Distance>()
     private weak var applesOnTree : CCPhysicsNode? = nil
     private var firstAppleTapped = false
+    private var audio: OALSimpleAudio! = nil
     
     
      func didLoadFromCCB() {
@@ -62,7 +63,7 @@ class applePicking: CCNode {
         
     }
     //Sets up apple-picking timer to 30 seconds
-    func setupAppleTimer() {
+    func setUpAppleTimer() {
         tempTimer = 30
         appleTime = 30
         if let appleTimeLeft = getChildByName("appleTimeLeft", recursively: false) as? CCLabelTTF {
@@ -98,6 +99,15 @@ class applePicking: CCNode {
         }
         
         
+    }
+    
+    func mute() {
+        audio.effectsMuted = true
+    }
+    
+    func setUpMusic() {
+        audio = OALSimpleAudio.sharedInstance()
+        audio.playEffect("applePickingSong.mp3")
     }
     
     
@@ -150,7 +160,8 @@ class applePicking: CCNode {
     override func update(delta: CCTime) {
         
         if (!firstAppleTapped && applePicking.applesPicked > 0) {
-            setupAppleTimer()
+            setUpAppleTimer()
+            setUpMusic()
             firstAppleTapped = true
         }
         if let applePickedLabel = getChildByName("applePickedLabel", recursively: false) as? CCLabelTTF {

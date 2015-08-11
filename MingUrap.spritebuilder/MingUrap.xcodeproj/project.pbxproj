@@ -119,6 +119,7 @@
 		BDD8DE1A1B3C91F500A302D4 /* chicken.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE161B3C91C200A302D4 /* chicken.aif */; };
 		BDD8DE1B1B3C91F500A302D4 /* cowMoo.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE171B3C91C200A302D4 /* cowMoo.aif */; };
 		BDD8DE1C1B3C91F500A302D4 /* lossOfCoins.aif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8DE151B3C914900A302D4 /* lossOfCoins.aif */; };
+		BDD9E1411B79636800067E41 /* applePickingSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDD9E13F1B79634D00067E41 /* applePickingSong.mp3 */; };
 		BDDBF0691B2624BA007093E2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */; };
 		BDDBF06D1B2630AC007093E2 /* pieStand.mov in Resources */ = {isa = PBXBuildFile; fileRef = BDDBF06C1B2630AC007093E2 /* pieStand.mov */; };
 /* End PBXBuildFile section */
@@ -272,6 +273,7 @@
 		BDD8DE151B3C914900A302D4 /* lossOfCoins.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = lossOfCoins.aif; sourceTree = "<group>"; };
 		BDD8DE161B3C91C200A302D4 /* chicken.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = chicken.aif; sourceTree = "<group>"; };
 		BDD8DE171B3C91C200A302D4 /* cowMoo.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = cowMoo.aif; sourceTree = "<group>"; };
+		BDD9E13F1B79634D00067E41 /* applePickingSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = applePickingSong.mp3; sourceTree = "<group>"; };
 		BDDBF0681B2624BA007093E2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		BDDBF06C1B2630AC007093E2 /* pieStand.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = pieStand.mov; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 				BDD8DE111B3C8DD800A302D4 /* appleGrab.aif */,
 				BDD8DE141B3C90E700A302D4 /* chime.aif */,
 				BDD8DE131B3C90D800A302D4 /* failureNoise.aif */,
+				BDD9E13F1B79634D00067E41 /* applePickingSong.mp3 */,
 				BDD8DE161B3C91C200A302D4 /* chicken.aif */,
 				BDD8DE171B3C91C200A302D4 /* cowMoo.aif */,
 				BDD8DE151B3C914900A302D4 /* lossOfCoins.aif */,
@@ -875,6 +878,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD9E1411B79636800067E41 /* applePickingSong.mp3 in Resources */,
 				BDD8DE181B3C91F500A302D4 /* chime.aif in Resources */,
 				BDD8DE191B3C91F500A302D4 /* failureNoise.aif in Resources */,
 				BDD8DE1A1B3C91F500A302D4 /* chicken.aif in Resources */,

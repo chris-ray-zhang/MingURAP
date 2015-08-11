@@ -31,11 +31,13 @@ class bargainGame: CCNode {
     private var hasRejected = false;
     private var austinTimer = NSTimer()
     var moviePlayer : MPMoviePlayerController?
-    var player: AVAudioPlayer! = nil
+    var player: OALSimpleAudio! = nil
     var myLabel: UILabel?
     
     
     func didLoadFromCCB() {
+        player = OALSimpleAudio.sharedInstance()
+        player.playEffect("applePickingSong.mp3", volume: 0.25, pitch: 1.0, pan: 0.0, loop: true)
         self.userInteractionEnabled = true
         offerObjects = getChildByName("offerObjects", recursively: false)
         counterOfferObjects = getChildByName("counterOfferObjects", recursively: false)
@@ -159,7 +161,9 @@ class bargainGame: CCNode {
                 title.string = text
             }
         } else {
-            prepareSound("coinNoises")
+            player!.effectsPaused = true
+            let audio = OALSimpleAudio.sharedInstance()
+            audio.playEffect("coinNoises.aif", volume: 3.0, pitch: 1.0, pan: 0.0, loop: false)
             removeControls()
             gameOver = true
             earnings = Int(bargainGame.curGold) - Int(bid * Float(bargainGame.curGold))
@@ -301,7 +305,8 @@ class bargainGame: CCNode {
             if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
                 title.string = "Austin REJECTS"
             }
-            prepareSound("lossOfCoins")
+            let audio = OALSimpleAudio.sharedInstance()
+            audio.playEffect("lossOfCoins.aif", volume: 3.0, pitch: 1.0, pan: 0.0, loop: false)
             self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
             self.scheduleOnce(Selector("setupAustinTimer"), delay: 3.0)
             //setupAustinTimer()
@@ -323,7 +328,11 @@ class bargainGame: CCNode {
     }
     
     func rejectedCounterOffer() {
-        prepareSound("lossOfCoins")
+        let audio = OALSimpleAudio.sharedInstance()
+        audio.playEffect("lossOfCoins.aif", volume: 3.0, pitch: 1.0, pan: 0.0, loop: false)
+        if let slider = offerObjects?.getChildByName("slider", recursively: false) as? CCSlider {
+            slider.sliderValue = 0.5
+        }
         self.scheduleOnce(Selector("displayCoinStack"), delay: 1.0)
         self.scheduleOnce(Selector("changeScreen"), delay: 2.0)
     }
@@ -336,18 +345,24 @@ class bargainGame: CCNode {
         }
     }
     
+    func mute() {
+        player.effectsMuted = true
+    }
+    
     //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
     func prepareSound(filename:String) {
+        /*
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"aif")
         let fileURL = NSURL(fileURLWithPath: path!)
         player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
         player.volume = 1.5
         player.prepareToPlay()
         player.play()
-        /*
-        let audio = OALSimpleAudio.sharedInstance()
-        audio.playEffect("\(filename)", volume: 1.5, pitch: 1.0, pan: 0.0, loop: false) 
         */
+        
+        let audio = OALSimpleAudio.sharedInstance()
+        audio.playEffect("\(filename).aif", volume: 1.5, pitch: 1.0, pan: 0.0, loop: false)
+        
         
     }
     
