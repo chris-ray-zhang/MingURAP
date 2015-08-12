@@ -28,7 +28,7 @@ class questList: CCNode {
     
     //Shortcut for testing
     func secret() {
-        applePicking.applesPicked = 1000
+        applePicking.applesPicked = 50
         let applePickingSummary = CCBReader.loadAsScene("applePickingSummary")
         var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
         CCDirector.sharedDirector().replaceScene(applePickingSummary, withTransition: crossFade)

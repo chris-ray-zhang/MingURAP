@@ -21,7 +21,10 @@ class MainScene: CCNode {
     
     func didLoadFromCCB() {
         prepareSound("chime")
-        self.scheduleOnce(Selector("updateZeroAssets"), delay: 2.0)
+        updateTotalAssets(0)
+        self.scheduleOnce(Selector("updateZeroAssets"), delay: 1.0)
+        self.scheduleOnce(Selector("returnNormalFontSize"), delay: 1.5)
+        
         /*
         let testObject = PFObject(className: "TestObject")
         testObject["foo"] = "bar"
@@ -40,8 +43,20 @@ class MainScene: CCNode {
         }
     }
     
+    func returnNormalFontSize() {
+        if let totalAssetsLabel = getChildByName("totalAssetsLabel", recursively: false) as? CCLabelTTF {
+            totalAssetsLabel.fontSize = 25.0
+        }
+    }
+    
     func updateZeroAssets() {
+        if let totalAssetsLabel = getChildByName("totalAssetsLabel", recursively: false) as? CCLabelTTF {
+            totalAssetsLabel.fontSize = 35.0
+        }
         updateTotalAssets(0)
+        
+        
+        
     }
     
     func buyChicken() {
