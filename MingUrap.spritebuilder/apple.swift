@@ -26,12 +26,12 @@ class apple: CCNode, CCPhysicsCollisionDelegate {
         
     }
     
-    
+    /*
     //Credit to http://stackoverflow.com/questions/24393495/playing-a-sound-with-avaudioplayer-swift
     func prepareSound() {
         let path = NSBundle.mainBundle().pathForResource("appleGrab", ofType:"aif")
         let fileURL = NSURL(fileURLWithPath: path!)
-        player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        player = AVAudioPlayer(contentsOfURL: fileURL, fileTypeHint: nil)
         player.currentTime = 0.5
         player.prepareToPlay()
         player.play()
@@ -41,6 +41,7 @@ class apple: CCNode, CCPhysicsCollisionDelegate {
         audio.playEffect("appleGrab.aif")
         */
     }
+*/
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if (!hasBeenCollected) {
@@ -48,7 +49,7 @@ class apple: CCNode, CCPhysicsCollisionDelegate {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             */
             if (applePicking.isMusicPlaying) {
-                prepareSound()
+                //prepareSound()
             }
             physicsBody.type = CCPhysicsBodyType.Dynamic
             physicsBody.affectedByGravity = true
@@ -58,9 +59,9 @@ class apple: CCNode, CCPhysicsCollisionDelegate {
             applePicking.applesPicked++
             applePicking.applesLeft--
             hasBeenCollected = true
-            var xcord = (CGFloat) (self.position.x)
-            var ycord = (CGFloat) (self.position.y)
-            var location = Distance(x: xcord, y: ycord)
+            let xcord = (CGFloat) (self.position.x)
+            let ycord = (CGFloat) (self.position.y)
+            let location = Distance(x: xcord, y: ycord)
             applePicking.locations.remove(location)
         }
         

@@ -10,7 +10,7 @@ import Foundation
 
 class ActionButton : CCButton {
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        if let p = self.parent.parent as? bargainGame {
+        if let p = self.parent!.parent as? bargainGame {
             switch name {
                 case "actionButton":
                     p.makeOfferTapped()
@@ -19,7 +19,7 @@ class ActionButton : CCButton {
                 case "acceptButton":
                     p.acceptedCounterOffer()
                 default:
-                    println("button not found")
+                   print("button not found")
             }
         }
     }
