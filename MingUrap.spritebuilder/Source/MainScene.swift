@@ -19,7 +19,15 @@ class MainScene: CCNode {
     private var waterTowerCounter = 0
     private var player: AVAudioPlayer! = nil
     
+    
     func didLoadFromCCB() {
+        userInteractionEnabled = false
+        if let questButton = getChildByName("questButton", recursively: false) as? CCSprite {
+            questButton.visible = false
+        }
+        if let quests = getChildByName("quests", recursively: false) as? CCButton {
+            quests.visible = false
+        }
         prepareSound("chime")
         updateTotalAssets(0)
         self.scheduleOnce(Selector("updateZeroAssets"), delay: 1.0)
@@ -129,16 +137,26 @@ class MainScene: CCNode {
     
     
     func quests() {
-        var qList = CCBReader.loadAsScene("questList")
-        var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+        let qList = CCBReader.loadAsScene("questList")
+        let crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
         CCDirector.sharedDirector().replaceScene(qList, withTransition: crossFade)
         
     }
     
     
-    /*
+    
     override func update(delta: CCTime) {
-        updateTotalAssets(0)
+        if (walkThrough.curText >= 2) {
+            if let questButton = getChildByName("questButton", recursively: false) as? CCSprite {
+                questButton.visible = true
+            }
+            if let quests = getChildByName("quests", recursively: false) as? CCButton {
+                quests.visible = true
+                quests.userInteractionEnabled = true
+            }
+            
+        }
+        
     }
-    */
+    
 }
