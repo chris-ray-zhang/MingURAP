@@ -22,7 +22,6 @@ class MainScene: CCNode {
     
     
     func didLoadFromCCB() {
-        userInteractionEnabled = true
         if (walkThrough.numWalkThroughs == 0) {
             userInteractionEnabled = false
             if let questButton = getChildByName("questButton", recursively: false) as? CCSprite {
@@ -32,8 +31,7 @@ class MainScene: CCNode {
                 quests.visible = false
             }
         }
-        
-        
+        nullifyButtons()
         updateImages()
         prepareSound("chime")
         updateTotalAssets(0)
@@ -58,6 +56,36 @@ class MainScene: CCNode {
         }
     }
     
+    func nullifyButtons() {
+        if let buyCow = getChildByName("buyCow", recursively: false) as? CCButton {
+            buyCow.userInteractionEnabled = false
+        }
+        if let buyChicken = getChildByName("buyChicken", recursively: false) as? CCButton {
+            buyChicken.userInteractionEnabled = false
+        }
+        if let buyTractor = getChildByName("buyTractor", recursively: false) as? CCButton {
+            buyTractor.userInteractionEnabled = false
+        }
+        if let buyTower = getChildByName("buyTower", recursively: false) as? CCButton {
+            buyTower.userInteractionEnabled = false
+        }
+    }
+    
+    func establishButtons() {
+        if let buyCow = getChildByName("buyCow", recursively: false) as? CCButton {
+            buyCow.userInteractionEnabled = true
+        }
+        if let buyChicken = getChildByName("buyChicken", recursively: false) as? CCButton {
+            buyChicken.userInteractionEnabled = true
+        }
+        if let buyTractor = getChildByName("buyTractor", recursively: false) as? CCButton {
+            buyTractor.userInteractionEnabled = true
+        }
+        if let buyTower = getChildByName("buyTower", recursively: false) as? CCButton {
+            buyTower.userInteractionEnabled = true
+        }
+    }
+    
     func updateImages() {
         if MainScene.boughtCow {
             if let beefBaron = getChildByName("beefBaron", recursively: false) as? CCSprite {
@@ -67,7 +95,7 @@ class MainScene: CCNode {
                 buyCowSprite.visible = false
             }
             if let buyCow = getChildByName("buyCow", recursively: false) as? CCButton {
-                buyCow.visible = false
+                buyCow.userInteractionEnabled = false
             }
         }
         if MainScene.boughtChicken {
@@ -78,7 +106,7 @@ class MainScene: CCNode {
                 buyChickenSprite.visible = false
             }
             if let buyChicken = getChildByName("buyChicken", recursively: false) as? CCButton {
-                buyChicken.visible = false
+                buyChicken.userInteractionEnabled = false
             }
 
         }
@@ -90,7 +118,7 @@ class MainScene: CCNode {
                 buyTractorSprite.visible = false
             }
             if let buyTractor = getChildByName("buyTractor", recursively: false) as? CCButton {
-                buyTractor.visible = false
+                buyTractor.userInteractionEnabled = false
             }
         }
         if MainScene.boughtTower {
@@ -101,7 +129,7 @@ class MainScene: CCNode {
                 buyTowerSprite.visible = false
             }
             if let buyTower = getChildByName("buyTower", recursively: false) as? CCButton {
-                buyTower.visible = false
+                buyTower.userInteractionEnabled = false
             }
         }
         
@@ -122,6 +150,7 @@ class MainScene: CCNode {
     }
     
     func buyChicken() {
+        print("buying chicken")
         if (MainScene.totalAssets + chickenCost >= 0) {
             MainScene.boughtChicken = true
             prepareSound("chicken")
@@ -201,9 +230,13 @@ class MainScene: CCNode {
                 quests.visible = true
                 quests.userInteractionEnabled = true
             }
-            updateTotalAssets(0)
+            establishButtons()
             walkThrough.complete = false
             
+        }
+        if (walkThrough.hasBoughtChicken) {
+            updateTotalAssets(0)
+            //walkThrough.hasBoughtChicken = false
         }
         
         
