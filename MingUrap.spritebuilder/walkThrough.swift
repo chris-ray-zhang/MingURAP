@@ -9,22 +9,31 @@
 import UIKit
 
 class walkThrough: CCNode {
+    static var numWalkThroughs = 0
+    static var complete = false
     static var curText = 0
     var text: Array<String> = []
+    var mainScene = MainScene()
     
     func didLoadFromCCB() {
-        text = ["Here you buy assets to make your farm less... barren.", "Go ahead, buy that ROOSTER by tapping 'Buy!'"]
-        userInteractionEnabled = true
+        if (walkThrough.numWalkThroughs > 0) {
+            self.removeFromParentAndCleanup(true)
+            
+        } else {
+            text = ["Here you buy assets to make your farm less... barren.", "Go ahead, buy that ROOSTER by tapping 'Buy!'","Congratulations on your first purchase", "Now you can complete quests to earn more money!"]
+            userInteractionEnabled = true
+            
+            visible = true
+            walkThrough.curText = 0
+            setLabelText()
+            if let leftArrow = getChildByName("leftArrow", recursively: false) as? CCSprite {
+                leftArrow.visible = false
+            }
+            if let leftClick = getChildByName("leftClick", recursively: false) as? CCButton {
+                leftClick.userInteractionEnabled = false
+            }
+        }
         
-        visible = true
-        walkThrough.curText = 0
-        setLabelText()
-        if let leftArrow = getChildByName("leftArrow", recursively: false) as? CCSprite {
-            leftArrow.visible = false
-        }
-        if let leftClick = getChildByName("leftClick", recursively: false) as? CCButton {
-            leftClick.userInteractionEnabled = false
-        }
         
     }
     
@@ -38,8 +47,12 @@ class walkThrough: CCNode {
     }
     
     func buyRooster() {
+        MainScene.totalAssets -= 200
+        //mainScene.updateTotalAssets(-200)
         self.removeFromParentAndCleanup(true)
         walkThrough.curText++
+        walkThrough.numWalkThroughs++
+        walkThrough.complete = true
     }
     
     func leftClick() {
@@ -64,7 +77,7 @@ class walkThrough: CCNode {
     }
     
     func rightClick() {
-        if (walkThrough.curText < 2) {
+        if (walkThrough.curText <= text.count) {
             walkThrough.curText++
             self.setLabelText()
             if let rightArrow = getChildByName("rightArrow", recursively: false) as? CCSprite {

@@ -7,27 +7,34 @@ import Parse
 
 class MainScene: CCNode {
     
-    static var totalAssets = 100
+    static var totalAssets = 20000
     
     private var chickenCost = -200
     private var cowCost = -2400
     private var tractorCost = -6000
     private var waterTowerCost = -10000
-    private var chickenCounter = 0
-    private var cowCounter = 0
-    private var tractorCounter = 0
-    private var waterTowerCounter = 0
+    private static var boughtCow = false
+    private static var boughtChicken = false
+    private static var boughtTower = false
+    private static var boughtTractor = false
     private var player: AVAudioPlayer! = nil
     
     
+    
     func didLoadFromCCB() {
-        userInteractionEnabled = false
-        if let questButton = getChildByName("questButton", recursively: false) as? CCSprite {
-            questButton.visible = false
+        userInteractionEnabled = true
+        if (walkThrough.numWalkThroughs == 0) {
+            userInteractionEnabled = false
+            if let questButton = getChildByName("questButton", recursively: false) as? CCSprite {
+                questButton.visible = false
+            }
+            if let quests = getChildByName("quests", recursively: false) as? CCButton {
+                quests.visible = false
+            }
         }
-        if let quests = getChildByName("quests", recursively: false) as? CCButton {
-            quests.visible = false
-        }
+        
+        
+        updateImages()
         prepareSound("chime")
         updateTotalAssets(0)
         self.scheduleOnce(Selector("updateZeroAssets"), delay: 1.0)
@@ -51,6 +58,56 @@ class MainScene: CCNode {
         }
     }
     
+    func updateImages() {
+        if MainScene.boughtCow {
+            if let beefBaron = getChildByName("beefBaron", recursively: false) as? CCSprite {
+                beefBaron.visible = true
+            }
+            if let buyCowSprite = getChildByName("buyCowSprite", recursively: false) as? CCSprite {
+                buyCowSprite.visible = false
+            }
+            if let buyCow = getChildByName("buyCow", recursively: false) as? CCButton {
+                buyCow.visible = false
+            }
+        }
+        if MainScene.boughtChicken {
+            if let roosterDuke = getChildByName("roosterDuke", recursively: false) as? CCSprite {
+                roosterDuke.visible = true
+            }
+            if let buyChickenSprite = getChildByName("buyChickenSprite", recursively: false) as? CCSprite {
+                buyChickenSprite.visible = false
+            }
+            if let buyChicken = getChildByName("buyChicken", recursively: false) as? CCButton {
+                buyChicken.visible = false
+            }
+
+        }
+        if MainScene.boughtTractor {
+            if let tractorMaster = getChildByName("tractorMaster", recursively: false) as? CCSprite {
+                tractorMaster.visible = true
+            }
+            if let buyTractorSprite = getChildByName("buyTractorSprite", recursively: false) as? CCSprite {
+                buyTractorSprite.visible = false
+            }
+            if let buyTractor = getChildByName("buyTractor", recursively: false) as? CCButton {
+                buyTractor.visible = false
+            }
+        }
+        if MainScene.boughtTower {
+            if let towerTitan = getChildByName("towerTitan", recursively: false) as? CCSprite {
+                towerTitan.visible = true
+            }
+            if let buyTowerSprite = getChildByName("buyTowerSprite", recursively: false) as? CCSprite {
+                buyTowerSprite.visible = false
+            }
+            if let buyTower = getChildByName("buyTower", recursively: false) as? CCButton {
+                buyTower.visible = false
+            }
+        }
+        
+        
+    }
+    
     func returnNormalFontSize() {
         if let totalAssetsLabel = getChildByName("totalAssetsLabel", recursively: false) as? CCLabelTTF {
             totalAssetsLabel.fontSize = 25.0
@@ -62,53 +119,43 @@ class MainScene: CCNode {
             totalAssetsLabel.fontSize = 35.0
         }
         updateTotalAssets(0)
-        
-        
-        
     }
     
     func buyChicken() {
         if (MainScene.totalAssets + chickenCost >= 0) {
+            MainScene.boughtChicken = true
             prepareSound("chicken")
             updateTotalAssets(chickenCost)
-            chickenCounter++
-            if let numChicken = getChildByName("numChicken", recursively: false) as? CCLabelTTF {
-                numChicken.string = chickenCounter.description
-            }
+            updateImages()
+            
         }
         
     }
     
     func buyCow() {
         if (MainScene.totalAssets + cowCost >= 0) {
+            MainScene.boughtCow = true
             prepareSound("cowMoo")
             updateTotalAssets(cowCost)
-            cowCounter++
-            if let numCow = getChildByName("numCow", recursively: false) as? CCLabelTTF {
-                numCow.string = cowCounter.description
-            }
+            updateImages()
         }
         
     }
     
     func buyTractor() {
         if (MainScene.totalAssets + tractorCost >= 0) {
+            MainScene.boughtTractor = true
             updateTotalAssets(tractorCost)
-            tractorCounter++
-            if let numTractor = getChildByName("numTractor", recursively: false) as? CCLabelTTF {
-                numTractor.string = tractorCounter.description
-            }
+            updateImages()
         }
         
     }
     
     func buyWaterTower() {
         if (MainScene.totalAssets + waterTowerCost >= 0) {
+            MainScene.boughtTower = true
             updateTotalAssets(waterTowerCost)
-            waterTowerCounter++
-            if let numWaterTower = getChildByName("numWaterTower", recursively: false) as? CCLabelTTF {
-                numWaterTower.string = waterTowerCounter.description
-            }
+            updateImages()
         }
     }
     
@@ -146,7 +193,7 @@ class MainScene: CCNode {
     
     
     override func update(delta: CCTime) {
-        if (walkThrough.curText >= 2) {
+        if (walkThrough.complete) {
             if let questButton = getChildByName("questButton", recursively: false) as? CCSprite {
                 questButton.visible = true
             }
@@ -154,8 +201,11 @@ class MainScene: CCNode {
                 quests.visible = true
                 quests.userInteractionEnabled = true
             }
+            updateTotalAssets(0)
+            walkThrough.complete = false
             
         }
+        
         
     }
     
