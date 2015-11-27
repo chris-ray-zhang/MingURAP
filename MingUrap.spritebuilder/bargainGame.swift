@@ -42,6 +42,9 @@ class bargainGame: CCNode {
                 mute.title = "Unmute"
             }
         }
+        if (bargainWalkThrough.numWalkThroughs == 0) {
+            nullifyButtons()
+        }
         player = OALSimpleAudio.sharedInstance()
         player.playEffect("farmGameBargainingMusic.mp3", volume: 0.25, pitch: 1.0, pan: 0.0, loop: true)
         self.userInteractionEnabled = true
@@ -58,11 +61,36 @@ class bargainGame: CCNode {
         showOffer()
     }
     
+    
+    func nullifyButtons() {
+        if let actionButton = getChildByName("actionButton", recursively: true) as? CCButton {
+            actionButton.userInteractionEnabled = false
+        }
+        if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
+            title.visible = false
+        }
+        if let goldRemaining = getChildByName("goldRemaining", recursively: false) as? CCLabelTTF {
+            goldRemaining.visible = false
+        }
+    }
+    
+    func establishButtons() {
+        if let actionButton = getChildByName("actionButton", recursively: true) as? CCButton {
+            actionButton.userInteractionEnabled = true
+        }
+        if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
+            title.visible = true
+        }
+        if let goldRemaining = getChildByName("goldRemaining", recursively: false) as? CCLabelTTF {
+            goldRemaining.visible = true
+        }
+    }
+    
     //Replaces current scene with Dashboard and adds earnings from bargaining game to DashBoard
     func complete() {
         MainScene.totalAssets += earnings
-        var mainScene = CCBReader.loadAsScene("MainScene")
-        var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+        let mainScene = CCBReader.loadAsScene("MainScene")
+        let crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
         CCDirector.sharedDirector().replaceScene(mainScene, withTransition: crossFade)
         self.scheduleOnce(Selector("updateAssets"), delay: 2.0)
         
@@ -99,7 +127,7 @@ class bargainGame: CCNode {
         let url = NSURL(fileURLWithPath: path!)
         moviePlayer = MPMoviePlayerController(contentURL: url)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerDidFinishPlaying:" , name: MPMoviePlayerPlaybackDidFinishNotification, object: moviePlayer)
-        var winSize: CGSize = CCDirector.sharedDirector().viewSize()
+        let winSize: CGSize = CCDirector.sharedDirector().viewSize()
         moviePlayer?.view.frame = CGRectMake(0,0, winSize.width, winSize.height)
         moviePlayer?.scalingMode = .AspectFill
         moviePlayer?.shouldAutoplay = false //* changed to false *//
@@ -385,6 +413,11 @@ class bargainGame: CCNode {
     }
     
     override func update(delta: CCTime) {
+        if (bargainWalkThrough.complete) {
+            establishButtons()
+            bargainWalkThrough.complete = false
+            
+        }
         if (!gameOver && !counterOfferObjectsVisible ) {
             if let labelPerc1 = getChildByName("labelPerc1", recursively: false) as? CCLabelTTF {
                 labelPerc1.string = Int(floor(slider!.sliderValue * 100)).description + "%"

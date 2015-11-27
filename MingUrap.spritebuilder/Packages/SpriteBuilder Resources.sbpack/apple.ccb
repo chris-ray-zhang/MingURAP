@@ -71,8 +71,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>23.350000381469727</real>
-							<real>30.53196907043457</real>
+							<real>38.5</real>
+							<real>43.531967163085938</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -96,8 +96,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.85000002384185791</real>
-							<real>0.85000002384185791</real>
+							<real>1</real>
+							<real>1</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -171,7 +171,7 @@
 			<key>collisionType</key>
 			<string></string>
 			<key>cornerRadius</key>
-			<real>37</real>
+			<real>45.953125</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
@@ -221,8 +221,8 @@
 				<string>Size</string>
 				<key>value</key>
 				<array>
-					<real>50</real>
-					<real>50</real>
+					<real>75</real>
+					<real>75</real>
 					<integer>0</integer>
 					<integer>0</integer>
 				</array>

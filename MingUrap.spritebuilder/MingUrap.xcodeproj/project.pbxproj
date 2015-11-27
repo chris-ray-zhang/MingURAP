@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C7A7B531B3A36680016E7BD /* MingUrap_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDEA1B34A1CF00A302D4 /* MingUrap_iOS_Tests.swift */; };
-		556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D03571AFAC85F00ED6F84 /* PopUp.swift */; };
+		556D03581AFAC85F00ED6F84 /* bargainWalkThrough.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D03571AFAC85F00ED6F84 /* bargainWalkThrough.swift */; };
 		55D50E2A1ADF1AAB005D9C53 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D50E291ADF1AAB005D9C53 /* ActionButton.swift */; };
 		5B121030197484FA004C1E1D /* MingUrapActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* MingUrapActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
@@ -188,7 +188,7 @@
 
 /* Begin PBXFileReference section */
 		4C23DA941B436D7D0070638A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		556D03571AFAC85F00ED6F84 /* PopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
+		556D03571AFAC85F00ED6F84 /* bargainWalkThrough.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bargainWalkThrough.swift; sourceTree = "<group>"; };
 		55D50E291ADF1AAB005D9C53 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -529,7 +529,7 @@
 				BDD8DE021B3A0A2E00A302D4 /* applePickingSummary.swift */,
 				BD70F5331B1F7CAB0074F741 /* bargainGame.swift */,
 				BDD8DDD81B2B87CD00A302D4 /* questList.swift */,
-				556D03571AFAC85F00ED6F84 /* PopUp.swift */,
+				556D03571AFAC85F00ED6F84 /* bargainWalkThrough.swift */,
 				BD0050881BEDA42E00AF2082 /* walkThrough.swift */,
 				BD4E55221C07D51D00D7FCD6 /* questWalkThrough.swift */,
 				55D50E291ADF1AAB005D9C53 /* ActionButton.swift */,
@@ -996,7 +996,7 @@
 				BDD8DE081B3B8A0400A302D4 /* coinNoises.aif in Sources */,
 				BDD8DDE11B311C8100A302D4 /* apple.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
-				556D03581AFAC85F00ED6F84 /* PopUp.swift in Sources */,
+				556D03581AFAC85F00ED6F84 /* bargainWalkThrough.swift in Sources */,
 				BDD8DDD91B2B87CD00A302D4 /* questList.swift in Sources */,
 				BD0050891BEDA42E00AF2082 /* walkThrough.swift in Sources */,
 				4C7A7B531B3A36680016E7BD /* MingUrap_iOS_Tests.swift in Sources */,

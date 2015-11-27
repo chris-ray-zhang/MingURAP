@@ -28,7 +28,7 @@ struct Distance : Hashable {
     }
     
     func validLocation(other: Distance) -> Bool {
-        return calcDistance(other) >= 50
+        return calcDistance(other) >= 80
     }
 }
 func ==(lhs: Distance, rhs: Distance) -> Bool {
@@ -91,8 +91,8 @@ class applePicking: CCNode {
                 summaryReport.visible = true
             }
             
-            var applePickingSummary = CCBReader.loadAsScene("applePickingSummary")
-            var crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
+            let applePickingSummary = CCBReader.loadAsScene("applePickingSummary")
+            let crossFade:CCTransition = CCTransition(crossFadeWithDuration: 1.0)
             CCDirector.sharedDirector().replaceScene(applePickingSummary, withTransition: crossFade)
             
         }
@@ -129,9 +129,9 @@ class applePicking: CCNode {
     */
     func partialResetImages() {
         valid = true
-        var xcord = (CGFloat) (randomInt(55, max: 270))
-        var ycord = (CGFloat) (randomInt(270, max: 390))
-        var potential = Distance(x: xcord, y: ycord)
+        let xcord = (CGFloat) (randomInt(55, max: 270))
+        let ycord = (CGFloat) (randomInt(270, max: 390))
+        let potential = Distance(x: xcord, y: ycord)
         for distance in applePicking.locations {
             if (!distance.validLocation(potential)) {
                 valid = false
