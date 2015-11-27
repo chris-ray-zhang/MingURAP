@@ -85,7 +85,6 @@ class walkThrough: CCNode {
     
     func rightClick() {
         if (walkThrough.curText == text.count - 1) {
-            print("done with walkthrough")
             self.removeFromParentAndCleanup(true)
             walkThrough.numWalkThroughs++
             walkThrough.complete = true

@@ -28,7 +28,7 @@ struct Distance : Hashable {
     }
     
     func validLocation(other: Distance) -> Bool {
-        return calcDistance(other) >= 30
+        return calcDistance(other) >= 50
     }
 }
 func ==(lhs: Distance, rhs: Distance) -> Bool {

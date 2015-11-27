@@ -7,7 +7,7 @@ import Parse
 
 class MainScene: CCNode {
     
-    static var totalAssets = 20000
+    static var totalAssets = 300
     
     private var chickenCost = -200
     private var cowCost = -2400
@@ -30,8 +30,9 @@ class MainScene: CCNode {
             if let quests = getChildByName("quests", recursively: false) as? CCButton {
                 quests.visible = false
             }
+            nullifyButtons()
         }
-        nullifyButtons()
+        
         updateImages()
         prepareSound("chime")
         updateTotalAssets(0)
@@ -150,7 +151,6 @@ class MainScene: CCNode {
     }
     
     func buyChicken() {
-        print("buying chicken")
         if (MainScene.totalAssets + chickenCost >= 0) {
             MainScene.boughtChicken = true
             prepareSound("chicken")
