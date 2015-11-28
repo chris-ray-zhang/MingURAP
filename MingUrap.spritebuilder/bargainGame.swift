@@ -66,15 +66,27 @@ class bargainGame: CCNode {
         if let actionButton = getChildByName("actionButton", recursively: true) as? CCButton {
             actionButton.userInteractionEnabled = false
         }
+        if let actionButton = getChildByName("actionButton", recursively: true) as? CCButton {
+            actionButton.visible = false
+        }
         if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
             title.visible = false
         }
         if let goldRemaining = getChildByName("goldRemaining", recursively: false) as? CCLabelTTF {
             goldRemaining.visible = false
         }
+        if let slider = getChildByName("slider", recursively: true) as? CCSlider {
+            slider.visible = false
+        }
     }
     
     func establishButtons() {
+        if let actionButton = getChildByName("actionButton", recursively: true) as? CCButton {
+            actionButton.visible = true
+        }
+        if let slider = getChildByName("slider", recursively: true) as? CCSlider {
+            slider.visible = true
+        }
         if let actionButton = getChildByName("actionButton", recursively: true) as? CCButton {
             actionButton.userInteractionEnabled = true
         }
@@ -206,7 +218,7 @@ class bargainGame: CCNode {
             gameOver = true
             earnings = Int(ceil((1 - bid) * 100) * Float(bargainGame.curGold) / 100)
             if let belowTitle = getChildByName("belowTitle", recursively: false) as? CCLabelTTF {
-                belowTitle.string = "Split is \(Int(round((1 - bid) * 100))) / \(Int(round(bid * 100))))"
+                belowTitle.string = "(Split is \(Int(round((1 - bid) * 100))) / \(Int(round(bid * 100))))"
             }
             if let title = getChildByName("title", recursively: false) as? CCLabelTTF {
                 title.string = "A Deal was Struck!"
