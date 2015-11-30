@@ -97,8 +97,6 @@
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
 		BD0050891BEDA42E00AF2082 /* walkThrough.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0050881BEDA42E00AF2082 /* walkThrough.swift */; };
-		BD4616261B62B9BC00AE0A63 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4616251B62B9BC00AE0A63 /* Parse.framework */; };
-		BD4616281B62B9C400AE0A63 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4616271B62B9C400AE0A63 /* Bolts.framework */; };
 		BD46162A1B62BA3600AE0A63 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4616291B62BA3600AE0A63 /* CFNetwork.framework */; };
 		BD46162C1B62BA4600AE0A63 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD46162B1B62BA4600AE0A63 /* Security.framework */; };
 		BD46162E1B62BA4D00AE0A63 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD46162D1B62BA4D00AE0A63 /* StoreKit.framework */; };
@@ -108,6 +106,10 @@
 		BD4616351B62BEB300AE0A63 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4616341B62BEB300AE0A63 /* Accounts.framework */; };
 		BD4616371B62BEBC00AE0A63 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4616361B62BEBC00AE0A63 /* Social.framework */; };
 		BD4E55231C07D51D00D7FCD6 /* questWalkThrough.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4E55221C07D51D00D7FCD6 /* questWalkThrough.swift */; };
+		BD5858341C0A4AF200F53C98 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5858301C0A4AA400F53C98 /* Bolts.framework */; };
+		BD5858351C0A4AF200F53C98 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5858311C0A4AA400F53C98 /* Parse.framework */; };
+		BD5858371C0A4C8600F53C98 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5858361C0A4C8600F53C98 /* CoreLocation.framework */; };
+		BD5858391C0A4C9100F53C98 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5858381C0A4C9100F53C98 /* MobileCoreServices.framework */; };
 		BD70F5341B1F7CAB0074F741 /* bargainGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD70F5331B1F7CAB0074F741 /* bargainGame.swift */; };
 		BDD8DDD91B2B87CD00A302D4 /* questList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDD81B2B87CD00A302D4 /* questList.swift */; };
 		BDD8DDDB1B2F4A9C00A302D4 /* applePicking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */; };
@@ -263,6 +265,10 @@
 		BD4616341B62BEB300AE0A63 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		BD4616361B62BEBC00AE0A63 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		BD4E55221C07D51D00D7FCD6 /* questWalkThrough.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = questWalkThrough.swift; sourceTree = "<group>"; };
+		BD5858301C0A4AA400F53C98 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		BD5858311C0A4AA400F53C98 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		BD5858361C0A4C8600F53C98 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BD5858381C0A4C9100F53C98 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BD70F5331B1F7CAB0074F741 /* bargainGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bargainGame.swift; sourceTree = "<group>"; };
 		BDD8DDD81B2B87CD00A302D4 /* questList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = questList.swift; sourceTree = "<group>"; };
 		BDD8DDDA1B2F4A9C00A302D4 /* applePicking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = applePicking.swift; sourceTree = "<group>"; };
@@ -326,6 +332,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD5858391C0A4C9100F53C98 /* MobileCoreServices.framework in Frameworks */,
+				BD5858371C0A4C8600F53C98 /* CoreLocation.framework in Frameworks */,
+				BD5858341C0A4AF200F53C98 /* Bolts.framework in Frameworks */,
+				BD5858351C0A4AF200F53C98 /* Parse.framework in Frameworks */,
 				BD4616371B62BEBC00AE0A63 /* Social.framework in Frameworks */,
 				BD4616351B62BEB300AE0A63 /* Accounts.framework in Frameworks */,
 				B77F1B3817B978D7009739AE /* AudioToolbox.framework in Frameworks */,
@@ -341,13 +351,11 @@
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
 				B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */,
 				B77F1B3617B978D7009739AE /* OpenAL.framework in Frameworks */,
-				BD4616261B62B9BC00AE0A63 /* Parse.framework in Frameworks */,
 				B77F1B3A17B978D7009739AE /* AVFoundation.framework in Frameworks */,
 				B77F1B3C17B978D7009739AE /* UIKit.framework in Frameworks */,
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
-				BD4616281B62B9C400AE0A63 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +596,10 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD5858381C0A4C9100F53C98 /* MobileCoreServices.framework */,
+				BD5858361C0A4C8600F53C98 /* CoreLocation.framework */,
+				BD5858301C0A4AA400F53C98 /* Bolts.framework */,
+				BD5858311C0A4AA400F53C98 /* Parse.framework */,
 				BD4616361B62BEBC00AE0A63 /* Social.framework */,
 				BD4616341B62BEB300AE0A63 /* Accounts.framework */,
 				BD4616271B62B9C400AE0A63 /* Bolts.framework */,
